@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_egot"
+        android:title="E-GOT" />
+
+    <item
+        android:id="@+id/navigation_trasy"
+        android:title="Trasy" />
+
+    <item
+        android:id="@+id/navigation_odcinki"
+        android:title="Odcinki" />
+
+</menu>

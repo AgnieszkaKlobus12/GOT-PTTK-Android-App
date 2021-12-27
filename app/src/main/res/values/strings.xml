@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">POApp</string>
+    <string name="zapisanie_trasy_w_ksi_eczce">Zapisanie trasy w książeczce</string>
+    <string name="edycja_odcinka">Edycja odcinka</string>
+    <string name="potwierdzenie_trasy">Potwierdzenie trasy</string>
+    <string name="zamieszczanie_dowodu">Zamieszczenie dowodu</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

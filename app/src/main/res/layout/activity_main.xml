@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/dowód"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zamieszczanie_dowodu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zapisanie_trasy" />
+
+    <Button
+        android:id="@+id/zapisanie_trasy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zapisanie_trasy_w_ksi_eczce"
+        app:layout_constraintBottom_toTopOf="@+id/dowód"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/potwierdzenie_trasy" />
+
+    <Button
+        android:id="@+id/edycja_odcinka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edycja_odcinka"
+        app:layout_constraintBottom_toTopOf="@+id/potwierdzenie_trasy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/potwierdzenie_trasy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/potwierdzenie_trasy"
+        app:layout_constraintBottom_toTopOf="@+id/zapisanie_trasy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edycja_odcinka" />
+</androidx.constraintlayout.widget.ConstraintLayout>

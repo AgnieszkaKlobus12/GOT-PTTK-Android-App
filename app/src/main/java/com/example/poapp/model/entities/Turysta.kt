@@ -5,7 +5,7 @@ import androidx.room.ForeignKey
 import androidx.room.ForeignKey.RESTRICT
 import androidx.room.PrimaryKey
 
-@Entity(
+@Entity (
     tableName = "Turysci", foreignKeys = [
         ForeignKey(
             entity = Uzytkownik::class,
@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Turysta(
+data class Turysta (
     @PrimaryKey(autoGenerate = true) val nrKsiazeczki: Int,
     val FKuzytkownik: Int,
     var sumaPunktow: Int,

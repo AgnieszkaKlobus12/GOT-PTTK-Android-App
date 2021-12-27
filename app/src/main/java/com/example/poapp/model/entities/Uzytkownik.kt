@@ -11,8 +11,8 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 
-@Entity(tableName = "Uzytkownicy")
-data class Uzytkownik(
+@Entity (tableName = "Uzytkownicy")
+data class Uzytkownik (
     @PrimaryKey(autoGenerate = true) val id: Int,
     var login: String,
     var haslo: String,

@@ -4,8 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-
-@Entity(
+@Entity (
     tableName = "Przodownicy", foreignKeys = [
         ForeignKey(
             entity = Turysta::class,
@@ -14,5 +13,8 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.RESTRICT
         )
     ]
-)data class Przodownik(@PrimaryKey(autoGenerate = true) val nrLegitymacji: Int,
-                      var FKturysta: Int)
+)
+data class Przodownik (
+    @PrimaryKey(autoGenerate = true) val nrLegitymacji: Int,
+    val FKturysta: Int
+)

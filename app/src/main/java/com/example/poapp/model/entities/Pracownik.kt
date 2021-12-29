@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
     tableName = "Pracownicy", foreignKeys = [
         ForeignKey(
             entity = Uzytkownik::class,
-            parentColumns = ["nrUzytkownika"],
+            parentColumns = ["id"],
             childColumns = ["FKuzytkownik"],
             onDelete = ForeignKey.RESTRICT
         )

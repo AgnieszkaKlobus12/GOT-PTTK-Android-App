@@ -1,47 +1,43 @@
 package com.example.poapp.ui.user.trasy
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.poapp.ui.user.trasy.PlaceholderContent.PlaceholderItem
+import androidx.recyclerview.widget.RecyclerView
+import com.example.poapp.R
 import com.example.poapp.databinding.FragmentItemBinding
+import com.example.poapp.model.entities.Trasa
 
-/**
- * [RecyclerView.Adapter] that can display a [PlaceholderItem].
- * TODO: Replace the implementation with code for your data type.
- */
-class MyItemRecyclerViewAdapter(
-    private val values: List<PlaceholderItem>
-) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+class TrasaItemAdapter(private val values: List<Trasa>) :
+    RecyclerView.Adapter<TrasaItemAdapter.TrasaItemHolder>() {
 
-        return ViewHolder(
-            FragmentItemBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrasaItemHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.fragment_item, parent,
+            false
         )
-
+        return TrasaItemHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TrasaItemHolder, position: Int) {
         val item = values[position]
-        holder.idView.text = item.id
-        holder.contentView.text = item.content
+        holder.data.text = item.dataPrzejscia
+        holder.punkty.text = item.punkty.toString()
+        holder.start.text = "TODOOOO"
+        holder.end.text = "TODOOOO" //trzeba wziąć się dostać do odcinków trasy przez repositor prawdopodobnie
+        holder.status.text = item.status
     }
 
     override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        val idView: TextView = binding.itemNumber
-        val contentView: TextView = binding.content
-
-        override fun toString(): String {
-            return super.toString() + " '" + contentView.text + "'"
-        }
+    inner class TrasaItemHolder(iv: View) : RecyclerView.ViewHolder(iv) {
+        val data: TextView = iv.findViewById(R.id.data)
+        val punkty: TextView = iv.findViewById(R.id.punkty)
+        val start: TextView = iv.findViewById(R.id.poczatek)
+        val end: TextView = iv.findViewById(R.id.koniec)
+        val status: TextView = iv.findViewById(R.id.status)
     }
 
 }

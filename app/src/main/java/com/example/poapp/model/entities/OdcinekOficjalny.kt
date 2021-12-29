@@ -32,12 +32,12 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class OdcinekOficjalny (
+data class OdcinekOficjalny(
     @PrimaryKey(autoGenerate = true) val id: Int,
     var nazwa: String,
     var punkty: Int,
     var FKpunktPoczatkowy: Int,
     var FKpunktKoncowy: Int,
-    var FKpunktPosredni: Int,
+    var FKpunktPosredni: Int?,
     var FKpasmoGorskie: Int
 )

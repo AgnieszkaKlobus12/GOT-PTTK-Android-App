@@ -26,10 +26,10 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class OdcinekTrasy (
+data class OdcinekTrasy(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKtrasa: Int,
-    val FKodcinekWlasny: Int,
+    val FKodcinekWlasny: Int?,
     val FKodcinekOficjalny: Int,
     var czasPrzejscia: Int
 )

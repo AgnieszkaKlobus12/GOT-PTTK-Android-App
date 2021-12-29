@@ -41,14 +41,14 @@ class UserRepository(application: Application) {
             .subscribe()
     }
 
-    fun deleteAllNotes() {
+    fun deleteAllusers() {
         Single.just(userDao.deleteAllUsers())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()
     }
 
-    fun getAllNotes(): List<Uzytkownik> {
+    fun getAllUsers(): List<Uzytkownik> {
         return allUsers
     }
 }

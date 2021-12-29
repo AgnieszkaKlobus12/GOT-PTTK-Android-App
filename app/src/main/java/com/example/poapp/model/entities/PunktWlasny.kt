@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
         ForeignKey(
             entity = Turysta::class,
             parentColumns = ["nrKsiazeczki"],
-            childColumns = ["Fkturysta"],
+            childColumns = ["FKturysta"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(

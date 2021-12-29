@@ -4,17 +4,29 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity(
+@Entity (
     tableName = "OdcinkiTras", foreignKeys = [
         ForeignKey(
             entity = Trasa::class,
             parentColumns = ["id"],
             childColumns = ["FKtrasa"],
             onDelete = ForeignKey.RESTRICT
-        )//, ForeignKey() odcinek własny i oficjalny
+        ),
+        ForeignKey(
+            entity = OdcinekWlasny::class,
+            parentColumns = ["id"],
+            childColumns = ["FKodcinekWlasny"],
+            onDelete = ForeignKey.RESTRICT
+        ),
+        ForeignKey(
+            entity = OdcinekOficjalny::class,
+            parentColumns = ["id"],
+            childColumns = ["FKodcinekOficjalny"],
+            onDelete = ForeignKey.RESTRICT
+        )
     ]
 )
-data class OdcinekTrasy(
+data class OdcinekTrasy (
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKtrasa: Int,
     val FKodcinekWlasny: Int,

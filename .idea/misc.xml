@@ -4,12 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/activity_main.xml" value="0.1585144927536232" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/activity_spis_odc.xml" value="0.2504528985507246" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/activity_zapisanie_trasy.xml" value="0.1585144927536232" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/content_spis_odc.xml" value="0.20572916666666666" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_create_account.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_item.xml" value="0.16983695652173914" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_nowa_trasa.xml" value="0.1585144927536232" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_odcinki.xml" value="0.1585144927536232" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_odcinki_lista.xml" value="0.35260416666666666" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_placeholder_content.xml" value="0.1585144927536232" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_trasy_lista.xml" value="0.1585144927536232" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/menu/pracownik_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/menu/user_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

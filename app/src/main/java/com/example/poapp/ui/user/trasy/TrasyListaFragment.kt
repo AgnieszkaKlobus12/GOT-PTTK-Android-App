@@ -37,7 +37,7 @@ class TrasyListaFragment : Fragment() {
         val trasaRep = TrasaRepository(requireActivity().application, 1)
         list.adapter = trasaRep.getAllTrasyForUser(1).value?.let { TrasaItemAdapter(it) }
         //list.adapter = TrasaItemAdapter(listOf(Trasa(1, 1, "2021-11-12", "oczekująca", 20)))
-        //UserRepository(requireActivity().application).insert(Uzytkownik(2, "abc", "abc", "abc", "abc", "abc", "2000-11-21", 1))
+        UserRepository(requireActivity().application).insert(Uzytkownik(2, "abc", "abc", "abc", "abc", "abc", "2000-11-21", 1))
         Toast.makeText(this.context, UserRepository(requireActivity().application).getAllUsers().size.toString(), Toast.LENGTH_SHORT).show()
 
 

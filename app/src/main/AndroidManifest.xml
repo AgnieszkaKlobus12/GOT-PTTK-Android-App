@@ -13,6 +13,9 @@
             android:name=".ui.user.trasy.ZapisanieTrasyActivity"
             android:exported="true" />
         <activity
+            android:name=".ui.pracownik.spisOdc.SpisOdcActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

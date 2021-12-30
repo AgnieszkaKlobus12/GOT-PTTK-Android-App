@@ -36,7 +36,8 @@ abstract class AppDatabase : RoomDatabase() {
                     "app_database"
                 )
                     .fallbackToDestructiveMigration()
-                    .addCallback(roomCallback)
+                    //.addCallback(roomCallback)
+                    .allowMainThreadQueries()
                     .build()
 
             return instance!!
@@ -47,53 +48,40 @@ abstract class AppDatabase : RoomDatabase() {
                 super.onCreate(db)
                 populateDatabase(instance!!)
             }
-        }
 
-        private fun populateDatabase(db: AppDatabase) {
-            val uzytkownikDAO = db.uzytkownikDao()
-            val turystaDAO = db.turystaDao()
-            val odcinekOficjalnyDAO = db.odcinekOficjlanyDao()
-            val punktOficjalnyDAO = db.punktOficjalnyDao()
-            val trasaDAO = db.trasaDao()
-            val odcinekTrasyDao = db.odcinekTrasyDao()
-            val user1 =
-                Uzytkownik(1, "login", "password", "abc@gmail.com", "Jane", "Doe", "2000-11-02", 1)
-            Single.just(uzytkownikDAO.insert(user1))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-            val turysta1 = Turysta(1, user1.id, 10, false)
-            Single.just(turystaDAO.insert(turysta1))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-            val punkto1 = PunktOficjalny(1, "", 12.44543, 12.4323, 1)
-            Single.just(punktOficjalnyDAO.insert(punkto1))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-            val punkto2 = PunktOficjalny(2, "", 13.44543, 13.4323, 1)
-            Single.just(punktOficjalnyDAO.insert(punkto2))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-            val odcinek1 = OdcinekOficjalny(1, "", 10, 1, 2, null, 1)
-            Single.just(odcinekOficjalnyDAO.insert(odcinek1))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-            val trasa1 = Trasa(1, 1, "2021-11-12", "zaakceptowana", 10)
-            Single.just(trasaDAO.insert(trasa1))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
-            val odTr = OdcinekTrasy(1, 1, null, 1, 120)
-            Single.just(odcinekTrasyDao.insert(odTr))
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe()
+            private fun populateDatabase(db: AppDatabase) {
+                val uzytkownikDAO = db.uzytkownikDao()
+                val turystaDAO = db.turystaDao()
+                val odcinekOficjalnyDAO = db.odcinekOficjlanyDao()
+                val punktOficjalnyDAO = db.punktOficjalnyDao()
+                val trasaDAO = db.trasaDao()
+                val odcinekTrasyDao = db.odcinekTrasyDao()
+                val user1 =
+                    Uzytkownik(
+                        1,
+                        "login",
+                        "password",
+                        "abc@gmail.com",
+                        "Jane",
+                        "Doe",
+                        "2000-11-02",
+                        1
+                    )
+                uzytkownikDAO.insert(user1)
+                val turysta1 = Turysta(1, user1.id, 10, false)
+                turystaDAO.insert(turysta1)
+                val punkto1 = PunktOficjalny(1, "", 12.44543, 12.4323, 1)
+                punktOficjalnyDAO.insert(punkto1)
+                val punkto2 = PunktOficjalny(2, "", 13.44543, 13.4323, 1)
+                punktOficjalnyDAO.insert(punkto2)
+                val odcinek1 = OdcinekOficjalny(1, "", 10, 1, 2, null, 1)
+                odcinekOficjalnyDAO.insert(odcinek1)
+                val trasa1 = Trasa(1, 1, "2021-11-12", "zaakceptowana", 10)
+                trasaDAO.insert(trasa1)
+                val odTr = OdcinekTrasy(1, 1, null, 1, 120)
+                odcinekTrasyDao.insert(odTr)
+            }
         }
     }
-
 
 }

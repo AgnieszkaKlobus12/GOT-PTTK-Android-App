@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_garph"
+    app:startDestination="@id/trasyListaFragment">
+
+    <fragment
+        android:id="@+id/trasyListaFragment"
+        android:name="com.example.poapp.ui.user.trasy.TrasyListaFragment"
+        android:label="fragment_trasy_lista"
+        tools:layout="@layout/fragment_trasy_lista" >
+        <action
+            android:id="@+id/action_trasyListaFragment_to_odcinkiFragment"
+            app:destination="@id/odcinkiFragment" />
+        <action
+            android:id="@+id/action_trasyListaFragment_to_EGOTFragment"
+            app:destination="@id/EGOTFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EGOTFragment"
+        android:name="com.example.poapp.ui.user.egot.EGOTFragment"
+        android:label="fragment_e_got"
+        tools:layout="@layout/fragment_e_got" />
+    <fragment
+        android:id="@+id/odcinkiFragment"
+        android:name="com.example.poapp.ui.user.odcinki.OdcinkiFragment"
+        android:label="fragment_odcinki"
+        tools:layout="@layout/fragment_odcinki" />
+</navigation>

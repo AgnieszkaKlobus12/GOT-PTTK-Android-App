@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.poapp.ui.pracownik.spisOdc.SpisOdcActivity
 import com.example.poapp.ui.user.trasy.ZapisanieTrasyActivity
 
 class MainActivity : AppCompatActivity() {
@@ -26,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         edycja_odcinka.setOnClickListener {
-            TODO()
+            val intent = Intent(this, SpisOdcActivity::class.java)
+            startActivity(intent)
         }
 
         potwierdzenie.setOnClickListener {

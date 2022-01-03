@@ -1,9 +1,25 @@
 <resources>
-    <string name="app_name">POApp</string>
-    <string name="zapisanie_trasy_w_ksi_eczce">Zapisanie trasy w książeczce</string>
+    <string name="app_name">E-GOT PTTK</string>
+    <string name="zapisanie_trasy">Zapisanie trasy</string>
     <string name="edycja_odcinka">Edycja odcinka</string>
     <string name="potwierdzenie_trasy">Potwierdzenie trasy</string>
     <string name="zamieszczanie_dowodu">Zamieszczenie dowodu</string>
+    <string name="navigation_spis_label">Spis odcinków</string>
+    <string name="navigation_account_label">Utwórz konto</string>
+    <string name="navigation_egot_label">E - GOT</string>
+    <string name="navigation_trasy_label">Trasy</string>
+    <string name="navigation_odcinki_label">Odcinki</string>
+    <string name="navigation_potwierdz_label">Potwierdź</string>
+    <string name="ostatnie_trasy">Ostatnie trasy</string>
+    <string name="dodaj_trase">Dodaj trasę</string>
+    <string name="dodaj_odcinek">Dodaj odcinek</string>
+    <string name="wlasny">Własny</string>
+    <string name="oficjalny">Oficjalny</string>
+    <string name="dodaj_dowod">Dodaj dowód</string>
+    <string name="zakoncz">Zakończ dodawanie odcinków</string>
+
+    <string name="not_implemented_label">PU nie wybrany do implementacji</string>
     <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

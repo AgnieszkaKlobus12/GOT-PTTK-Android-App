@@ -1,4 +1,4 @@
-package com.example.poapp.ui.user.trasy
+package com.example.poapp.ui.turysta.trasy
 
 import android.app.Application
 import android.content.Context

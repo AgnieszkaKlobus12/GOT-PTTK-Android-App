@@ -1,11 +1,11 @@
-package com.example.poapp.ui.user.trasy
+package com.example.poapp.ui.turysta.trasy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.poapp.R
-import com.example.poapp.ui.user.egot.EGOTFragment
-import com.example.poapp.ui.user.odcinki.OdcinkiFragment
+import com.example.poapp.ui.turysta.egot.EGOTFragment
+import com.example.poapp.ui.turysta.odcinki.OdcinkiFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ZapisanieTrasyActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.poapp.ui.user.trasy
+package com.example.poapp.ui.turysta.trasy
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.databinding.FragmentItemBinding
 import com.example.poapp.model.entities.Trasa
 
 

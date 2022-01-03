@@ -5,51 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layout_trasy"
-    tools:context=".ui.user.trasy.TrasyListaFragment">
+    tools:context=".ui.turysta.trasy.TrasyListaFragment" >
 
     <TextView
         android:id="@+id/ostatnie_trasy_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
         android:textSize="20sp"
-        android:text="Ostatnie trasy"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        android:textColor="@color/black"
+        android:text="@string/ostatnie_trasy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.example.po.ui.trasy.ItemFragment"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/dodaj_trase"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ostatnie_trasy_text">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list"
-            android:name="com.example.po.ui.trasy.ItemFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            app:layoutManager="LinearLayoutManager"
-            tools:context=".ui.trasy.ItemFragment"
-            tools:listitem="@layout/fragment_item" />
-    </ScrollView>
+        android:layout_marginBottom="10dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".ui.trasy.ItemFragment"
+        tools:listitem="@layout/fragment_item"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ostatnie_trasy_text"
+        app:layout_constraintBottom_toTopOf="@id/dodaj_trase" />
 
     <Button
         android:id="@+id/dodaj_trase"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dodaj trasę"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        android:layout_marginHorizontal="10dp"
+        android:text="@string/dodaj_trase"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

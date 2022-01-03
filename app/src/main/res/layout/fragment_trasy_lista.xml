@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layout_trasy"
-    tools:context=".ui.user.trasy.TrasyListaFragment">
+    tools:context=".view.turysta.trasy.TrasyListaFragment">
 
     <TextView
         android:id="@+id/ostatnie_trasy_text"
@@ -39,7 +39,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             app:layoutManager="LinearLayoutManager"
-            tools:context=".ui.trasy.ItemFragment"
+            tools:context=".view.trasy.ItemFragment"
             tools:listitem="@layout/fragment_item" />
     </ScrollView>
 

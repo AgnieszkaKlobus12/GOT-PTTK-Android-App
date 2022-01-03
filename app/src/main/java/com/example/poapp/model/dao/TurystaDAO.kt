@@ -1,8 +1,7 @@
 package com.example.poapp.model.dao
 
 import androidx.room.*
-import com.example.poapp.model.entities.Turysta
-import com.example.poapp.model.entities.Uzytkownik
+import com.example.poapp.model.entity.Turysta
 
 @Dao
 interface TurystaDAO {

@@ -1,6 +1,6 @@
 package com.example.poapp.model.dao
 
-import com.example.poapp.model.entities.Uzytkownik
+import com.example.poapp.model.entity.Uzytkownik
 import androidx.lifecycle.LiveData
 import androidx.room.*
 
@@ -23,5 +23,5 @@ interface UzytkownikDAO {
     fun deleteAllUsers()
 
     @Query("select * from Uzytkownicy")
-    fun getAllUsers(): List<Uzytkownik>
+    fun getAllUsers(): LiveData<List<Uzytkownik>>
 }

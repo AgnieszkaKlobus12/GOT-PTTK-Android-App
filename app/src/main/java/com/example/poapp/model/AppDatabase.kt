@@ -1,20 +1,16 @@
 package com.example.poapp.model
 
 import android.content.Context
-import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.poapp.model.dao.*
-import com.example.poapp.model.entities.*
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.example.poapp.model.entity.*
 
 @Database(
     entities = [Uzytkownik::class, Dowod::class, DowodOdcinka::class, GrupaGorska::class, OdcinekOficjalny::class, OdcinekTrasy::class, OdcinekWlasny::class, Odznaka::class, PasmoGorskie::class, Pracownik::class, Przodownik::class, PunktOficjalny::class, PunktWlasny::class, Trasa::class, Turysta::class, UprawnieniaPrzodownika::class],
-    version = 2
+    version = 3
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -24,6 +20,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun odcinekOficjlanyDao(): OdcinekOficjalnyDAO
     abstract fun punktOficjalnyDao(): PunktOficjalnyDAO
     abstract fun odcinekTrasyDao(): OdcinekTrasyDAO
+    abstract fun grupaGorskaDao(): GrupaGorskaDAO
+    abstract fun pasmoGorskieDao(): PasmoGorskieDAO
 
     companion object {
         private var instance: AppDatabase? = null
@@ -37,7 +35,7 @@ abstract class AppDatabase : RoomDatabase() {
                 )
                     .fallbackToDestructiveMigration()
                     //.addCallback(roomCallback)
-                    .allowMainThreadQueries()
+                    //.allowMainThreadQueries()
                     .build()
 
             return instance!!
@@ -74,7 +72,7 @@ abstract class AppDatabase : RoomDatabase() {
                 punktOficjalnyDAO.insert(punkto1)
                 val punkto2 = PunktOficjalny(2, "", 13.44543, 13.4323, 1)
                 punktOficjalnyDAO.insert(punkto2)
-                val odcinek1 = OdcinekOficjalny(1, "", 10, 1, 2, null, 1)
+                val odcinek1 = OdcinekOficjalny(1, "", 10, 1, 2, null, 1, "aktywny")
                 odcinekOficjalnyDAO.insert(odcinek1)
                 val trasa1 = Trasa(1, 1, "2021-11-12", "zaakceptowana", 10)
                 trasaDAO.insert(trasa1)

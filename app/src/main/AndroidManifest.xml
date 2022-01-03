@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.POApp">
         <activity
-            android:name=".ui.user.trasy.ZapisanieTrasyActivity"
+            android:name=".view.turysta.trasy.ZapisanieTrasyActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.pracownik.spisOdc.SpisOdcActivity"
+            android:name=".view.pracownik.spisOdc.SpisOdcActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,54 +1,29 @@
 package com.example.poapp.model.repository
 
-import android.app.Application
-import com.example.poapp.model.AppDatabase
+import androidx.lifecycle.LiveData
 import com.example.poapp.model.dao.UzytkownikDAO
-import com.example.poapp.model.entities.Uzytkownik
-import io.reactivex.Single
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.example.poapp.model.entity.Uzytkownik
 
-class UserRepository(application: Application) {
+class UserRepository(private val userDao: UzytkownikDAO) {
 
-    private var userDao: UzytkownikDAO
-    private var allUsers: List<Uzytkownik>
-
-    private val database = AppDatabase.getInstance(application)
-
-    init {
-        userDao = database.uzytkownikDao()
-        allUsers = userDao.getAllUsers()
-    }
 
     fun insert(user: Uzytkownik) {
-        Single.just(userDao.insert(user))
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()
+        userDao.insert(user)
     }
 
     fun update(user: Uzytkownik) {
-        Single.just(userDao.update(user))
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()
+        userDao.update(user)
     }
 
     fun delete(user: Uzytkownik) {
-        Single.just(userDao.delete(user))
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()
+        userDao.delete(user)
     }
 
     fun deleteAllusers() {
-        Single.just(userDao.deleteAllUsers())
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe()
+        userDao.deleteAllUsers()
     }
 
-    fun getAllUsers(): List<Uzytkownik> {
-        return allUsers
+    fun getAllUsers(): LiveData<List<Uzytkownik>> {
+        return userDao.getAllUsers()
     }
 }

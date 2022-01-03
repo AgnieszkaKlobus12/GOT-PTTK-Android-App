@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nawigation_spis"
-        android:name="com.example.poapp.ui.pracownik.spisOdc.OdcinkiListaFragment"
+        android:name="com.example.poapp.view.pracownik.spisOdc.OdcinkiListaFragment"
         android:label="fragment_odcinki_lista"
         tools:layout="@layout/fragment_odcinki_lista" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/CreateAccountFragment"
-        android:name="com.example.poapp.ui.pracownik.createAccount.CreateAccountFragment"
+        android:name="com.example.poapp.view.pracownik.createAccount.CreateAccountFragment"
         android:label="fragment_create_accont"
         tools:layout="@layout/fragment_create_account" />
 </navigation>

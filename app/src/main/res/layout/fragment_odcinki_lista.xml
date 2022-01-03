@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pracownik.spisOdc.OdcinkiListaFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.pracownik.spisOdc.OdcinkiListaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/odcinki_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Lista odcinków joł" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:text="Spis odcinków"
+        app:layout_constraintBottom_toTopOf="@+id/scrollViewOdcinki"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <ScrollView
+        android:id="@+id/scrollViewOdcinki"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/dodaj_odcinek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/odcinki_text">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listOdc"
+            android:name="com.example.po.ui.pracownik.OdcinekFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:context=".view.pracownik.OdcinekFragment"
+            tools:listitem="@layout/fragment_odcinek" />
+    </ScrollView>
+
+    <Button
+        android:id="@+id/dodaj_odcinek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dodaj odcinek"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewOdcinki"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

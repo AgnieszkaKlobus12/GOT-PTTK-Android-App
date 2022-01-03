@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/trasyListaFragment"
-        android:name="com.example.poapp.ui.user.trasy.TrasyListaFragment"
+        android:name="com.example.poapp.view.turysta.trasy.TrasyListaFragment"
         android:label="fragment_trasy_lista"
         tools:layout="@layout/fragment_trasy_lista" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/EGOTFragment"
-        android:name="com.example.poapp.ui.user.egot.EGOTFragment"
+        android:name="com.example.poapp.view.turysta.egot.EGOTFragment"
         android:label="fragment_e_got"
         tools:layout="@layout/fragment_e_got" />
     <fragment
         android:id="@+id/odcinkiFragment"
-        android:name="com.example.poapp.ui.user.odcinki.OdcinkiFragment"
+        android:name="com.example.poapp.view.turysta.odcinki.OdcinkiFragment"
         android:label="fragment_odcinki"
         tools:layout="@layout/fragment_odcinki" />
 </navigation>

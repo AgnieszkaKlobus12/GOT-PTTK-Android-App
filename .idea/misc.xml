@@ -10,6 +10,9 @@
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_create_account.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_item.xml" value="0.16983695652173914" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_nowa_trasa.xml" value="0.1585144927536232" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_nowy_odcinek.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_nowy_punkt.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_odcinek.xml" value="0.36666666666666664" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_odcinki.xml" value="0.1585144927536232" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_odcinki_lista.xml" value="0.35260416666666666" />
         <entry key="..\:/AndroidStudioProjects/POApp/app/src/main/res/layout/fragment_placeholder_content.xml" value="0.1585144927536232" />

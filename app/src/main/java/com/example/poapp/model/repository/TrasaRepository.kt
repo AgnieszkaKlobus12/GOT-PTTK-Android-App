@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import com.example.poapp.model.AppDatabase
 import com.example.poapp.model.dao.TrasaDAO
-import com.example.poapp.model.entities.Trasa
+import com.example.poapp.model.entity.Trasa
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

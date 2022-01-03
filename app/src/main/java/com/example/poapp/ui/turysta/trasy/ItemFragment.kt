@@ -1,4 +1,4 @@
-package com.example.poapp.ui.user.trasy
+package com.example.poapp.ui.turysta.trasy
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

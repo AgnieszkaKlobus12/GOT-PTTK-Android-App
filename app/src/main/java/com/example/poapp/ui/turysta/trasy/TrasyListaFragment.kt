@@ -1,4 +1,4 @@
-package com.example.poapp.ui.user.trasy
+package com.example.poapp.ui.turysta.trasy
 
 import android.os.Bundle
 import android.util.Log
@@ -8,16 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.entities.Trasa
 import com.example.poapp.model.entities.Uzytkownik
 import com.example.poapp.model.repository.TrasaRepository
 import com.example.poapp.model.repository.UserRepository
-import kotlinx.coroutines.coroutineScope
 
 class TrasyListaFragment : Fragment() {
 

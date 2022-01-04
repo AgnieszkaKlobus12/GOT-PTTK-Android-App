@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import com.example.poapp.ui.pracownik.spisOdc.SpisOdcActivity
+import com.example.poapp.ui.przodownik.PotwierdzActivity
 import com.example.poapp.ui.turysta.trasy.ZapisanieTrasyActivity
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +26,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         dowod.setOnClickListener {
-            TODO()
+            Toast.makeText(this, "TODO", Toast.LENGTH_SHORT).show()
+            //TODO
         }
 
         edycja_odcinka.setOnClickListener {
@@ -33,7 +36,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         potwierdzenie.setOnClickListener {
-            TODO()
+            val intent = Intent(this, PotwierdzActivity::class.java)
+            startActivity(intent)
         }
     }
+
 }

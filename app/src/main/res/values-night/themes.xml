@@ -1,14 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- main activity theme -->
-    <style name="Theme.main_theme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+    <style name="Theme.main_theme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/purple_1</item>
+        <item name="colorPrimaryVariant">@color/purple_2</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
-    <!-- turysta theme -->
     <style name="Theme.turysta_theme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/blue_2</item>
         <item name="colorPrimaryVariant">@color/blue_3</item>
@@ -16,15 +14,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
-    <!-- przodownik theme -->
     <style name="Theme.przodownik_theme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/purple_2</item>
-        <item name="colorPrimaryVariant">@color/purple_3</item>
+        <item name="colorPrimary">@color/pink_2</item>
+        <item name="colorPrimaryVariant">@color/pink_3</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
-    <!-- pracownik theme -->
     <style name="Theme.pracownik_theme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/orange_2</item>
         <item name="colorPrimaryVariant">@color/orange_3</item>

@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">E-GOT PTTK</string>
-    <string name="zapisanie_trasy">Zapisanie trasy</string>
-    <string name="edycja_odcinka">Edycja odcinka</string>
-    <string name="potwierdzenie_trasy">Potwierdzenie trasy</string>
-    <string name="zamieszczanie_dowodu">Zamieszczenie dowodu</string>
+    <string name="zapisanie_trasy">Zapisanie trasy A. Kłobus</string>
+    <string name="edycja_odcinka">Edycja odcinka A. Stecka</string>
+    <string name="potwierdzenie_trasy">Potwierdzenie trasy A. Stecka</string>
+    <string name="zamieszczanie_dowodu">Zamieszczenie dowodu A. Kłobus</string>
     <string name="navigation_spis_label">Spis odcinków</string>
     <string name="navigation_account_label">Utwórz konto</string>
     <string name="navigation_egot_label">E - GOT</string>
@@ -18,8 +18,8 @@
     <string name="dodaj_dowod">Dodaj dowód</string>
     <string name="zakoncz">Zakończ dodawanie odcinków</string>
 
+    <string name="extension_point_label">Przejście do innego PU</string>
     <string name="not_implemented_label">PU nie wybrany do implementacji</string>
     <!-- TODO: Remove or change this placeholder text -->
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.poapp.ui.pracownik.spisOdc
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.poapp.R
@@ -33,4 +34,11 @@ class SpisOdcActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.nav_host_fragment_activity_spis_odc, OdcinkiListaFragment()).commit()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.settings_menu, menu)
+        return true
+    }
+
 }

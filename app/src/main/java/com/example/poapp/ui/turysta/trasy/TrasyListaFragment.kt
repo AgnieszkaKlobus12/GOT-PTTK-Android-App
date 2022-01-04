@@ -17,10 +17,7 @@ import com.example.poapp.model.repository.UserRepository
 
 class TrasyListaFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_trasy_lista, container, false)
     }
 
@@ -38,6 +35,7 @@ class TrasyListaFragment : Fragment() {
 
 
         //te trasy dalej się nie wyświetlają trzeba walczyć
+
         view.findViewById<Button>(R.id.dodaj_trase).setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.nav_host_fragment_activity_trasy, NowaTrasaFragment())?.addToBackStack(null)

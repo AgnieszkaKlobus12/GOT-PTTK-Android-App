@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.model.entity.Trasa
 
-
 class TrasaItemAdapter(private val values: List<Trasa>) :
     RecyclerView.Adapter<TrasaItemAdapter.TrasaItemHolder>() {
 
@@ -25,7 +24,8 @@ class TrasaItemAdapter(private val values: List<Trasa>) :
         holder.data.text = item.dataPrzejscia
         holder.punkty.text = item.punkty.toString()
         holder.start.text = "TODOOOO"
-        holder.end.text = "TODOOOO" //trzeba wziąć się dostać do odcinków trasy przez repositor prawdopodobnie
+        holder.end.text =
+            "TODOOOO" //trzeba wziąć się dostać do odcinków trasy przez repositor prawdopodobnie
         holder.status.text = item.status
     }
 

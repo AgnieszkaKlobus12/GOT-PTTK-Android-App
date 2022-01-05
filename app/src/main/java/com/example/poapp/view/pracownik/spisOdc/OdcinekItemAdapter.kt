@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.model.entity.OdcinekOficjalny
 
-class OdcinekItemAdapter(val activity: SpisOdcActivity, private val values: List<OdcinekOficjalny>) :
+class OdcinekItemAdapter(private val values: List<OdcinekOficjalny>) :
     RecyclerView.Adapter<OdcinekItemAdapter.OdcinekOficjalnyItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OdcinekOficjalnyItemHolder {

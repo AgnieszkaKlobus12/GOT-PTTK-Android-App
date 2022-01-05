@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity (
+@Entity(
     tableName = "OdcinkiOficjalne", foreignKeys = [
         ForeignKey(
             entity = PunktOficjalny::class,

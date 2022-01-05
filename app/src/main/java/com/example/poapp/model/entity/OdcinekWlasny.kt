@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity (
+@Entity(
     tableName = "OdcinkiWlasne", foreignKeys = [
         ForeignKey(
             entity = Turysta::class,
@@ -56,7 +56,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class OdcinekWlasny (
+data class OdcinekWlasny(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var nazwa: String,

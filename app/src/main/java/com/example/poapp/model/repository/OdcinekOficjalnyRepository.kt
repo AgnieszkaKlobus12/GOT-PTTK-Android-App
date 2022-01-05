@@ -24,7 +24,7 @@ class OdcinekOficjalnyRepository(private val odcinekDao: OdcinekOficjalnyDAO) {
         return odcinekDao.getAllOdcinki()
     }
 
-    fun getOdcinek(id: Int): LiveData<List<OdcinekOficjalny>>{
+    fun getOdcinek(id: Int): LiveData<List<OdcinekOficjalny>> {
         return odcinekDao.getOdcinekOficjalny(id)
     }
 }

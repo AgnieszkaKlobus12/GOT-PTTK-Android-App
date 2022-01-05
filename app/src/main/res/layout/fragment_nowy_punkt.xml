@@ -73,10 +73,10 @@
         android:layout_margin="5dp" />
 
     <Button
+        android:id="@+id/punkt_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zapisz"
-        android:id="@+id/punkt_save"/>
+        android:text="Zapisz" />
 
 
 </LinearLayout>

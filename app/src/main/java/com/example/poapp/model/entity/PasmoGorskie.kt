@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity (
+@Entity(
     tableName = "PasmaGorskie", foreignKeys = [
         ForeignKey(
             entity = GrupaGorska::class,
@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class PasmoGorskie (
+data class PasmoGorskie(
     @PrimaryKey(autoGenerate = true) val id: Int,
     var nazwa: String,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)

@@ -8,52 +8,54 @@
 
     <Button
         android:id="@+id/dodaj_odcinek_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Dodaj odcinek"
-        app:layout_constraintBottom_toTopOf="@+id/oficjlany_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/dodaj_odcinek"
+        app:layout_constraintBottom_toTopOf="@+id/oficjalny_button"
+        app:layout_constraintEnd_toEndOf="@id/zakoncz_button"
+        app:layout_constraintStart_toStartOf="@id/zakoncz_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/wlasny_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Własny"
+        android:layout_marginEnd="10dp"
+        android:text="@string/wlasny"
         android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/oficjlany_button"
-        app:layout_constraintEnd_toStartOf="@+id/oficjlany_button"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/oficjalny_button"
+        app:layout_constraintEnd_toStartOf="@+id/oficjalny_button"
+        app:layout_constraintStart_toStartOf="@id/zakoncz_button" />
 
     <Button
-        android:id="@+id/oficjlany_button"
-        android:layout_width="wrap_content"
+        android:id="@+id/oficjalny_button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Oficjalny"
+        android:text="@string/oficjalny"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/dodaj_dowod_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/zakoncz_button"
         app:layout_constraintStart_toEndOf="@+id/wlasny_button"
         app:layout_constraintTop_toBottomOf="@+id/dodaj_odcinek_button" />
 
     <Button
         android:id="@+id/dodaj_dowod_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Dodaj dowód"
-        app:layout_constraintBottom_toTopOf="@+id/end_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/oficjlany_button" />
+        android:text="@string/dodaj_dowod"
+        app:layout_constraintBottom_toTopOf="@+id/zakoncz_button"
+        app:layout_constraintEnd_toEndOf="@id/zakoncz_button"
+        app:layout_constraintStart_toStartOf="@id/zakoncz_button"
+        app:layout_constraintTop_toBottomOf="@+id/oficjalny_button" />
 
     <Button
-        android:id="@+id/end_button"
+        android:id="@+id/zakoncz_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zakończ dodawanie odcinków"
+        android:text="@string/zakoncz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dodaj_dowod_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

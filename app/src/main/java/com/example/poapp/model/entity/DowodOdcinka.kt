@@ -20,7 +20,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class DowodOdcinka (
+data class DowodOdcinka(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKodcinek: Int,
     val FKdowod: Int

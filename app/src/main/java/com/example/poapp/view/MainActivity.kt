@@ -1,19 +1,22 @@
 package com.example.poapp.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.poapp.R
 import com.example.poapp.view.pracownik.spisOdc.SpisOdcActivity
+import com.example.poapp.view.przodownik.PotwierdzActivity
 import com.example.poapp.view.turysta.trasy.ZapisanieTrasyActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val dowód: Button = findViewById(R.id.dowód)
+        val dowod: Button = findViewById(R.id.dowod)
         val zapisanie_trasy: Button = findViewById(R.id.zapisanie_trasy)
         val edycja_odcinka: Button = findViewById(R.id.edycja_odcinka)
         val potwierdzenie: Button = findViewById(R.id.potwierdzenie_trasy)
@@ -23,8 +26,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        dowód.setOnClickListener {
-            TODO()
+        dowod.setOnClickListener {
+            Toast.makeText(this, "TODO", Toast.LENGTH_SHORT).show()
+            //TODO
         }
 
         edycja_odcinka.setOnClickListener {
@@ -33,7 +37,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         potwierdzenie.setOnClickListener {
-            TODO()
+            val intent = Intent(this, PotwierdzActivity::class.java)
+            startActivity(intent)
         }
     }
+
 }

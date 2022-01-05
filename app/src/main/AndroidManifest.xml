@@ -4,20 +4,27 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:fullBackupOnly="true"
+        android:icon="@drawable/e_got_pttk"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.POApp">
+        android:supportsRtl="true">
+        <activity
+            android:name=".view.przodownik.PotwierdzActivity"
+            android:exported="true"
+            android:theme="@style/Theme.przodownik_theme" />
         <activity
             android:name=".view.turysta.trasy.ZapisanieTrasyActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.turysta_theme" />
         <activity
             android:name=".view.pracownik.spisOdc.SpisOdcActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.pracownik_theme" />
         <activity
             android:name=".view.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.main_theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

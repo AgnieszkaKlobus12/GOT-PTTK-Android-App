@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.poapp.model.entity.GrupaGorska
-import com.example.poapp.model.entity.OdcinekOficjalny
 
 @Dao
 interface GrupaGorskaDAO {

@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity (
+@Entity(
     tableName = "Pracownicy", foreignKeys = [
         ForeignKey(
             entity = Uzytkownik::class,
@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Pracownik (
+data class Pracownik(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKuzytkownik: Int,
     var nazwaOrganizacji: String, //enum

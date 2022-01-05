@@ -20,7 +20,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class PunktWlasny (
+data class PunktWlasny(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var nazwa: String,

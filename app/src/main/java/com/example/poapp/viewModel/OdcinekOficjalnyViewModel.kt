@@ -28,7 +28,7 @@ class OdcinekOficjalnyViewModel(application: Application) : AndroidViewModel(app
         odcinekRepository = OdcinekOficjalnyRepository(database.odcinekOficjlanyDao())
         punktRepository = PunktOficjalnyRepository(database.punktOficjalnyDao())
         grupaGroskaRepository = GrupaGroskaRepository(database.grupaGorskaDao())
-        pasmoGorskieRepository= PasmoGorskieRepository(database.pasmoGorskieDao())
+        pasmoGorskieRepository = PasmoGorskieRepository(database.pasmoGorskieDao())
     }
 
     fun addOdcinekOficjalny(odcinek: OdcinekOficjalny) {
@@ -45,7 +45,7 @@ class OdcinekOficjalnyViewModel(application: Application) : AndroidViewModel(app
         return odcinekRepository.getOdcinek(id)
     }
 
-    fun addPunktOficjalny(punkt: PunktOficjalny){
+    fun addPunktOficjalny(punkt: PunktOficjalny) {
         viewModelScope.launch(Dispatchers.IO) {
             punktRepository.insert(punkt)
         }

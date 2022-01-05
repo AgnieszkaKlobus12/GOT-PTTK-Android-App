@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Odznaka (
+data class Odznaka(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var wymaganePunkty: Int,

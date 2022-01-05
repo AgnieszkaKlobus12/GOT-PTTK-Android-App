@@ -1,12 +1,12 @@
 package com.example.poapp.view.pracownik.spisOdc
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.poapp.R
@@ -16,8 +16,7 @@ import com.example.poapp.viewModel.OdcinekOficjalnyViewModel
 class NowyOdcinekFragment(private val odcinekId: Int) : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_nowy_odcinek, container, false)
     }
@@ -32,9 +31,10 @@ class NowyOdcinekFragment(private val odcinekId: Int) : Fragment() {
             var odcinekL = emptyList<OdcinekOficjalny>()
             //mViewModel.addOdcinekOficjalny(OdcinekOficjalny(0, "test", 10, 2,3 ,3, 2, "Test"))
 
-            mViewModel.getOdcinekOficjalny(odcinekId).observe(viewLifecycleOwner, Observer { odcinki ->
-                odcinki?.let { odcinekL = it }
-            })
+            mViewModel.getOdcinekOficjalny(odcinekId)
+                .observe(viewLifecycleOwner, Observer { odcinki ->
+                    odcinki?.let { odcinekL = it }
+                })
 
             odcinekOficjalny = odcinekL[0]
         }
@@ -54,13 +54,19 @@ class NowyOdcinekFragment(private val odcinekId: Int) : Fragment() {
 
         view.findViewById<Button>(R.id.edytujPoczatek).setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_host_fragment_activity_spis_odc, NowyPunktFragment(odcinekOficjalny.FKpunktPoczatkowy))
+                ?.replace(
+                    R.id.nav_host_fragment_activity_spis_odc,
+                    NowyPunktFragment(odcinekOficjalny.FKpunktPoczatkowy)
+                )
                 ?.addToBackStack(null)
                 ?.commit()
         }
         view.findViewById<Button>(R.id.edytujKoniec).setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_host_fragment_activity_spis_odc, NowyPunktFragment(odcinekOficjalny.FKpunktKoncowy))
+                ?.replace(
+                    R.id.nav_host_fragment_activity_spis_odc,
+                    NowyPunktFragment(odcinekOficjalny.FKpunktKoncowy)
+                )
                 ?.addToBackStack(null)
                 ?.commit()
         }
@@ -69,7 +75,7 @@ class NowyOdcinekFragment(private val odcinekId: Int) : Fragment() {
         }
         view.findViewById<Button>(R.id.edytujPrzez).setOnClickListener {
             var id = 0
-            if(odcinekOficjalny.FKpunktPosredni != null){
+            if (odcinekOficjalny.FKpunktPosredni != null) {
                 id = odcinekOficjalny.FKpunktPosredni!!
             }
             activity?.supportFragmentManager?.beginTransaction()

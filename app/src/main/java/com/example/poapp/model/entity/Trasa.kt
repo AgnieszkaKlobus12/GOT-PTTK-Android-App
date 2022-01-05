@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
-@Entity (
+@Entity(
     tableName = "Trasy", foreignKeys = [
         ForeignKey(
             entity = Turysta::class,
@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Trasa (
+data class Trasa(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var dataPrzejscia: String, //YYYY-MM-DD

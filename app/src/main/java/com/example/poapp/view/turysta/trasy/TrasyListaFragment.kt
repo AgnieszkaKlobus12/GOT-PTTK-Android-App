@@ -35,7 +35,8 @@ class TrasyListaFragment : Fragment() {
 
         view.findViewById<Button>(R.id.dodaj_trase).setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_host_fragment_activity_trasy, NowaTrasaFragment())?.addToBackStack(null)
+                ?.replace(R.id.nav_host_fragment_activity_trasy, NowaTrasaFragment())
+                ?.addToBackStack(null)
                 ?.commit()
         }
     }

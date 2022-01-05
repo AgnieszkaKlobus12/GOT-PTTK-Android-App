@@ -1,8 +1,8 @@
 package com.example.poapp.model.dao
 
-import com.example.poapp.model.entity.Uzytkownik
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.poapp.model.entity.Uzytkownik
 
 @Dao
 interface UzytkownikDAO {

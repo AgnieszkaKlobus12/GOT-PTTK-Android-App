@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class PunktOficjalny (
+data class PunktOficjalny(
     @PrimaryKey(autoGenerate = true) val id: Int,
     var nazwa: String,
     var szerokoscGeo: Double,

@@ -1,13 +1,12 @@
 package com.example.poapp.view.pracownik.spisOdc
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.poapp.R
 import com.example.poapp.model.entity.GrupaGorska
@@ -15,9 +14,7 @@ import com.example.poapp.model.entity.PasmoGorskie
 import com.example.poapp.model.entity.PunktOficjalny
 import com.example.poapp.viewModel.OdcinekOficjalnyViewModel
 
-
 class NowyPunktFragment(private val punktId: Int) : Fragment() {
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

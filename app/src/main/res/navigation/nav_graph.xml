@@ -9,7 +9,7 @@
         android:id="@+id/trasyListaFragment"
         android:name="com.example.poapp.view.turysta.trasy.TrasyListaFragment"
         android:label="fragment_trasy_lista"
-        tools:layout="@layout/fragment_trasy_lista" >
+        tools:layout="@layout/fragment_trasy_lista">
         <action
             android:id="@+id/action_trasyListaFragment_to_odcinkiFragment"
             app:destination="@id/odcinkiFragment" />

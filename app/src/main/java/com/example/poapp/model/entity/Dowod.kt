@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Dowod (
+data class Dowod(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     var zdjecie: ByteArray?,

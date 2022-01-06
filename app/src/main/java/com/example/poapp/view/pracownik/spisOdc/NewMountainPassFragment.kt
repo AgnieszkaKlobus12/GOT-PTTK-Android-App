@@ -1,5 +1,6 @@
 package com.example.poapp.view.pracownik.spisOdc
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -119,15 +120,42 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                 ?.commit()
         }
         binding.editStatus.setOnClickListener {
-            //TODO dialog czy na pewno zmienić
+            val alertDialog = requireActivity().let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        dialog.dismiss()
+                        if (mViewModel.mountainPassOfficial.value!!.status == getString(R.string.active)) {
+                            mViewModel.mountainPassOfficial.value!!.status =
+                                getString(R.string.removed)
+                        } else {
+                            mViewModel.mountainPassOfficial.value!!.status =
+                                getString(R.string.active)
+                        }
+                        binding.newStatus.text = mViewModel.mountainPassOfficial.value!!.status
+                    }
+                    setNegativeButton(R.string.back) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert)
+                    setMessage(R.string.statusChangeMessage)
+                }
+                builder.create()
+            }
+            alertDialog.show()
         }
 
         binding.cancelMountainPass.setOnClickListener {
             //TODO dialog czy na pewno anulować
-            activity?.supportFragmentManager?.popBackStack()
+            activity?.supportFragmentManager?.popBackStack() //jak tak to to, jak nie to return z listenera
         }
         binding.saveMountainPass.setOnClickListener {
 //            mViewModel.addOdcinekOficjalny(mViewModel.mountainPassOfficial.value)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

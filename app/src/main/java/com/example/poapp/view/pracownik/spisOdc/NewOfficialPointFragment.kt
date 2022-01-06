@@ -47,7 +47,7 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
         binding.latitude.setText((officialPoint.szerokoscGeo.toString()))
 
         //if pointID != 0 edit update in database, else add new
-        binding.saveGeoPoint.setOnClickListener {
+        binding.saveOfficialPoint.setOnClickListener {
             //collect new data
             officialPoint.nazwa = binding.officialPointName.text.toString()
             officialPoint.dlugoscGeo = binding.longitude.text.toString().toDouble()

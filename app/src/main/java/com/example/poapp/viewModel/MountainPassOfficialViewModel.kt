@@ -40,6 +40,10 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         this.mountainPassOfficial.value = mountainPassOfficial
     }
 
+    fun resetMountainPass() {
+        this.mountainPassOfficial.value = MountainPassOfficial(0, "-", 0, 0, 0, 0, 0, "aktywny")
+    }
+
     fun setMountainPassStart(id: Int) {
         mountainPassOfficial.value!!.FKpunktPoczatkowy = id
     }

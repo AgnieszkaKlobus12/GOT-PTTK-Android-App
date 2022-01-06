@@ -22,4 +22,12 @@
     <string name="not_implemented_label">PU nie wybrany do implementacji</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="yes">Tak</string>
+    <string name="active">aktywny</string>
+    <string name="removed">zlikwidowany</string>
+    <string name="no">Nie</string>
+    <string name="alert">Uwaga</string>
+    <string name="statusChangeMessage">Czy na pewno chcesz zmienić status odcinka?</string>
+    <string name="back">Cofnij</string>
+    <string name="ok">OK</string>
 </resources>

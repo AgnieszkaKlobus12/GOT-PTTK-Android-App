@@ -27,14 +27,14 @@ class EditMountainPassPointsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.editRoutePoints.setText(mViewModel.mountainPassOfficial.value!!.punkty.toString())
-        binding.saveRoutePoints.setOnClickListener {
-            if (binding.editRoutePoints.text.toString().toInt() < 0) {
+        binding.editMountainPassPoints.setText(mViewModel.mountainPassOfficial.value!!.punkty.toString())
+        binding.saveMountainPassPoints.setOnClickListener {
+            if (binding.editMountainPassPoints.text.toString().toInt() < 0) {
                 //TODO dialog "Liczba punktów nie może być mniejsza od zera
                 return@setOnClickListener
             }
             mViewModel.mountainPassOfficial.value!!.punkty =
-                binding.editRoutePoints.text.toString().toInt()
+                binding.editMountainPassPoints.text.toString().toInt()
 
             activity?.supportFragmentManager?.popBackStack()
         }

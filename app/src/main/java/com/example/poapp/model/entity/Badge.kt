@@ -7,14 +7,14 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "Odznaki", foreignKeys = [
         ForeignKey(
-            entity = Turysta::class,
+            entity = Tourist::class,
             parentColumns = ["nrKsiazeczki"],
             childColumns = ["FKturysta"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class Odznaka(
+data class Badge(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var wymaganePunkty: Int,

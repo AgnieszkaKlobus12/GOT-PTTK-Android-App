@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.repository.TrasaRepository
 
 class TrasyListaFragment : Fragment() {
 
@@ -28,8 +27,8 @@ class TrasyListaFragment : Fragment() {
         val list = view.findViewById<RecyclerView>(R.id.list)
         list.layoutManager = LinearLayoutManager(context)
         Log.e("tag2", "Done")
-        val trasaRep = TrasaRepository(requireActivity().application, 1)
-        list.adapter = trasaRep.getAllTrasyForUser(1).value?.let { TrasaItemAdapter(it) }
+//        val trasaRep = RouteRepository(requireActivity().application, 1)
+//        list.adapter = trasaRep.getAllForUser(1).value?.let { TrasaItemAdapter(it) }
         //list.adapter = TrasaItemAdapter(listOf(Trasa(1, 1, "2021-11-12", "oczekująca", 20)))
 
 

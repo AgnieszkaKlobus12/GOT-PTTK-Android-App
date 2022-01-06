@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "UprawnieniaPrzodownikow", foreignKeys = [
         ForeignKey(
-            entity = Przodownik::class,
+            entity = Leader::class,
             parentColumns = ["nrLegitymacji"],
             childColumns = ["FKprzodownik"],
             onDelete = ForeignKey.RESTRICT
@@ -20,7 +20,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class UprawnieniaPrzodownika(
+data class LeaderPermissions(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKprzodownik: Int,
     val FKgrupaGorska: Int

@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.entity.Trasa
+import com.example.poapp.model.entity.Route
 
-class TrasaItemAdapter(private val values: List<Trasa>) :
+class TrasaItemAdapter(private val values: List<Route>) :
     RecyclerView.Adapter<TrasaItemAdapter.TrasaItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrasaItemHolder {

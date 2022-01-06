@@ -12,7 +12,7 @@ import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
 //if id != 0, then update existing point, else create new
 //changeNr - 0 start, 1 through, 2 end
-class NewOfficialPointFragment(private val geoPointID: Int, private val changeNr: Int) :
+class NewOfficialPointFragment(private val officialPointID: Int, private val changeNr: Int) :
     Fragment() {
 
     private var _binding: FragmentNewOfficialPointBinding? = null
@@ -35,8 +35,8 @@ class NewOfficialPointFragment(private val geoPointID: Int, private val changeNr
         var officialPoint = OfficialPoint(0, "", 0.0, 0.0, 0)
 
         //if Id != 0 find in database and show existing data
-        if (geoPointID != 0) {
-            officialPoint = mViewModel.getOfficialPoint(id)[0]
+        if (officialPointID != 0) {
+            officialPoint = mViewModel.getOfficialPoint(officialPointID)[0]
             val mountainRange = mViewModel.getMountainRange(officialPoint.FKpasmoGorskie)[0]
             binding.mountainRange.setText(mountainRange.nazwa)
             val mountainGroup = mViewModel.getMountainGroup(mountainRange.FKgrupaGorska.toInt())[0]

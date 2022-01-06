@@ -8,10 +8,10 @@ import androidx.room.Query
 import com.example.poapp.model.entity.MountainPassOfficial
 
 @Dao
-interface MountainPassDAO {
+interface MountainPassOfficialDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(odcinekO: MountainPassOfficial)
+    fun insert(mountainPassOfficial: MountainPassOfficial)
 
     @Query("select * from OdcinkiOficjalne")
     fun getAll(): LiveData<List<MountainPassOfficial>>

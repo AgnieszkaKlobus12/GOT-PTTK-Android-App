@@ -4,24 +4,24 @@ import androidx.lifecycle.LiveData
 import com.example.poapp.model.dao.OfficialPointDAO
 import com.example.poapp.model.entity.OfficialPoint
 
-class OfficialPointRepository(private val geoPointDAO: OfficialPointDAO) {
+class OfficialPointRepository(private val officialPointDAO: OfficialPointDAO) {
     fun insert(officialPoint: OfficialPoint): Long {
-        return geoPointDAO.insert(officialPoint)
+        return officialPointDAO.insert(officialPoint)
     }
 
     fun getAll(): LiveData<List<OfficialPoint>> {
-        return geoPointDAO.getAll()
+        return officialPointDAO.getAll()
     }
 
     fun update(geoPoint: OfficialPoint) {
-        geoPointDAO.update(geoPoint)
+        officialPointDAO.update(geoPoint)
     }
 
     fun getOfficialPoint(id: Int): List<OfficialPoint> {
-        return geoPointDAO.getOfficialPoint(id)
+        return officialPointDAO.getOfficialPoint(id)
     }
 
     fun getOfficialPoint(name: String): List<OfficialPoint> {
-        return geoPointDAO.getOfficialPoint(name)
+        return officialPointDAO.getOfficialPoint(name)
     }
 }

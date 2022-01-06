@@ -7,25 +7,25 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "OdcinkiWlasne", foreignKeys = [
         ForeignKey(
-            entity = Turysta::class,
+            entity = Tourist::class,
             parentColumns = ["nrKsiazeczki"],
             childColumns = ["FKturysta"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PunktWlasny::class,
+            entity = UserPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPoczatkowyWlasny"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PunktWlasny::class,
+            entity = UserPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktKoncowyWlasny"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PunktWlasny::class,
+            entity = UserPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPosredniWlasny"],
             onDelete = ForeignKey.RESTRICT
@@ -56,7 +56,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class OdcinekWlasny(
+data class MountainPassUser(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var nazwa: String,

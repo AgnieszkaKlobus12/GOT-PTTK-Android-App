@@ -10,15 +10,15 @@ import com.example.poapp.model.entity.*
 import kotlinx.coroutines.*
 
 @Database(
-    entities = [Uzytkownik::class, Dowod::class, DowodOdcinka::class, MountainGroup::class, MountainPassOfficial::class, OdcinekTrasy::class, OdcinekWlasny::class, Odznaka::class, MountainRange::class, Pracownik::class, Przodownik::class, OfficialPoint::class, PunktWlasny::class, Trasa::class, Turysta::class, UprawnieniaPrzodownika::class],
-    version = 7
+    entities = [User::class, Proof::class, MountainPassProof::class, MountainGroup::class, MountainPassOfficial::class, RouteSection::class, MountainPassUser::class, Badge::class, MountainRange::class, Employee::class, Leader::class, OfficialPoint::class, UserPoint::class, Route::class, Tourist::class, LeaderPermissions::class],
+    version = 8
 )
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDAO(): UserDAO
     abstract fun touristDAO(): TouristDAO
     abstract fun routeDAO(): RouteDAO
-    abstract fun mountainPassDAO(): MountainPassDAO
+    abstract fun mountainPassDAO(): MountainPassOfficialDAO
     abstract fun geoPointDAO(): OfficialPointDAO
     abstract fun routeSectionDAO(): RouteSectionDAO
     abstract fun mountainGroupDAO(): MountainGroupDAO

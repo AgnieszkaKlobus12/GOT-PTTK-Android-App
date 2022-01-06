@@ -8,14 +8,14 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "Dowody", foreignKeys = [
         ForeignKey(
-            entity = Przodownik::class,
+            entity = Leader::class,
             parentColumns = ["nrLegitymacji"],
             childColumns = ["FKprzodownik"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class Dowod(
+data class Proof(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     var zdjecie: ByteArray?,

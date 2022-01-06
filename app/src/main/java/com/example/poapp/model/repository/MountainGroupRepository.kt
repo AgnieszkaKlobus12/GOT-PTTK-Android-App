@@ -6,7 +6,7 @@ import com.example.poapp.model.entity.MountainGroup
 
 class MountainGroupRepository(private val mountainGroupDAO: MountainGroupDAO) {
 
-    fun insert(mountainGroup: MountainGroup): Long {
+    fun insert(mountainGroup: MountainGroup) {
         return mountainGroupDAO.insert(mountainGroup)
     }
 
@@ -18,7 +18,7 @@ class MountainGroupRepository(private val mountainGroupDAO: MountainGroupDAO) {
         return mountainGroupDAO.getMountainGroup(name)
     }
 
-    fun getMountainGroup(id: Long): List<MountainGroup> {
+    fun getMountainGroup(id: Int): List<MountainGroup> {
         return mountainGroupDAO.getMountainGroup(id)
     }
 }

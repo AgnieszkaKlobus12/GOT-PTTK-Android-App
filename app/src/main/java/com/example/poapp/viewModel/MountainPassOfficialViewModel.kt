@@ -26,7 +26,7 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
     private val mountainRangeRepository: MountainRangeRepository
     val mountainPassOfficial =
         MutableLiveData(MountainPassOfficial(0, "-", 0, 0, 0, 0, 0, "aktywny"))
-//    var mountainPassOfficial = MountainPassOfficial(0, "-", 0, 0, 0, 0, 0, "aktywny")
+
 
     init {
         val database = AppDatabase.getInstance(application)
@@ -93,7 +93,7 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
     }
 
     fun getMountainGroup(id: Int): List<MountainGroup> {
-        return mountainGroupRepository.getMountainGroup(id.toLong())
+        return mountainGroupRepository.getMountainGroup(id)
     }
 
     fun getMountainGroup(name: String): List<MountainGroup> {

@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "OdcinkiTras", foreignKeys = [
         ForeignKey(
-            entity = Trasa::class,
+            entity = Route::class,
             parentColumns = ["id"],
             childColumns = ["FKtrasa"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = OdcinekWlasny::class,
+            entity = MountainPassUser::class,
             parentColumns = ["id"],
             childColumns = ["FKodcinekWlasny"],
             onDelete = ForeignKey.RESTRICT
@@ -26,7 +26,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class OdcinekTrasy(
+data class RouteSection(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKtrasa: Int,
     val FKodcinekWlasny: Int?,

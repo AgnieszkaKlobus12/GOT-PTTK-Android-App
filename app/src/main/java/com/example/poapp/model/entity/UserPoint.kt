@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "PunktyWlasne", foreignKeys = [
         ForeignKey(
-            entity = Turysta::class,
+            entity = Tourist::class,
             parentColumns = ["nrKsiazeczki"],
             childColumns = ["FKturysta"],
             onDelete = ForeignKey.RESTRICT
@@ -20,7 +20,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class PunktWlasny(
+data class UserPoint(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var nazwa: String,

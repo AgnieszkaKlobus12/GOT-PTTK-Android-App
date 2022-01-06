@@ -8,14 +8,14 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "Turysci", foreignKeys = [
         ForeignKey(
-            entity = Uzytkownik::class,
+            entity = User::class,
             parentColumns = ["id"],
             childColumns = ["FKuzytkownik"],
             onDelete = RESTRICT
         )
     ]
 )
-data class Turysta(
+data class Tourist(
     @PrimaryKey(autoGenerate = true) val nrKsiazeczki: Int,
     val FKuzytkownik: Int,
     var sumaPunktow: Int,

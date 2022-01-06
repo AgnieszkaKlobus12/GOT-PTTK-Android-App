@@ -7,20 +7,20 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "DowodyOdcinkow", foreignKeys = [
         ForeignKey(
-            entity = OdcinekTrasy::class,
+            entity = RouteSection::class,
             parentColumns = ["id"],
             childColumns = ["FKodcinek"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = Dowod::class,
+            entity = Proof::class,
             parentColumns = ["id"],
             childColumns = ["FKdowod"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class DowodOdcinka(
+data class MountainPassProof(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKodcinek: Int,
     val FKdowod: Int

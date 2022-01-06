@@ -2,28 +2,28 @@ package com.example.poapp.model.repository
 
 import androidx.lifecycle.LiveData
 import com.example.poapp.model.dao.UserDAO
-import com.example.poapp.model.entity.Uzytkownik
+import com.example.poapp.model.entity.User
 
 class UserRepository(private val userDao: UserDAO) {
 
 
-    fun insert(user: Uzytkownik) {
+    fun insert(user: User) {
         userDao.insert(user)
     }
 
-    fun update(user: Uzytkownik) {
+    fun update(user: User) {
         userDao.update(user)
     }
 
-    fun delete(user: Uzytkownik) {
+    fun delete(user: User) {
         userDao.delete(user)
     }
 
-    fun deleteAllusers() {
-        userDao.deleteAllUsers()
+    fun deleteAll() {
+        userDao.deleteAll()
     }
 
-    fun getAllUsers(): LiveData<List<Uzytkownik>> {
-        return userDao.getAllUsers()
+    fun getAll(): LiveData<List<User>> {
+        return userDao.getAll()
     }
 }

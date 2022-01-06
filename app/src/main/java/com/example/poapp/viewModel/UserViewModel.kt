@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.poapp.model.AppDatabase
-import com.example.poapp.model.entity.Uzytkownik
+import com.example.poapp.model.entity.User
 import com.example.poapp.model.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,21 +13,21 @@ import kotlinx.coroutines.launch
 class UserViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: UserRepository
-    private var readAll: LiveData<List<Uzytkownik>>
+    private var readAll: LiveData<List<User>>
 
     init {
         val database = AppDatabase.getInstance(application).userDAO()
         repository = UserRepository(database)
-        readAll = repository.getAllUsers()
+        readAll = repository.getAll()
     }
 
-    fun insert(user: Uzytkownik) {
+    fun insert(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.insert(user)
         }
     }
 
-    fun getAll(): LiveData<List<Uzytkownik>> {
+    fun getAll(): LiveData<List<User>> {
         return readAll
     }
 }

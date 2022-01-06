@@ -7,14 +7,14 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "Przodownicy", foreignKeys = [
         ForeignKey(
-            entity = Turysta::class,
+            entity = Tourist::class,
             parentColumns = ["nrKsiazeczki"],
             childColumns = ["FKturysta"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class Przodownik(
+data class Leader(
     @PrimaryKey(autoGenerate = true) val nrLegitymacji: Int,
     val FKturysta: Int
 )

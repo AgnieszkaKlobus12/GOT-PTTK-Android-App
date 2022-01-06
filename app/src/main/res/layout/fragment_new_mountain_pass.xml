@@ -75,7 +75,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/new_trough"
+            android:id="@+id/new_through"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />

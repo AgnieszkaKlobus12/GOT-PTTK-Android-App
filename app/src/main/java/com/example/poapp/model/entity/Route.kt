@@ -7,14 +7,14 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "Trasy", foreignKeys = [
         ForeignKey(
-            entity = Turysta::class,
+            entity = Tourist::class,
             parentColumns = ["nrKsiazeczki"],
             childColumns = ["FKturysta"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class Trasa(
+data class Route(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var dataPrzejscia: String, //YYYY-MM-DD

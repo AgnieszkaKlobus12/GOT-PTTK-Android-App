@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.entity.OdcinekOficjalny
+import com.example.poapp.model.entity.MountainPassOfficial
 
-class OdcinekItemAdapter(private val values: List<OdcinekOficjalny>) :
+class OdcinekItemAdapter(private val values: List<MountainPassOfficial>) :
     RecyclerView.Adapter<OdcinekItemAdapter.OdcinekOficjalnyItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OdcinekOficjalnyItemHolder {

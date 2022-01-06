@@ -7,32 +7,32 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "OdcinkiOficjalne", foreignKeys = [
         ForeignKey(
-            entity = PunktOficjalny::class,
+            entity = GeoPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPoczatkowy"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PunktOficjalny::class,
+            entity = GeoPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktKoncowy"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PunktOficjalny::class,
+            entity = GeoPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPosredni"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PasmoGorskie::class,
+            entity = MountainRange::class,
             parentColumns = ["id"],
             childColumns = ["FKpasmoGorskie"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class OdcinekOficjalny(
+data class MountainPassOfficial(
     @PrimaryKey(autoGenerate = true) val id: Int,
     var nazwa: String,
     var punkty: Int,

@@ -5,8 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "GrupyGorskie")
-data class GrupaGorska(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+data class MountainGroup(
+    @PrimaryKey(autoGenerate = true) val id: Long,
     var nazwa: String,
     var kraj: String,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)

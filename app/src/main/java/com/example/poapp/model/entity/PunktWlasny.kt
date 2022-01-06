@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = PasmoGorskie::class,
+            entity = MountainRange::class,
             parentColumns = ["id"],
             childColumns = ["FKpasmoGorskie"],
             onDelete = ForeignKey.RESTRICT

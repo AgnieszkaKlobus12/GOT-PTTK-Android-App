@@ -9,8 +9,8 @@ import com.example.poapp.model.dao.*
 import com.example.poapp.model.entity.*
 
 @Database(
-    entities = [Uzytkownik::class, Dowod::class, DowodOdcinka::class, GrupaGorska::class, OdcinekOficjalny::class, OdcinekTrasy::class, OdcinekWlasny::class, Odznaka::class, PasmoGorskie::class, Pracownik::class, Przodownik::class, PunktOficjalny::class, PunktWlasny::class, Trasa::class, Turysta::class, UprawnieniaPrzodownika::class],
-    version = 3
+    entities = [Uzytkownik::class, Dowod::class, DowodOdcinka::class, MountainGroup::class, MountainPassOfficial::class, OdcinekTrasy::class, OdcinekWlasny::class, Odznaka::class, MountainRange::class, Pracownik::class, Przodownik::class, GeoPoint::class, PunktWlasny::class, Trasa::class, Turysta::class, UprawnieniaPrzodownika::class],
+    version = 4
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -18,10 +18,10 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun turystaDao(): TurystaDAO
     abstract fun trasaDao(): TrasaDAO
     abstract fun odcinekOficjlanyDao(): OdcinekOficjalnyDAO
-    abstract fun punktOficjalnyDao(): PunktOficjalnyDAO
+    abstract fun punktOficjalnyDao(): GeoPointDAO
     abstract fun odcinekTrasyDao(): OdcinekTrasyDAO
-    abstract fun grupaGorskaDao(): GrupaGorskaDAO
-    abstract fun pasmoGorskieDao(): PasmoGorskieDAO
+    abstract fun grupaGorskaDao(): MountainGroupDAO
+    abstract fun pasmoGorskieDao(): MountainRangeDAO
 
     companion object {
         private var instance: AppDatabase? = null
@@ -68,11 +68,11 @@ abstract class AppDatabase : RoomDatabase() {
                 uzytkownikDAO.insert(user1)
                 val turysta1 = Turysta(1, user1.id, 10, false)
                 turystaDAO.insert(turysta1)
-                val punkto1 = PunktOficjalny(1, "", 12.44543, 12.4323, 1)
+                val punkto1 = GeoPoint(1, "", 12.44543, 12.4323, 1)
                 punktOficjalnyDAO.insert(punkto1)
-                val punkto2 = PunktOficjalny(2, "", 13.44543, 13.4323, 1)
+                val punkto2 = GeoPoint(2, "", 13.44543, 13.4323, 1)
                 punktOficjalnyDAO.insert(punkto2)
-                val odcinek1 = OdcinekOficjalny(1, "", 10, 1, 2, null, 1, "aktywny")
+                val odcinek1 = MountainPassOfficial(1, "", 10, 1, 2, null, 1, "aktywny")
                 odcinekOficjalnyDAO.insert(odcinek1)
                 val trasa1 = Trasa(1, 1, "2021-11-12", "zaakceptowana", 10)
                 trasaDAO.insert(trasa1)

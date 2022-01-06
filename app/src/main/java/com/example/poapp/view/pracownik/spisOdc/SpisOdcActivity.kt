@@ -26,13 +26,13 @@ class SpisOdcActivity : AppCompatActivity() {
 
             if (selectedFragment != null) {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.nav_host_fragment_activity_spis_odc, selectedFragment).commit()
+                    .replace(R.id.nav_host_fragment_activity_mountain_passes_list, selectedFragment).commit()
             }
             true
         }
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment_activity_spis_odc, OdcinkiListaFragment()).commit()
+            .replace(R.id.nav_host_fragment_activity_mountain_passes_list, OdcinkiListaFragment()).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

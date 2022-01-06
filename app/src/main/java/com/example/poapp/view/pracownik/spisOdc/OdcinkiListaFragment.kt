@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.entity.OdcinekOficjalny
-import com.example.poapp.viewModel.OdcinekOficjalnyViewModel
+import com.example.poapp.model.entity.MountainPassOfficial
+import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
 class OdcinkiListaFragment : Fragment() {
 
@@ -31,11 +31,11 @@ class OdcinkiListaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mViewModel = ViewModelProviders.of(this)[OdcinekOficjalnyViewModel::class.java]
+        val mViewModel = ViewModelProviders.of(this)[MountainPassOfficialViewModel::class.java]
 
         val list = view.findViewById<RecyclerView>(R.id.listOdc)
         list.layoutManager = LinearLayoutManager(context)
-        var allOdcinki = emptyList<OdcinekOficjalny>()
+        var allOdcinki = emptyList<MountainPassOfficial>()
         mViewModel.getAll().observe(viewLifecycleOwner, Observer { odcinki ->
             odcinki?.let { allOdcinki = it }
         })
@@ -45,7 +45,7 @@ class OdcinkiListaFragment : Fragment() {
 
         view.findViewById<Button>(R.id.dodaj_odcinek).setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_host_fragment_activity_spis_odc, NowyOdcinekFragment(0))
+                ?.replace(R.id.nav_host_fragment_activity_mountain_passes_list, NewMountainPassFragment(0))
                 ?.addToBackStack(null)
                 ?.commit()
         }

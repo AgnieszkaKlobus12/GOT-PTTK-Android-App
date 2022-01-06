@@ -1,23 +1,24 @@
 package com.example.poapp.model.entity
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(
-    tableName = "PunktyOficjalne", foreignKeys = [
+    tableName = "PasmaGorskie", foreignKeys = [
         ForeignKey(
-            entity = PasmoGorskie::class,
+            entity = MountainGroup::class,
             parentColumns = ["id"],
-            childColumns = ["FKpasmoGorskie"],
+            childColumns = ["FKgrupaGorska"],
             onDelete = ForeignKey.RESTRICT
         )
     ]
 )
-data class PunktOficjalny(
+data class MountainRange(
     @PrimaryKey(autoGenerate = true) val id: Int,
     var nazwa: String,
-    var szerokoscGeo: Double,
-    var dlugoscGeo: Double,
-    val FKpasmoGorskie: Int
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    var obszar: ByteArray?,
+    val FKgrupaGorska: Long
 )

@@ -19,7 +19,7 @@
         app:menu="@menu/pracownik_menu" />
 
     <FrameLayout
-        android:id="@+id/nav_host_fragment_activity_spis_odc"
+        android:id="@+id/nav_host_fragment_activity_mountain_passes_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"

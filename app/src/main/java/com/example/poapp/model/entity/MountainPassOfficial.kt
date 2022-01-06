@@ -7,19 +7,19 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "OdcinkiOficjalne", foreignKeys = [
         ForeignKey(
-            entity = GeoPoint::class,
+            entity = OfficialPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPoczatkowy"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = GeoPoint::class,
+            entity = OfficialPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktKoncowy"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = GeoPoint::class,
+            entity = OfficialPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPosredni"],
             onDelete = ForeignKey.RESTRICT

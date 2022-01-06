@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import com.example.poapp.model.entity.OdcinekTrasy
 
 @Dao
-interface OdcinekTrasyDAO {
+interface RouteSectionDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(odcinekT: OdcinekTrasy)

@@ -16,7 +16,7 @@ class UserViewModel(application: Application) : AndroidViewModel(application) {
     private var readAll: LiveData<List<Uzytkownik>>
 
     init {
-        val database = AppDatabase.getInstance(application).uzytkownikDao()
+        val database = AppDatabase.getInstance(application).userDAO()
         repository = UserRepository(database)
         readAll = repository.getAllUsers()
     }

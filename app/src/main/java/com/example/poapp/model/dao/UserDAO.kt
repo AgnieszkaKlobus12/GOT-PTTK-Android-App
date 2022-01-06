@@ -5,7 +5,7 @@ import androidx.room.*
 import com.example.poapp.model.entity.Uzytkownik
 
 @Dao
-interface UzytkownikDAO {
+interface UserDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(uzytkownik: Uzytkownik)

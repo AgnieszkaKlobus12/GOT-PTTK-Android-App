@@ -10,6 +10,9 @@ import com.example.poapp.model.entity.MountainGroup
 @Dao
 interface MountainGroupDAO {
 
+    @Query("delete from GrupyGorskie")
+    fun deleteAll()
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(mountainGroup: MountainGroup): Long
 
@@ -17,8 +20,8 @@ interface MountainGroupDAO {
     fun getAll(): LiveData<List<MountainGroup>>
 
     @Query("select * from GrupyGorskie where nazwa = :nameMG")
-    fun getMountainGroup(nameMG: String): LiveData<List<MountainGroup>>
+    fun getMountainGroup(nameMG: String): List<MountainGroup>
 
     @Query("select * from GrupyGorskie where id = :idMG")
-    fun getMountainGroup(idMG: Long): LiveData<List<MountainGroup>>
+    fun getMountainGroup(idMG: Long): List<MountainGroup>
 }

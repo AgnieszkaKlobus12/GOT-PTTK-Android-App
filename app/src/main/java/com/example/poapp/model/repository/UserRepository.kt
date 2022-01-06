@@ -1,10 +1,10 @@
 package com.example.poapp.model.repository
 
 import androidx.lifecycle.LiveData
-import com.example.poapp.model.dao.UzytkownikDAO
+import com.example.poapp.model.dao.UserDAO
 import com.example.poapp.model.entity.Uzytkownik
 
-class UserRepository(private val userDao: UzytkownikDAO) {
+class UserRepository(private val userDao: UserDAO) {
 
 
     fun insert(user: Uzytkownik) {

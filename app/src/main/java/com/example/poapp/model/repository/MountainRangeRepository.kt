@@ -14,11 +14,11 @@ class MountainRangeRepository(private val mountainRangeDAO: MountainRangeDAO) {
         return mountainRangeDAO.getAll()
     }
 
-    fun getMountainRange(name: String): LiveData<List<MountainRange>> {
+    fun getMountainRange(name: String): List<MountainRange> {
         return mountainRangeDAO.getMountainRange(name)
     }
 
-    fun getMountainRange(id: Int): LiveData<List<MountainRange>> {
+    fun getMountainRange(id: Int): List<MountainRange> {
         return mountainRangeDAO.getMountainRange(id)
     }
 }

@@ -17,8 +17,8 @@ interface MountainRangeDAO {
     fun getAll(): LiveData<List<MountainRange>>
 
     @Query("select * from PasmaGorskie where nazwa = :MRname")
-    fun getMountainRange(MRname: String): LiveData<List<MountainRange>>
+    fun getMountainRange(MRname: String): List<MountainRange>
 
     @Query("select * from PasmaGorskie where id = :MRid")
-    fun getMountainRange(MRid: Int): LiveData<List<MountainRange>>
+    fun getMountainRange(MRid: Int): List<MountainRange>
 }

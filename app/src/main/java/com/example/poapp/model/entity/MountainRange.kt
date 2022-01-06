@@ -11,7 +11,7 @@ import androidx.room.PrimaryKey
             entity = MountainGroup::class,
             parentColumns = ["id"],
             childColumns = ["FKgrupaGorska"],
-            onDelete = ForeignKey.RESTRICT
+            onDelete = ForeignKey.CASCADE
         )
     ]
 )

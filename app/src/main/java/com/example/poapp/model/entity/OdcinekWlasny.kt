@@ -31,19 +31,19 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = GeoPoint::class,
+            entity = OfficialPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPoczatkowyOficjalny"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = GeoPoint::class,
+            entity = OfficialPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktKoncowyOficjalny"],
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = GeoPoint::class,
+            entity = OfficialPoint::class,
             parentColumns = ["id"],
             childColumns = ["FKpunktPosredniOficjalny"],
             onDelete = ForeignKey.RESTRICT

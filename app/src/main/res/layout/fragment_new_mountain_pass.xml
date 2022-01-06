@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nowy_text_poczatek"
+            android:id="@+id/new_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
@@ -37,7 +37,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nowy_text_koniec"
+            android:id="@+id/new_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
@@ -56,7 +56,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nowy_text_punkty"
+            android:id="@+id/new_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
@@ -75,7 +75,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nowy_text_przez"
+            android:id="@+id/new_trough"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
@@ -94,7 +94,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nowy_text_nazwa"
+            android:id="@+id/new_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
@@ -113,7 +113,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/nowy_text_status"
+            android:id="@+id/new_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp" />
@@ -127,7 +127,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/anuluj_nOd"
+        android:id="@+id/cancel_mountain_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

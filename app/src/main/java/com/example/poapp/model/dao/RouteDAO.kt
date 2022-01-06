@@ -8,7 +8,7 @@ import androidx.room.Query
 import com.example.poapp.model.entity.Trasa
 
 @Dao
-interface TrasaDAO {
+interface RouteDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(trasa: Trasa)

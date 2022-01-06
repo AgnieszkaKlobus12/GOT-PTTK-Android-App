@@ -14,11 +14,11 @@ class MountainGroupRepository(private val mountainGroupDAO: MountainGroupDAO) {
         return mountainGroupDAO.getAll()
     }
 
-    fun getMountainGroup(name: String): LiveData<List<MountainGroup>> {
+    fun getMountainGroup(name: String): List<MountainGroup> {
         return mountainGroupDAO.getMountainGroup(name)
     }
 
-    fun getMountainGroup(id: Long): LiveData<List<MountainGroup>> {
+    fun getMountainGroup(id: Long): List<MountainGroup> {
         return mountainGroupDAO.getMountainGroup(id)
     }
 }

@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import com.example.poapp.model.entity.Turysta
 
 @Dao
-interface TurystaDAO {
+interface TouristDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(turysta: Turysta)

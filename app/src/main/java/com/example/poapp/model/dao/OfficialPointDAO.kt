@@ -2,23 +2,23 @@ package com.example.poapp.model.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.poapp.model.entity.GeoPoint
+import com.example.poapp.model.entity.OfficialPoint
 
 @Dao
-interface GeoPointDAO {
+interface OfficialPointDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(geoPoint: GeoPoint)
+    fun insert(geoPoint: OfficialPoint): Long
 
     @Update
-    fun update(geoPoint: GeoPoint)
+    fun update(geoPoint: OfficialPoint)
 
     @Query("select * from PunktyOficjalne")
-    fun getAll(): LiveData<List<GeoPoint>>
+    fun getAll(): LiveData<List<OfficialPoint>>
 
     @Query("select * from PunktyOficjalne where id = :pointID")
-    fun getGeoPoint(pointID: Int): LiveData<List<GeoPoint>>
+    fun getOfficialPoint(pointID: Int): List<OfficialPoint>
 
     @Query("select * from PunktyOficjalne where nazwa = :pointName")
-    fun getGeoPoint(pointName: String): LiveData<List<GeoPoint>>
+    fun getOfficialPoint(pointName: String): List<OfficialPoint>
 }

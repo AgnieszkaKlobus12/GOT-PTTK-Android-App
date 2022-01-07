@@ -44,22 +44,14 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         this.mountainPassOfficial.value = MountainPassOfficial(0, "-", 0, 0, 0, 0, 0, "aktywny")
     }
 
-    fun setMountainPassStart(id: Int) {
-        mountainPassOfficial.value!!.FKpunktPoczatkowy = id
-    }
-
-    fun addOdcinekOficjalny(odcinek: MountainPassOfficial) {
+    fun addOfficialPoint(mountainPassOfficial1: MountainPassOfficial) {
         viewModelScope.launch(Dispatchers.IO) {
-            mountainPassRepository.insert(odcinek)
+            mountainPassRepository.insert(mountainPassOfficial1)
         }
     }
 
     fun getAll(): LiveData<List<MountainPassOfficial>> {
         return mountainPassRepository.getAll()
-    }
-
-    fun getAllMountainRanges(): LiveData<List<MountainRange>> {
-        return mountainRangeRepository.getAll()
     }
 
     fun getMountainPassOfficial(id: Int): List<MountainPassOfficial> {
@@ -70,21 +62,9 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         return officialPointRepository.insert(point)
     }
 
-    fun updateGeoPoint(point: OfficialPoint) {
+    fun updateOfficialPoint(point: OfficialPoint) {
         viewModelScope.launch(Dispatchers.IO) {
             officialPointRepository.update(point)
-        }
-    }
-
-    fun addMountainRange(mountainRange: MountainRange) {
-        viewModelScope.launch(Dispatchers.IO) {
-            mountainRangeRepository.insert(mountainRange)
-        }
-    }
-
-    fun addMountainGroup(mountainGroup: MountainGroup) {
-        viewModelScope.launch(Dispatchers.IO) {
-            mountainGroupRepository.insert(mountainGroup)
         }
     }
 
@@ -92,16 +72,8 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         return officialPointRepository.getOfficialPoint(id)
     }
 
-    fun getOfficialPoint(name: String): List<OfficialPoint> {
-        return officialPointRepository.getOfficialPoint(name)
-    }
-
     fun getMountainGroup(id: Int): List<MountainGroup> {
         return mountainGroupRepository.getMountainGroup(id)
-    }
-
-    fun getMountainGroup(name: String): List<MountainGroup> {
-        return mountainGroupRepository.getMountainGroup(name)
     }
 
     fun getMountainRange(id: Int): List<MountainRange> {

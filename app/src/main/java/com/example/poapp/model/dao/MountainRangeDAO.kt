@@ -10,6 +10,9 @@ import com.example.poapp.model.entity.MountainRange
 @Dao
 interface MountainRangeDAO {
 
+    @Query("delete from PasmaGorskie")
+    fun deleteAll()
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(mountainRange: MountainRange)
 

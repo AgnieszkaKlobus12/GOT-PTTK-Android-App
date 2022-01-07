@@ -29,9 +29,7 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        mViewModel = ViewModelProviders.of(this)[MountainPassOfficialViewModel::class.java]
 
-        //default values to show if adding new point
         var officialPoint = OfficialPoint(0, "", 0.0, 0.0, 0)
 
         //if Id != 0 find in database and show existing data
@@ -48,7 +46,6 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
 
         //if pointID != 0 edit update in database, else add new
         binding.saveOfficialPoint.setOnClickListener {
-            //collect new data
             officialPoint.nazwa = binding.officialPointName.text.toString()
             officialPoint.dlugoscGeo = binding.longitude.text.toString().toDouble()
             officialPoint.szerokoscGeo = binding.latitude.text.toString().toDouble()
@@ -70,7 +67,7 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
             if (officialPoint.id == 0) {
                 officialPoint.id = mViewModel.addOfficialPoint(officialPoint).toInt()
             } else {
-                mViewModel.updateGeoPoint(officialPoint)
+                mViewModel.updateOfficialPoint(officialPoint)
             }
 
             //change data in ViewModel
@@ -86,7 +83,6 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                 }
             }
 
-            //return
             activity?.supportFragmentManager?.popBackStack()
         }
     }

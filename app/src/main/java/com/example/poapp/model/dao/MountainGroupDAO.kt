@@ -14,7 +14,7 @@ interface MountainGroupDAO {
     fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(mountainGroup: MountainGroup)
+    fun insert(mountainGroup: MountainGroup): Long
 
     @Query("select * from GrupyGorskie")
     fun getAll(): LiveData<List<MountainGroup>>

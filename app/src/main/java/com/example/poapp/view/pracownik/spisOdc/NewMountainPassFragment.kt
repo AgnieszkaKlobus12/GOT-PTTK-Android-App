@@ -150,7 +150,28 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
             activity?.supportFragmentManager?.popBackStack() //jak tak to to, jak nie to return z listenera
         }
         binding.saveMountainPass.setOnClickListener {
-//            mViewModel.addOdcinekOficjalny(mViewModel.mountainPassOfficial.value)
+            if (mViewModel.mountainPassOfficial.value!!.FKpunktPoczatkowy == 0 || mViewModel.mountainPassOfficial.value!!.FKpunktKoncowy == 0) {
+                //TODO Dialog - "Odcinek musi posiadać punkt początkowy i końcowy
+                return@setOnClickListener
+            }
+            val mountainRangeStart =
+                mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPoczatkowy)[0].FKpasmoGorskie
+            val mountainRangeEnd =
+                mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktKoncowy)[0].FKpasmoGorskie
+            var mountainRangeThrough = mountainRangeStart
+            if (mViewModel.mountainPassOfficial.value!!.FKpunktPosredni != null && mViewModel.mountainPassOfficial.value!!.FKpunktPosredni != 0) {
+                mountainRangeThrough =
+                    mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPosredni!!)[0].FKpasmoGorskie
+            } else {
+                mViewModel.mountainPassOfficial.value!!.FKpunktPosredni = null
+            }
+            if (mountainRangeStart != mountainRangeEnd || mountainRangeStart != mountainRangeThrough || mountainRangeEnd != mountainRangeThrough) {
+                //TODO DIALOG "Wszstkie punkty odcinka muszą znajdować się w tym samym paśmie górskim"
+                return@setOnClickListener
+            }
+            mViewModel.mountainPassOfficial.value!!.FKpasmoGorskie = mountainRangeStart
+            mViewModel.addOfficialPoint(mViewModel.mountainPassOfficial.value!!)
+            activity?.supportFragmentManager?.popBackStack()
         }
     }
 

@@ -48,6 +48,23 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
             officialPoint.dlugoscGeo = binding.longitude.text.toString().toDouble()
             officialPoint.szerokoscGeo = binding.latitude.text.toString().toDouble()
 
+            if (officialPoint.nazwa == "") {
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.no_point_name_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
+
+                return@setOnClickListener
+            }
+
             //find MountainRange by name
             val mountainRangeList = mViewModel.getMountainRange(binding.mountainRange.text.toString())
             if (mountainRangeList.isNotEmpty()) {

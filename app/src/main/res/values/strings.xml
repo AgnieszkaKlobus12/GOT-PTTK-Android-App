@@ -66,5 +66,6 @@
     <string name="confirm_cancel_message">Czy na pewno chcesz anulować?</string>
     <string name="no_point_set_message">Odcinek musi mieć punkt początkowy i końcowy</string>
     <string name="points_in_different_mountain_ranges_message">Wszystkie punkty odcinka muszą znajdować się w tym samym paśie górskim</string>
+    <string name="no_point_name_message">Podaj nazwę punktu</string>
 
 </resources>

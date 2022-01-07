@@ -2,15 +2,16 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_trasy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.employee.MountainPassesListFragment">
+    tools:context=".view.tourist.RouteListFragment">
 
     <TextView
-        android:id="@+id/mountain_passes_list_text"
+        android:id="@+id/last_routes_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/mountain_passes_list"
+        android:text="@string/last_routes"
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,27 +19,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mountain_passes_list"
-        android:name="com.example.po.ui.employee.MountainPassFragment"
+        android:id="@+id/last_routes_list"
+        android:name="com.example.po.ui.tourist.ItemFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context=".view.employee.MountainPassFragment"
-        tools:listitem="@layout/fragment_mountain_pass"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="10dp"
         app:layoutManager="LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@id/add_new_pass"
+        app:layout_constraintBottom_toTopOf="@id/add_route_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mountain_passes_list_text" />
+        app:layout_constraintTop_toBottomOf="@id/last_routes_text"
+        tools:context=".ui.tourist.ItemFragment"
+        tools:listitem="@layout/fragment_item" />
 
     <Button
-        android:id="@+id/add_new_pass"
+        android:id="@+id/add_route_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="10dp"
-        android:text="@string/add_mountain_pass"
+        android:text="@string/add_route"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

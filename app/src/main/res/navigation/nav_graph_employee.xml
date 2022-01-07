@@ -2,8 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/routeListFragment">
+    android:id="@+id/nav_graph_employee"
+    app:startDestination="@id/mountainPassesListFragment">
 
     <fragment
         android:id="@+id/notImplementedFragment"
@@ -12,12 +12,12 @@
         tools:layout="@layout/fragment_not_implemented" />
 
     <fragment
-        android:id="@+id/routeListFragment"
-        android:name="com.example.poapp.view.tourist.RouteListFragment"
-        android:label="fragment_route_list"
-        tools:layout="@layout/fragment_route_list" >
+        android:id="@+id/mountainPassesListFragment"
+        android:name="com.example.poapp.view.employee.MountainPassesListFragment"
+        android:label="fragment_mountain_passes_list"
+        tools:layout="@layout/fragment_mountain_passes_list" >
         <action
-            android:id="@+id/action_routeListFragment_to_notImplementedFragment"
+            android:id="@+id/action_mountainPassesListFragment_to_notImplementedFragment"
             app:destination="@id/notImplementedFragment" />
     </fragment>
 

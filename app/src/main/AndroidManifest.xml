@@ -10,15 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name=".view.przodownik.PotwierdzActivity"
+            android:name=".view.leader.ConfirmRouteActivity"
             android:exported="true"
             android:theme="@style/Theme.przodownik_theme" />
         <activity
-            android:name=".view.turysta.trasy.ZapisanieTrasyActivity"
+            android:name=".view.tourist.SaveRouteActivity"
             android:exported="true"
             android:theme="@style/Theme.turysta_theme" />
         <activity
-            android:name=".view.employee.mountainPass.MountainPassesActivity"
+            android:name=".view.employee.MountainPassesActivity"
             android:exported="true"
             android:theme="@style/Theme.pracownik_theme" />
         <activity

@@ -16,4 +16,9 @@
         android:icon="@drawable/destination"
         android:title="@string/nav_mountain_passes_label" />
 
+    <item
+        android:id="@+id/navigation_confirm"
+        android:icon="@drawable/checked"
+        android:title="@string/nav_confirm_label" />
+
 </menu>

@@ -1,34 +1,55 @@
 <resources>
     <string name="app_name">E-GOT PTTK</string>
-    <string name="zapisanie_trasy">Zapisanie trasy A. Kłobus</string>
-    <string name="edycja_odcinka">Edycja odcinka A. Stecka</string>
-    <string name="potwierdzenie_trasy">Potwierdzenie trasy A. Stecka</string>
-    <string name="zamieszczanie_dowodu">Zamieszczenie dowodu A. Kłobus</string>
-    <string name="navigation_spis_label">Spis odcinków</string>
-    <string name="navigation_account_label">Utwórz konto</string>
-    <string name="navigation_egot_label">E - GOT</string>
-    <string name="navigation_trasy_label">Trasy</string>
-    <string name="navigation_odcinki_label">Odcinki</string>
-    <string name="navigation_potwierdz_label">Potwierdź</string>
-    <string name="ostatnie_trasy">Ostatnie trasy</string>
-    <string name="dodaj_trase">Dodaj trasę</string>
-    <string name="dodaj_odcinek">Dodaj odcinek</string>
-    <string name="wlasny">Własny</string>
-    <string name="oficjalny">Oficjalny</string>
-    <string name="dodaj_dowod">Dodaj dowód</string>
-    <string name="zakoncz">Zakończ dodawanie odcinków</string>
+    <string name="save_route_use_case">Zapisanie trasy A. Kłobus</string>
+    <string name="mountain_pass_use_case">Edycja odcinka A. Stecka</string>
+    <string name="confirm_route_use_case">Potwierdzenie trasy A. Stecka</string>
+    <string name="add_proof_use_case">Zamieszczenie dowodu A. Kłobus</string>
+
+    <string name="nav_mountain_passes_list_label">Spis odcinków</string>
+    <string name="nav_account_label">Utwórz konto</string>
+    <string name="nav_ebook_label">E - GOT</string>
+    <string name="nav_routes_label">Trasy</string>
+    <string name="nav_mountain_passes_label">Odcinki</string>
+    <string name="nav_confirm_label">Potwierdź</string>
+    <string name="last_routes">Ostatnie trasy</string>
+    <string name="add_route">Dodaj trasę</string>
+    <string name="add_mountain_pass">Dodaj odcinek</string>
+    <string name="own_mountain_pass">Własny</string>
+    <string name="official_mountain_pass">Oficjalny</string>
+    <string name="add_proof">Dodaj dowód</string>
+    <string name="adding_passes_end">Zakończ dodawanie odcinków</string>
+    <string name="mountain_passes_list">Spis odcinków</string>
+    <string name="details">Szczegóły</string>
+    <string name="start">Początek:</string>
+    <string name="end">Koniec:</string>
+    <string name="points">Punkty:</string>
+    <string name="through">Przez:</string>
+    <string name="name">Nazwa:</string>
+    <string name="mountain_group">Grupa górska:</string>
+    <string name="mountain_range">Pasmo górskie:</string>
+    <string name="status">Status:</string>
+    <string name="pass_edit">Edytuj odcinek</string>
+    <string name="pass_delete">Usuń odcinek</string>
+    <string name="edit">Edytuj</string>
+    <string name="cancel">Anuluj</string>
+    <string name="finish_editing_pass">Zakończ edycję</string>
 
     <string name="extension_point_label">Przejście do innego PU</string>
     <string name="not_implemented_label">PU nie wybrany do implementacji</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="implemented_elsewhere_label">Aby obejrzeć implementację PU na głównym ekranie naciśnij przycisk Zapisanie trasy A. Kłobus</string>
+
     <string name="yes">Tak</string>
+    <string name="no">Nie</string>
     <string name="active">aktywny</string>
     <string name="removed">zlikwidowany</string>
-    <string name="no">Nie</string>
+
     <string name="alert">Uwaga</string>
     <string name="statusChangeMessage">Czy na pewno chcesz zmienić status odcinka?</string>
     <string name="back">Cofnij</string>
     <string name="ok">OK</string>
     <string name="UC_not_selected">PU nie wybrany do implementacji</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

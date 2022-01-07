@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.poapp.databinding.ActivityMainBinding
-import com.example.poapp.view.employee.mountainPass.MountainPassesActivity
-import com.example.poapp.view.przodownik.PotwierdzActivity
-import com.example.poapp.view.turysta.trasy.ZapisanieTrasyActivity
+import com.example.poapp.view.employee.MountainPassesActivity
+import com.example.poapp.view.leader.ConfirmRouteActivity
+import com.example.poapp.view.tourist.SaveRouteActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,23 +18,27 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.zapisanieTrasy.setOnClickListener {
-            val intent = Intent(this, ZapisanieTrasyActivity::class.java)
+        //TODO
+        binding.saveRoute.setOnClickListener {
+            Toast.makeText(this, "TODO - finish", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, SaveRouteActivity::class.java)
             startActivity(intent)
         }
 
-        binding.dowod.setOnClickListener {
+        //TODO
+        binding.addProof.setOnClickListener {
             Toast.makeText(this, "TODO", Toast.LENGTH_SHORT).show()
-            //TODO
         }
 
-        binding.edycjaOdcinka.setOnClickListener {
+        binding.mountainPass.setOnClickListener {
             val intent = Intent(this, MountainPassesActivity::class.java)
             startActivity(intent)
         }
 
-        binding.potwierdzenieTrasy.setOnClickListener {
-            val intent = Intent(this, PotwierdzActivity::class.java)
+        //TODO
+        binding.confirmRoute.setOnClickListener {
+            Toast.makeText(this, "TODO - finish", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, ConfirmRouteActivity::class.java)
             startActivity(intent)
         }
     }

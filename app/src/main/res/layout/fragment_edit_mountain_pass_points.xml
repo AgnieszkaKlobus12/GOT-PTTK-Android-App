@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.employee.mountainPass.EditMountainPassPointsFragment">
-
+    tools:context=".view.employee.EditMountainPassPointsFragment">
 
     <TextView
         android:id="@+id/textView"
@@ -61,4 +60,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_mountain_pass_points" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

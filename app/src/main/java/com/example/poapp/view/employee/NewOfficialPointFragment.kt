@@ -74,7 +74,7 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
             //add or update
             //each RouteSection has its own points - implementing handling Points UserCase not required
             if (officialPoint.id == 0)
-                officialPoint.id = mViewModel.addOfficialPoint(officialPoint).toInt()
+                officialPoint.id = mViewModel.addMountainPass(officialPoint).toInt()
             else
                 mViewModel.updateOfficialPoint(officialPoint)
 

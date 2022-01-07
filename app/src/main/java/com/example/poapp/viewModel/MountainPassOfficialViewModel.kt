@@ -43,7 +43,7 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         this.mountainPassOfficial.value = MountainPassOfficial(0, "-", 0, 0, 0, 0, 0, "aktywny")
     }
 
-    fun addOfficialPoint(mountainPassOfficial1: MountainPassOfficial) {
+    fun addMountainPass(mountainPassOfficial1: MountainPassOfficial) {
         viewModelScope.launch(Dispatchers.IO) {
             mountainPassRepository.insert(mountainPassOfficial1)
         }
@@ -57,7 +57,7 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         return mountainPassRepository.geMountainPass(id)
     }
 
-    fun addOfficialPoint(point: OfficialPoint): Long {
+    fun addMountainPass(point: OfficialPoint): Long {
         return officialPointRepository.insert(point)
     }
 

@@ -1,11 +1,13 @@
 package com.example.poapp.view.employee
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.poapp.R
 import com.example.poapp.databinding.FragmentNewOfficialPointBinding
 import com.example.poapp.model.entity.OfficialPoint
 import com.example.poapp.viewModel.MountainPassOfficialViewModel
@@ -52,7 +54,20 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                 officialPoint.FKpasmoGorskie = mountainRange.id
             } else {
                 //group and range have to exist
-                //TODO show dialog - "Pasmo Górskie nie występuje w bazie"
+
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.mountain_range_error_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
+
                 return@setOnClickListener
             }
 

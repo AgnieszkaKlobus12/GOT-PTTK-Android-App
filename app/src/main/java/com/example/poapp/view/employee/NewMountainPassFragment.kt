@@ -65,9 +65,9 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                 binding.newName.text = mountainPassOfficial.nazwa
                 binding.newStatus.text = mountainPassOfficial.status
                 if (binding.newStatus.text == resources.getString(R.string.active))
-                    binding.newStatus.setTextColor(resources.getColor(R.color.green))
+                    binding.newStatus.setTextColor(requireActivity().getColor(R.color.green))
                 else
-                    binding.newStatus.setTextColor(resources.getColor(R.color.red))
+                    binding.newStatus.setTextColor(requireActivity().getColor(R.color.red))
             })
 
         binding.editStart.setOnClickListener {
@@ -133,10 +133,10 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                         dialog.dismiss()
                         if (mViewModel.mountainPassOfficial.value!!.status == getString(R.string.active)) {
                             mViewModel.mountainPassOfficial.value!!.status = getString(R.string.removed)
-                            binding.newStatus.setTextColor(resources.getColor(R.color.red))
+                            binding.newStatus.setTextColor(requireActivity().getColor(R.color.red))
                         } else {
                             mViewModel.mountainPassOfficial.value!!.status = getString(R.string.active)
-                            binding.newStatus.setTextColor(resources.getColor(R.color.green))
+                            binding.newStatus.setTextColor(requireActivity().getColor(R.color.green))
                         }
                         binding.newStatus.text = mViewModel.mountainPassOfficial.value!!.status
                     }

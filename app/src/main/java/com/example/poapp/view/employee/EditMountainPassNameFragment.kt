@@ -24,9 +24,7 @@ class EditMountainPassNameFragment : Fragment() {
 
         binding.editMountainPassName.setText(mViewModel.mountainPassOfficial.value!!.nazwa)
         binding.saveMountainPassName.setOnClickListener {
-            mViewModel.mountainPassOfficial.value!!.nazwa =
-                binding.editMountainPassName.text.toString()
-
+            mViewModel.mountainPassOfficial.value!!.nazwa = binding.editMountainPassName.text.toString()
             activity?.supportFragmentManager?.popBackStack()
         }
     }

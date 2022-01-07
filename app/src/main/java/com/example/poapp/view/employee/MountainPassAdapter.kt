@@ -1,5 +1,6 @@
 package com.example.poapp.view.employee
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.example.poapp.model.entity.MountainPassOfficial
 import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
 class MountainPassAdapter(
+    private val context: Context,
     private val values: List<MountainPassOfficial>,
     private val mViewModel: MountainPassOfficialViewModel,
     private val onMountainPassClickedListener: OnMountainPassClickedListener
@@ -35,6 +37,10 @@ class MountainPassAdapter(
             holder.throughPoint.text = "-"
         holder.name.text = mountainPass.nazwa
         holder.status.text = mountainPass.status
+        if (holder.status.text == context.resources.getString(R.string.active))
+            holder.status.setTextColor(context.getColor(R.color.green))
+        else
+            holder.status.setTextColor(context.getColor(R.color.red))
         holder.itemView.setOnClickListener {
             onMountainPassClickedListener.onItemClick(mountainPass)
         }

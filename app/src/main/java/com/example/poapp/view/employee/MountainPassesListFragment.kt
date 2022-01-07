@@ -1,6 +1,7 @@
 package com.example.poapp.view.employee
 
 import android.os.Bundle
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,7 @@ class MountainPassesListFragment : Fragment() {
         mViewModel.getAll().observe(viewLifecycleOwner, { passes ->
             passes?.let { allPasses = it }
             list.adapter = MountainPassAdapter(
-                allPasses, mViewModel, object : OnMountainPassClickedListener {
+                activity as Context, allPasses, mViewModel, object : OnMountainPassClickedListener {
                     override fun onItemClick(item: MountainPassOfficial) {
                         activity?.supportFragmentManager?.beginTransaction()
                             ?.replace(

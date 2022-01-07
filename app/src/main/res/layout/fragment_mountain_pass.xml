@@ -23,7 +23,6 @@
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:text="helo"
         app:layout_constraintLeft_toRightOf="@id/pass_start_label"
         app:layout_constraintTop_toTopOf="@id/pass_start_label" />
 
@@ -44,7 +43,6 @@
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:text="helo"
         app:layout_constraintLeft_toRightOf="@id/pass_end_label"
         app:layout_constraintTop_toTopOf="@id/pass_end_label" />
 
@@ -64,7 +62,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintLeft_toRightOf="@id/pass_points_label"
         app:layout_constraintTop_toTopOf="@id/pass_points_label" />
 
@@ -84,7 +81,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintLeft_toRightOf="@id/pass_through_label"
         app:layout_constraintTop_toTopOf="@id/pass_through_label" />
 
@@ -104,7 +100,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintLeft_toRightOf="@id/pass_name_label"
         app:layout_constraintTop_toTopOf="@id/pass_name_label" />
 
@@ -125,7 +120,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:text="helo"
         app:layout_constraintLeft_toRightOf="@id/pass_status_label"
         app:layout_constraintTop_toTopOf="@id/pass_status_label" />
 

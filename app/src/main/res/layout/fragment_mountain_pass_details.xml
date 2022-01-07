@@ -36,7 +36,6 @@
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/start_point_label"
         app:layout_constraintLeft_toRightOf="@id/start_point_label" />
 
@@ -58,7 +57,6 @@
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/end_point_label"
         app:layout_constraintLeft_toRightOf="@id/end_point_label" />
 
@@ -78,7 +76,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/points_label"
         app:layout_constraintLeft_toRightOf="@id/points_label" />
 
@@ -98,7 +95,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/point_through_label"
         app:layout_constraintLeft_toRightOf="@id/point_through_label" />
 
@@ -118,7 +114,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/name_label"
         app:layout_constraintLeft_toRightOf="@id/name_label" />
 
@@ -138,7 +133,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/mountain_group_label"
         app:layout_constraintLeft_toRightOf="@id/mountain_group_label" />
 
@@ -158,7 +152,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
         android:textColor="@color/black"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/mountain_range_label"
         app:layout_constraintLeft_toRightOf="@id/mountain_range_label" />
 
@@ -177,7 +170,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:text="helo"
         app:layout_constraintTop_toTopOf="@id/status_label"
         app:layout_constraintLeft_toRightOf="@id/status_label" />
 

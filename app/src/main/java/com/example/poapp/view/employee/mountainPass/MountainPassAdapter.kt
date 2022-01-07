@@ -7,9 +7,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.model.entity.MountainPassOfficial
+import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
 class MountainPassAdapter(
     private val values: List<MountainPassOfficial>,
+    private val mViewModel: MountainPassOfficialViewModel,
     private val onMountainPassClickedListener: OnMountainPassClickedListener
 ) :
     RecyclerView.Adapter<MountainPassAdapter.MountainPassOfficialItemHolder>() {
@@ -27,10 +29,16 @@ class MountainPassAdapter(
 
     override fun onBindViewHolder(holder: MountainPassOfficialItemHolder, position: Int) {
         val mountainPass = values[position]
-        holder.startPoint.text = mountainPass.FKpunktPoczatkowy.toString() //TODO zamienić na nazwy
-        holder.endPoint.text = mountainPass.FKpunktKoncowy.toString()
+        holder.startPoint.text =
+            mViewModel.getOfficialPoint(mountainPass.FKpunktPoczatkowy)[0].nazwa
+        holder.endPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktKoncowy)[0].nazwa
         holder.passPoints.text = mountainPass.punkty.toString()
-        holder.throughPoint.text = mountainPass.FKpunktPosredni.toString()
+        if (mountainPass.FKpunktPosredni != null && mountainPass.FKpunktPosredni != 0) {
+            holder.throughPoint.text =
+                mViewModel.getOfficialPoint(mountainPass.FKpunktPosredni!!)[0].nazwa
+        } else {
+            holder.throughPoint.text = "-"
+        }
         holder.name.text = mountainPass.nazwa
         holder.status.text = mountainPass.status
         holder.itemView.setOnClickListener {

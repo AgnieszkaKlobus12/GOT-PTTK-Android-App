@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/nawigation_spis"
-        android:name="com.example.poapp.view.pracownik.spisOdc.OdcinkiListaFragment"
+        android:name="com.example.poapp.view.employee.mountainPass.MountainPassesListFragment"
         android:label="fragment_odcinki_lista"
-        tools:layout="@layout/fragment_odcinki_lista">
+        tools:layout="@layout/fragment_mountain_passes_list">
         <action
             android:id="@+id/action_nawigation_spis_to_CreateAccountFragment"
             app:destination="@id/CreateAccountFragment" />
     </fragment>
     <fragment
         android:id="@+id/CreateAccountFragment"
-        android:name="com.example.poapp.view.pracownik.createAccount.CreateAccountFragment"
+        android:name="com.example.poapp.view.employee.createAccount.CreateAccountFragment"
         android:label="fragment_create_accont"
         tools:layout="@layout/fragment_create_account" />
 </navigation>

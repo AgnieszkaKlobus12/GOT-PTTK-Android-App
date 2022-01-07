@@ -1,10 +1,11 @@
-package com.example.poapp.view.pracownik.spisOdc
+package com.example.poapp.view.employee.mountainPass
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
@@ -25,6 +26,10 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
         if (mountainPassId != 0) {
             val mountainPass = mViewModel.getMountainPassOfficial(mountainPassId)[0]
             mViewModel.setMountainPass(mountainPass)
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            mViewModel.resetMountainPass()
+            activity?.supportFragmentManager?.popBackStack()
         }
     }
 
@@ -171,6 +176,7 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
             }
             mViewModel.mountainPassOfficial.value!!.FKpasmoGorskie = mountainRangeStart
             mViewModel.addOfficialPoint(mViewModel.mountainPassOfficial.value!!)
+            mViewModel.resetMountainPass()
             activity?.supportFragmentManager?.popBackStack()
         }
     }

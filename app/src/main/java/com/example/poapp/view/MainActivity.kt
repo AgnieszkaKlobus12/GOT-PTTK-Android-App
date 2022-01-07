@@ -4,14 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
 import com.example.poapp.databinding.ActivityMainBinding
-import com.example.poapp.model.entity.MountainGroup
-import com.example.poapp.model.entity.MountainRange
-import com.example.poapp.view.pracownik.spisOdc.SpisOdcActivity
+import com.example.poapp.view.employee.mountainPass.MountainPassesActivity
 import com.example.poapp.view.przodownik.PotwierdzActivity
 import com.example.poapp.view.turysta.trasy.ZapisanieTrasyActivity
-import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.edycjaOdcinka.setOnClickListener {
-            val intent = Intent(this, SpisOdcActivity::class.java)
+            val intent = Intent(this, MountainPassesActivity::class.java)
             startActivity(intent)
         }
 

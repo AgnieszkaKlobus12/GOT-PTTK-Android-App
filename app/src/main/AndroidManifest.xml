@@ -18,7 +18,7 @@
             android:exported="true"
             android:theme="@style/Theme.turysta_theme" />
         <activity
-            android:name=".view.pracownik.spisOdc.SpisOdcActivity"
+            android:name=".view.employee.mountainPass.MountainPassesActivity"
             android:exported="true"
             android:theme="@style/Theme.pracownik_theme" />
         <activity

@@ -30,4 +30,5 @@
     <string name="statusChangeMessage">Czy na pewno chcesz zmienić status odcinka?</string>
     <string name="back">Cofnij</string>
     <string name="ok">OK</string>
+    <string name="UC_not_selected">PU nie wybrany do implementacji</string>
 </resources>

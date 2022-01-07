@@ -27,7 +27,6 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
     val mountainPassOfficial =
         MutableLiveData(MountainPassOfficial(0, "-", 0, 0, 0, 0, 0, "aktywny"))
 
-
     init {
         val database = AppDatabase.getInstance(application)
         mountainPassRepository = MountainPassRepository(database.mountainPassDAO())

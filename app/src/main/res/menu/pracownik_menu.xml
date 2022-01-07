@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_spis"
+        android:id="@+id/navigation_passes"
         android:icon="@drawable/list"
         android:title="@string/navigation_spis_label" />
 

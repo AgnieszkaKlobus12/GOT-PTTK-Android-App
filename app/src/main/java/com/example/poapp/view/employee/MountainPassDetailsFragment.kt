@@ -28,11 +28,12 @@ class MountainPassDetailsFragment(private val mountainPassId: Int) : Fragment() 
 
         binding.startPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktPoczatkowy)[0].nazwa
         binding.endPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktKoncowy)[0].nazwa
-        if (mountainPass.FKpunktPosredni != null && mountainPass.FKpunktPosredni != 0) {
+
+        if (mountainPass.FKpunktPosredni != null && mountainPass.FKpunktPosredni != 0)
             binding.endPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktPosredni!!)[0].nazwa
-        } else {
+         else
             binding.endPoint.text = "-"
-        }
+
         binding.pointsValue.text = mountainPass.punkty.toString()
         binding.nameValue.text = mountainPass.nazwa
         val mountainRange = mViewModel.getMountainRange(mountainPass.FKpasmoGorskie)[0]

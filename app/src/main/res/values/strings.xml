@@ -54,12 +54,17 @@
     <string name="removed">zlikwidowany</string>
 
     <string name="alert">Uwaga</string>
-    <string name="statusChangeMessage">Czy na pewno chcesz zmienić status odcinka?</string>
+    <string name="status_change_message">Czy na pewno chcesz zmienić status odcinka?</string>
     <string name="back">Cofnij</string>
     <string name="ok">OK</string>
     <string name="UC_not_selected">PU nie wybrany do implementacji</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="negative_points_message">Liczba punktów nie może być mniejsza od zera</string>
+    <string name="mountain_range_error_message">Nie ma takiego pasma górskiego</string>
+    <string name="confirm_cancel_message">Czy na pewno chcesz anulować?</string>
+    <string name="no_point_set_message">Odcinek musi mieć punkt początkowy i końcowy</string>
+    <string name="points_in_different_mountain_ranges_message">Wszystkie punkty odcinka muszą znajdować się w tym samym paśie górskim</string>
 
 </resources>

@@ -144,7 +144,7 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                         dialog.dismiss()
                     }
                     setTitle(R.string.alert)
-                    setMessage(R.string.statusChangeMessage)
+                    setMessage(R.string.status_change_message)
                 }
                 builder.create()
             }
@@ -152,12 +152,38 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
         }
 
         binding.cancelMountainPass.setOnClickListener {
-            //TODO dialog czy na pewno anulować
-            activity?.supportFragmentManager?.popBackStack() //jak tak to to, jak nie to return z listenera
+            val alertDialog = requireActivity().let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        dialog.dismiss()
+                        mViewModel.resetMountainPass()
+                        activity?.supportFragmentManager?.popBackStack()
+                    }
+                    setNegativeButton(R.string.back) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert)
+                    setMessage(R.string.confirm_cancel_message)
+                }
+                builder.create()
+            }
+            alertDialog.show()
         }
         binding.saveMountainPass.setOnClickListener {
             if (mViewModel.mountainPassOfficial.value!!.FKpunktPoczatkowy == 0 || mViewModel.mountainPassOfficial.value!!.FKpunktKoncowy == 0) {
-                //TODO Dialog - "Odcinek musi posiadać punkt początkowy i końcowy
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.no_point_set_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
                 return@setOnClickListener
             }
             val mountainRangeStart = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPoczatkowy)[0].FKpasmoGorskie
@@ -168,7 +194,18 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
             else
                 mViewModel.mountainPassOfficial.value!!.FKpunktPosredni = null
             if (mountainRangeStart != mountainRangeEnd || mountainRangeStart != mountainRangeThrough || mountainRangeEnd != mountainRangeThrough) {
-                //TODO DIALOG "Wszstkie punkty odcinka muszą znajdować się w tym samym paśmie górskim"
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.points_in_different_mountain_ranges_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
                 return@setOnClickListener
             }
             mViewModel.mountainPassOfficial.value!!.FKpasmoGorskie = mountainRangeStart

@@ -7,58 +7,50 @@
     tools:context=".view.employee.EditMountainPassNameFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/edit_name_title_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="94dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="233dp"
-        android:text="Edytuj nazwe"
+        android:text="@string/edit_name"
+        android:textColor="@color/black"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/edit_name_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="570dp"
-        android:text="Nazwa:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/edit_route_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/name_undecorated"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:labelFor="@id/edit_mountain_pass_name"
+        app:layout_constraintTop_toBottomOf="@id/edit_name_title_label"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edit_route_name"
-        android:layout_width="wrap_content"
+        android:id="@+id/edit_mountain_pass_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="49dp"
-        android:layout_marginBottom="51dp"
         android:ems="10"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/save_route_name"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintStart_toEndOf="@id/edit_name_label"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintBaseline_toBaselineOf="@id/edit_name_label"
+        android:autofillHints=".AUTOFILL_HINT_NOT_APPLICABLE" />
 
     <Button
-        android:id="@+id/save_route_name"
-        android:layout_width="wrap_content"
+        android:id="@+id/save_mountain_pass_name"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="51dp"
-        android:layout_marginEnd="171dp"
-        android:layout_marginBottom="470dp"
-        android:text="Zapisz"
+        android:text="@string/save"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_route_name" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

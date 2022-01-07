@@ -4,7 +4,6 @@
         <item name="colorPrimary">@color/purple_1</item>
         <item name="colorPrimaryVariant">@color/purple_2</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="android:colorAccent">@color/purple_comp_1</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
@@ -12,7 +11,7 @@
         <item name="colorPrimary">@color/blue_2</item>
         <item name="colorPrimaryVariant">@color/blue_3</item>
         <item name="colorOnPrimary">@color/black</item>
-        <item name="android:colorAccent">@color/blue_comp_2</item>
+        <item name="colorAccent">@color/blue_4</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
@@ -20,7 +19,7 @@
         <item name="colorPrimary">@color/pink_2</item>
         <item name="colorPrimaryVariant">@color/pink_3</item>
         <item name="colorOnPrimary">@color/black</item>
-        <item name="android:colorAccent">@color/pink_comp_2</item>
+        <item name="colorAccent">@color/pink_4</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 
@@ -28,7 +27,7 @@
         <item name="colorPrimary">@color/orange_2</item>
         <item name="colorPrimaryVariant">@color/orange_3</item>
         <item name="colorOnPrimary">@color/black</item>
-        <item name="android:colorAccent">@color/orange_comp_2</item>
+        <item name="colorAccent">@color/orange_4</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 

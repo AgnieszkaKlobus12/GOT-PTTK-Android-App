@@ -22,10 +22,10 @@ class EditMountainPassNameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.editRouteName.setText(mViewModel.mountainPassOfficial.value!!.nazwa)
-        binding.saveRouteName.setOnClickListener {
+        binding.editMountainPassName.setText(mViewModel.mountainPassOfficial.value!!.nazwa)
+        binding.saveMountainPassName.setOnClickListener {
             mViewModel.mountainPassOfficial.value!!.nazwa =
-                binding.editRouteName.text.toString()
+                binding.editMountainPassName.text.toString()
 
             activity?.supportFragmentManager?.popBackStack()
         }

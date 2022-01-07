@@ -31,8 +31,18 @@
     <string name="pass_edit">Edytuj odcinek</string>
     <string name="pass_delete">Usuń odcinek</string>
     <string name="edit">Edytuj</string>
+    <string name="save">Zapisz</string>
     <string name="cancel">Anuluj</string>
     <string name="finish_editing_pass">Zakończ edycję</string>
+    <string name="edit_points">Edytuj punkty</string>
+    <string name="points_undecorated">Punkty</string>
+    <string name="edit_name">Edytuj nazwę</string>
+    <string name="name_undecorated">Nazwa</string>
+    <string name="edit_official_point">Edytuj punkt</string>
+    <string name="longitude">Długość geograficzna</string>
+    <string name="latitude">Szerokość geograficzna</string>
+    <string name="mountain_group_undecorated">Grupa górska</string>
+    <string name="mountain_range_undecorated">Pasmo górskie</string>
 
     <string name="extension_point_label">Przejście do innego PU</string>
     <string name="not_implemented_label">PU nie wybrany do implementacji</string>

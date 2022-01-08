@@ -8,7 +8,7 @@ import com.example.poapp.model.entity.User
 interface UserDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(user: User)
+    fun insert(user: User): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update(user: User)

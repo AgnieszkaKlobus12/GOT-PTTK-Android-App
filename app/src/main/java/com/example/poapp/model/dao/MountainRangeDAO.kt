@@ -14,7 +14,7 @@ interface MountainRangeDAO {
     fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(mountainRange: MountainRange)
+    fun insert(mountainRange: MountainRange): Long
 
     @Query("select * from PasmaGorskie")
     fun getAll(): LiveData<List<MountainRange>>

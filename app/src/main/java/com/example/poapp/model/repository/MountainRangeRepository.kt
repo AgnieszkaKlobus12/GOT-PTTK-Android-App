@@ -6,8 +6,8 @@ import com.example.poapp.model.entity.MountainRange
 
 class MountainRangeRepository(private val mountainRangeDAO: MountainRangeDAO) {
 
-    fun insert(mountainRange: MountainRange) {
-        mountainRangeDAO.insert(mountainRange)
+    fun insert(mountainRange: MountainRange): Long {
+        return mountainRangeDAO.insert(mountainRange)
     }
 
     fun getAll(): LiveData<List<MountainRange>> {

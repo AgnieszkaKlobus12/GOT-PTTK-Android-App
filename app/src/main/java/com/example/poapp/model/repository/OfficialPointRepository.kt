@@ -5,6 +5,7 @@ import com.example.poapp.model.dao.OfficialPointDAO
 import com.example.poapp.model.entity.OfficialPoint
 
 class OfficialPointRepository(private val officialPointDAO: OfficialPointDAO) {
+
     fun insert(officialPoint: OfficialPoint): Long {
         return officialPointDAO.insert(officialPoint)
     }

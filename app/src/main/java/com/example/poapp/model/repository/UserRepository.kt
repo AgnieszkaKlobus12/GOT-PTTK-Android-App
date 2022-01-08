@@ -6,9 +6,8 @@ import com.example.poapp.model.entity.User
 
 class UserRepository(private val userDao: UserDAO) {
 
-
-    fun insert(user: User) {
-        userDao.insert(user)
+    fun insert(user: User): Long {
+        return userDao.insert(user)
     }
 
     fun update(user: User) {

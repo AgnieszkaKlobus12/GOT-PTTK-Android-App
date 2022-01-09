@@ -19,5 +19,5 @@ data class Proof(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     var zdjecie: ByteArray?,
-    val FKprzodownik: Int
+    val FKprzodownik: Int?
 )

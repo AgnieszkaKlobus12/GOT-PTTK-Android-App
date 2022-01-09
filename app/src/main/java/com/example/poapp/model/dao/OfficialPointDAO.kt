@@ -22,7 +22,7 @@ interface OfficialPointDAO {
     @Query("select * from PunktyOficjalne where nazwa = :pointName")
     fun getOfficialPoint(pointName: String): List<OfficialPoint>
 
-    @Query("delete from OdcinkiOficjalne")
+    @Query("delete from PunktyOficjalne")
     fun deleteAll()
 
 }

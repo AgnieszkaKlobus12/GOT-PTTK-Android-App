@@ -9,13 +9,13 @@ import com.example.poapp.model.entity.User
 interface TouristDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(tourist: Tourist)
+    fun insert(tourist: Tourist): Long
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update(tourist: Tourist)
 
     @Query("select * from Turysci where nrKsiazeczki = :touristId")
-    fun getUser(touristId: Long): List<Tourist>
+    fun getTourist(touristId: Long): List<Tourist>
 
     @Delete
     fun delete(tourist: Tourist)

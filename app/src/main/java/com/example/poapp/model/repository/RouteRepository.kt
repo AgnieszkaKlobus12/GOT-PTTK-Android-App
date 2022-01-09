@@ -6,7 +6,7 @@ import com.example.poapp.model.entity.Route
 
 class RouteRepository(private val routeDAO: RouteDAO) {
 
-    fun insert(route: Route) {
+    fun insert(route: Route): Long {
         return routeDAO.insert(route)
     }
 

@@ -60,14 +60,14 @@ data class MountainPassUser(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var nazwa: String,
-    var dlugosc: Int,
+    var dlugosc: Double,
     var podejscie: Int,
-    val FKpunktPoczatkowyWlasny: Int,
-    val FKpunktKoncowyWlasny: Int,
-    val FKpunktPosredniWlasny: Int,
-    val FKpunktPoczatkowyOficjalny: Int,
-    val FKpunktKoncowyOficjalny: Int,
-    val FKpunktPosredniOficjalny: Int,
+    val FKpunktPoczatkowyWlasny: Int?,
+    val FKpunktKoncowyWlasny: Int?,
+    val FKpunktPosredniWlasny: Int?,
+    val FKpunktPoczatkowyOficjalny: Int?,
+    val FKpunktKoncowyOficjalny: Int?,
+    val FKpunktPosredniOficjalny: Int?,
     val FKpasmoGorskie: Int
 ) {
     var punkty = podejscie / 100 + dlugosc / 1000

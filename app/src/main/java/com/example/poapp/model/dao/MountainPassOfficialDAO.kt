@@ -11,7 +11,10 @@ import com.example.poapp.model.entity.MountainPassOfficial
 interface MountainPassOfficialDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(mountainPassOfficial: MountainPassOfficial)
+    fun insert(mountainPassOfficial: MountainPassOfficial): Long
+
+    @Query("delete from OdcinkiOficjalne")
+    fun deleteAll()
 
     @Query("select * from OdcinkiOficjalne")
     fun getAll(): LiveData<List<MountainPassOfficial>>

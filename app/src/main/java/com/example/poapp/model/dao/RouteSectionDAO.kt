@@ -12,5 +12,6 @@ interface RouteSectionDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(routeSection: RouteSection): Long
 
-    @Query("delete from DowodyOdcinkow")
+    @Query("delete from OdcinkiTras")
     fun deleteAll()
+}

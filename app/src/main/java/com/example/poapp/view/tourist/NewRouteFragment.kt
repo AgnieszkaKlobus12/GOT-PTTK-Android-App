@@ -7,11 +7,22 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
+import com.example.poapp.model.entity.RouteSection
+import com.example.poapp.viewModel.NewRouteViewModel
 
 class NewRouteFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private val mViewModel: NewRouteViewModel by activityViewModels()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_new_route, container, false)
     }
 
@@ -34,6 +45,26 @@ class NewRouteFragment : Fragment() {
             TODO()
         }
 
+        val list = view.findViewById<RecyclerView>(R.id.route_section_list)
+        list.layoutManager = LinearLayoutManager(context)
+        var allRouteSection = emptyList<RouteSection>()
+//        mViewModel.getAllRouteSections().observe(viewLifecycleOwner, { passes ->
+//            passes?.let { allRouteSection = it }
+//            list.adapter = RouteAdapter(
+//                allRouteSection, mViewModel, object : OnRouteClickedListener {
+//                    override fun onItemClick(item: Route) {
+////                        activity?.supportFragmentManager?.beginTransaction()
+////                            ?.replace(
+////                                R.id.nav_host_fragment_activity_mountain_passes_list,
+////                                MountainPassDetailsFragment(item.id)
+////                            )
+////                            ?.addToBackStack(null)
+////                            ?.commit()
+////                        TODO add on click - for add proof use case
+//                    }
+//                }
+//            )
+//        })
 
     }
 }

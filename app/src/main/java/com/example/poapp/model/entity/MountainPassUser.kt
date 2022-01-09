@@ -62,12 +62,12 @@ data class MountainPassUser(
     var nazwa: String,
     var dlugosc: Int,
     var podejscie: Int,
-    val FKpunktPoczatkowyWlasny: Int,
-    val FKpunktKoncowyWlasny: Int,
-    val FKpunktPosredniWlasny: Int,
-    val FKpunktPoczatkowyOficjalny: Int,
-    val FKpunktKoncowyOficjalny: Int,
-    val FKpunktPosredniOficjalny: Int,
+    val FKpunktPoczatkowyWlasny: Int?,
+    val FKpunktKoncowyWlasny: Int?,
+    val FKpunktPosredniWlasny: Int?,
+    val FKpunktPoczatkowyOficjalny: Int?,
+    val FKpunktKoncowyOficjalny: Int?,
+    val FKpunktPosredniOficjalny: Int?,
     val FKpasmoGorskie: Int
 ) {
     var punkty = podejscie / 100 + dlugosc / 1000

@@ -30,7 +30,7 @@ data class RouteSection(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKtrasa: Int,
     val FKodcinekWlasny: Int?,
-    val FKodcinekOficjalny: Int,
+    val FKodcinekOficjalny: Int?,
     var czasPrzejscia: Int
 )
 

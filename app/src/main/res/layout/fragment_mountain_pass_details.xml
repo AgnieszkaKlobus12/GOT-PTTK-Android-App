@@ -48,7 +48,7 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/start_point_label" />
+        app:layout_constraintTop_toBottomOf="@id/start_point" />
 
     <TextView
         android:id="@+id/end_point"
@@ -68,7 +68,7 @@
         android:textColor="@color/black"
         android:text="@string/points"
         app:layout_constraintStart_toStartOf="@id/start_point_label"
-        app:layout_constraintTop_toBottomOf="@id/end_point_label" />
+        app:layout_constraintTop_toBottomOf="@id/end_point" />
 
     <TextView
         android:id="@+id/points_value"
@@ -87,7 +87,7 @@
         android:textColor="@color/black"
         android:text="@string/through"
         app:layout_constraintStart_toStartOf="@id/start_point_label"
-        app:layout_constraintTop_toBottomOf="@id/points_label" />
+        app:layout_constraintTop_toBottomOf="@id/points_value" />
 
     <TextView
         android:id="@+id/point_through"
@@ -106,7 +106,7 @@
         android:textColor="@color/black"
         android:text="@string/name"
         app:layout_constraintStart_toStartOf="@id/start_point_label"
-        app:layout_constraintTop_toBottomOf="@id/point_through_label" />
+        app:layout_constraintTop_toBottomOf="@id/point_through" />
 
     <TextView
         android:id="@+id/name_value"
@@ -125,7 +125,7 @@
         android:textColor="@color/black"
         android:text="@string/mountain_group"
         app:layout_constraintStart_toStartOf="@id/start_point_label"
-        app:layout_constraintTop_toBottomOf="@id/name_label" />
+        app:layout_constraintTop_toBottomOf="@id/name_value" />
 
     <TextView
         android:id="@+id/mountain_group_value"
@@ -144,7 +144,7 @@
         android:textColor="@color/black"
         android:text="@string/mountain_range"
         app:layout_constraintStart_toStartOf="@id/start_point_label"
-        app:layout_constraintTop_toBottomOf="@id/mountain_group_label" />
+        app:layout_constraintTop_toBottomOf="@id/mountain_group_value" />
 
     <TextView
         android:id="@+id/mountain_range_value"
@@ -163,7 +163,7 @@
         android:textColor="@color/black"
         android:text="@string/status"
         app:layout_constraintStart_toStartOf="@id/start_point_label"
-        app:layout_constraintTop_toBottomOf="@id/mountain_range_label" />
+        app:layout_constraintTop_toBottomOf="@id/mountain_range_value" />
 
     <TextView
         android:id="@+id/status_value"

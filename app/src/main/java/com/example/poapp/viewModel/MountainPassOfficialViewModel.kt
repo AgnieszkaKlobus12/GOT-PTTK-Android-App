@@ -29,7 +29,7 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
 
     init {
         val database = AppDatabase.getInstance(application)
-        mountainPassRepository = MountainPassRepository(database.mountainPassDAO())
+        mountainPassRepository = MountainPassRepository(database.mountainPassOfficialDAO())
         officialPointRepository = OfficialPointRepository(database.officialPointDAO())
         mountainGroupRepository = MountainGroupRepository(database.mountainGroupDAO())
         mountainRangeRepository = MountainRangeRepository(database.mountainRangeDAO())

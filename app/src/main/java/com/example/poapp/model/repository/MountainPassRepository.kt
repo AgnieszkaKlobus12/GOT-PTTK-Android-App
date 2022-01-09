@@ -6,9 +6,8 @@ import com.example.poapp.model.entity.MountainPassOfficial
 
 class MountainPassRepository(private val mountainPassDAO: MountainPassOfficialDAO) {
 
-
-    fun insert(mountainPass: MountainPassOfficial) {
-        mountainPassDAO.insert(mountainPass)
+    fun insert(mountainPass: MountainPassOfficial): Long {
+        return mountainPassDAO.insert(mountainPass)
     }
 
     fun getAll(): LiveData<List<MountainPassOfficial>> {

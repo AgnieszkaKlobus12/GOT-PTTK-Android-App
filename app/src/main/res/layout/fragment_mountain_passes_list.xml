@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         tools:context=".view.employee.MountainPassFragment"
-        tools:listitem="@layout/fragment_mountain_pass"
+        tools:listitem="@layout/fragment_mountain_pass_item"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="10dp"
         app:layoutManager="LinearLayoutManager"

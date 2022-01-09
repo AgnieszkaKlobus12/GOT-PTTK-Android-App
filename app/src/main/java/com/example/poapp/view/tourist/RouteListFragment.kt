@@ -51,7 +51,7 @@ class RouteListFragment : Fragment() {
 
         view.findViewById<Button>(R.id.add_route_button).setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.nav_host_fragment_activity_save_route, NewRouteFragment())
+                ?.replace(R.id.nav_host_fragment_activity_save_route, NewRouteFragment(null))
                 ?.addToBackStack(null)
                 ?.commit()
         }

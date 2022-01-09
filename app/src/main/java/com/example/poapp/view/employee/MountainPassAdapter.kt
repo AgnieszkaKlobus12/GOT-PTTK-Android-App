@@ -20,7 +20,7 @@ class MountainPassAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MountainPassOfficialItemHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.fragment_mountain_pass, parent,
+            R.layout.fragment_mountain_pass_item, parent,
             false
         )
         return MountainPassOfficialItemHolder(itemView)

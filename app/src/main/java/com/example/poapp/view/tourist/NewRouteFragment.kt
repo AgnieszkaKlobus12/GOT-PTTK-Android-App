@@ -11,12 +11,20 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
+import com.example.poapp.model.entity.Route
 import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.NewRouteViewModel
 
-class NewRouteFragment : Fragment() {
+class NewRouteFragment(private val route: Route?) : Fragment() {
 
     private val mViewModel: NewRouteViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (route != null) {
+            mViewModel.setRoute(route)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,33 +46,47 @@ class NewRouteFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.add_proof_button).setOnClickListener {
+            if (mViewModel.getAllRouteSections().value?.isEmpty() == true) {
+                showAddRouteSectionDialog()
+                return@setOnClickListener
+            }
             Toast.makeText(activity, R.string.extension_point_label, Toast.LENGTH_SHORT).show()
         }
 
         view.findViewById<Button>(R.id.end_button).setOnClickListener {
+            if (mViewModel.getAllRouteSections().value?.isEmpty() == true) {
+                showAddRouteSectionDialog()
+                return@setOnClickListener
+            }
             TODO()
         }
+
+        official.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    PickMountainPassFragment(true)
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        }
+        own.setOnClickListener {
+            TODO()
+        }
+
 
         val list = view.findViewById<RecyclerView>(R.id.route_section_list)
         list.layoutManager = LinearLayoutManager(context)
         var allRouteSection = emptyList<RouteSection>()
-//        mViewModel.getAllRouteSections().observe(viewLifecycleOwner, { passes ->
-//            passes?.let { allRouteSection = it }
-//            list.adapter = RouteAdapter(
-//                allRouteSection, mViewModel, object : OnRouteClickedListener {
-//                    override fun onItemClick(item: Route) {
-////                        activity?.supportFragmentManager?.beginTransaction()
-////                            ?.replace(
-////                                R.id.nav_host_fragment_activity_mountain_passes_list,
-////                                MountainPassDetailsFragment(item.id)
-////                            )
-////                            ?.addToBackStack(null)
-////                            ?.commit()
-////                        TODO add on click - for add proof use case
-//                    }
-//                }
-//            )
-//        })
+        mViewModel.getAllRouteSections().observe(viewLifecycleOwner, { passes ->
+            passes?.let { allRouteSection = it }
+            list.adapter = RouteSectionAdapter(
+                allRouteSection, mViewModel
+            )
+        })
+    }
 
+    private fun showAddRouteSectionDialog() {
+        //TODO dialog - "dodaj przynajmniej jeden odcinek
     }
 }

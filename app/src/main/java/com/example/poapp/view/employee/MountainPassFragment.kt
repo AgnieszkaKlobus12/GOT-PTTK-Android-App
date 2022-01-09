@@ -10,7 +10,7 @@ import com.example.poapp.R
 class MountainPassFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_mountain_pass, container, false)
+        return inflater.inflate(R.layout.fragment_mountain_pass_item, container, false)
     }
 
 }

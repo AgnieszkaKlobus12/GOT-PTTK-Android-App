@@ -18,7 +18,7 @@ class RouteAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RouteItemHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.fragment_item, parent,
+            R.layout.fragment_route_item, parent,
             false
         )
         return RouteItemHolder(itemView)
@@ -31,6 +31,7 @@ class RouteAdapter(
         holder.start.text = mViewModel.getStartNameForRoute(item.id)
         holder.end.text = mViewModel.getEndNameForRoute(item.id)
         holder.status.text = item.status
+        holder.itemView.setOnClickListener { onRouteClickedListener.onItemClick(item) }
     }
 
     override fun getItemCount(): Int = values.size

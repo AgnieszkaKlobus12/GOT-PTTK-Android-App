@@ -14,5 +14,3 @@ interface RouteSectionDAO {
 
     @Query("delete from DowodyOdcinkow")
     fun deleteAll()
-
-}

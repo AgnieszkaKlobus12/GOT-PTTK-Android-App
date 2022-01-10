@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".view.employee.MountainPassFragment">
 
@@ -10,7 +10,6 @@
         android:id="@+id/pass_start_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:textSize="20sp"
         android:text="@string/start"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,19 +17,19 @@
 
     <TextView
         android:id="@+id/pass_start"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintLeft_toRightOf="@id/pass_start_label"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pass_start_label"
         app:layout_constraintTop_toTopOf="@id/pass_start_label" />
 
     <TextView
         android:id="@+id/pass_end_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:textSize="20sp"
         android:text="@string/end"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,12 +37,13 @@
 
     <TextView
         android:id="@+id/pass_end"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintLeft_toRightOf="@id/pass_end_label"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pass_end_label"
         app:layout_constraintTop_toTopOf="@id/pass_end_label" />
 
     <TextView
@@ -51,18 +51,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:textColor="@color/black"
         android:text="@string/points"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pass_end" />
 
     <TextView
         android:id="@+id/pass_points"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toRightOf="@id/pass_points_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pass_points_label"
         app:layout_constraintTop_toTopOf="@id/pass_points_label" />
 
     <TextView
@@ -70,18 +69,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:textColor="@color/black"
         android:text="@string/through"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pass_points" />
 
     <TextView
         android:id="@+id/pass_through"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toRightOf="@id/pass_through_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pass_through_label"
         app:layout_constraintTop_toTopOf="@id/pass_through_label" />
 
     <TextView
@@ -89,18 +87,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:textColor="@color/black"
         android:text="@string/name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pass_through" />
 
     <TextView
         android:id="@+id/pass_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        android:textColor="@color/black"
-        app:layout_constraintLeft_toRightOf="@id/pass_name_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pass_name_label"
         app:layout_constraintTop_toTopOf="@id/pass_name_label" />
 
     <TextView
@@ -109,7 +106,6 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/black"
         android:text="@string/status"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pass_name"
@@ -117,10 +113,11 @@
 
     <TextView
         android:id="@+id/pass_status"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintLeft_toRightOf="@id/pass_status_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/pass_status_label"
         app:layout_constraintTop_toTopOf="@id/pass_status_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

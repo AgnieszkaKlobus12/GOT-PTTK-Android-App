@@ -6,17 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.entity.RouteSection
-import com.example.poapp.viewModel.NewRouteViewModel
+import com.example.poapp.model.entity.MountainPassOfficial
+import com.example.poapp.model.entity.MountainPassUser
+import com.example.poapp.viewModel.MountainPassListViewModel
 
 class PickMountainPassFragment(
     private val ifOfficial: Boolean
 ) : Fragment() {
 
-    private val mViewModel: NewRouteViewModel by activityViewModels()
+    private val mViewModel: MountainPassListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +28,20 @@ class PickMountainPassFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = view.findViewById<RecyclerView>(R.id.route_section_list)
-        list.layoutManager = LinearLayoutManager(context)
-        var allRouteSection = emptyList<RouteSection>()
-        list.adapter = TODO()
+        val list = view.findViewById<RecyclerView>(R.id.mountain_passes_list_pick)
+        if (ifOfficial) {
+            var allPasses = emptyList<MountainPassOfficial>()
+            mViewModel.getAllOfficialPasses().observe(viewLifecycleOwner, { passes ->
+                passes?.let { allPasses = it }
+                list.adapter = MountainPassPickAdapter(allPasses, mViewModel)
+            })
+        } else {
+            var allPasses = emptyList<MountainPassUser>()
+            mViewModel.getAllUserPasses().observe(viewLifecycleOwner, { passes ->
+                passes?.let { allPasses = it }
+                list.adapter = MountainPassPickAdapter(allPasses, mViewModel)
+            })
+        }
     }
 
 }

@@ -70,8 +70,15 @@ class NewRouteFragment(private val route: Route?) : Fragment() {
                 ?.addToBackStack(null)
                 ?.commit()
         }
+
         own.setOnClickListener {
-            TODO()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    PickMountainPassFragment(false)
+                )
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
 

@@ -11,7 +11,7 @@ import com.example.poapp.model.entity.MountainPassOfficial
 import com.example.poapp.model.entity.MountainRange
 import com.example.poapp.model.entity.OfficialPoint
 import com.example.poapp.model.repository.MountainGroupRepository
-import com.example.poapp.model.repository.MountainPassRepository
+import com.example.poapp.model.repository.MountainPassOfficialRepository
 import com.example.poapp.model.repository.MountainRangeRepository
 import com.example.poapp.model.repository.OfficialPointRepository
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 //holds data for Adding/Editing MountainPass - including GeoPoints and other helping fragments
 class MountainPassOfficialViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val mountainPassRepository: MountainPassRepository
+    private val mountainPassRepository: MountainPassOfficialRepository
     private val officialPointRepository: OfficialPointRepository
     private val mountainGroupRepository: MountainGroupRepository
     private val mountainRangeRepository: MountainRangeRepository
@@ -29,7 +29,7 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
 
     init {
         val database = AppDatabase.getInstance(application)
-        mountainPassRepository = MountainPassRepository(database.mountainPassOfficialDAO())
+        mountainPassRepository = MountainPassOfficialRepository(database.mountainPassOfficialDAO())
         officialPointRepository = OfficialPointRepository(database.officialPointDAO())
         mountainGroupRepository = MountainGroupRepository(database.mountainGroupDAO())
         mountainRangeRepository = MountainRangeRepository(database.mountainRangeDAO())

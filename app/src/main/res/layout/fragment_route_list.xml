@@ -5,7 +5,7 @@
     android:id="@+id/layout_trasy"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.tourist.RouteListFragment">
+    tools:context=".view.tourist.route.RouteListFragment">
 
     <TextView
         android:id="@+id/last_routes_text"

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.poapp.databinding.ActivityMainBinding
 import com.example.poapp.view.employee.MountainPassesActivity
 import com.example.poapp.view.leader.ConfirmRouteActivity
-import com.example.poapp.view.tourist.SaveRouteActivity
+import com.example.poapp.view.tourist.route.SaveRouteActivity
 
 class MainActivity : AppCompatActivity() {
 

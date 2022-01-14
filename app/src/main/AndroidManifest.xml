@@ -14,7 +14,7 @@
             android:exported="true"
             android:theme="@style/Theme.przodownik_theme" />
         <activity
-            android:name=".view.tourist.SaveRouteActivity"
+            android:name=".view.tourist.route.SaveRouteActivity"
             android:exported="true"
             android:theme="@style/Theme.turysta_theme" />
         <activity

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.tourist.PickMountainPassFragment">
+    tools:context=".view.tourist.route.PickMountainPassFragment">
 
     <TextView
         android:id="@+id/mountain_passes"

@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/routeListFragment"
-        android:name="com.example.poapp.view.tourist.RouteListFragment"
+        android:name="com.example.poapp.view.tourist.route.RouteListFragment"
         android:label="fragment_route_list"
         tools:layout="@layout/fragment_route_list" >
         <action

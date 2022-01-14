@@ -1,4 +1,4 @@
-package com.example.poapp.view.tourist
+package com.example.poapp.view.tourist.route
 
 import android.os.Bundle
 import android.view.LayoutInflater

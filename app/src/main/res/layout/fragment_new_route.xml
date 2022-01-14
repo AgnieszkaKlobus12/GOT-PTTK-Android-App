@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.tourist.NewRouteFragment">
+    tools:context=".view.tourist.route.NewRouteFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/route_section_list"
@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".view.tourist.RouteSectionItemFragment"
+        tools:context=".view.tourist.route.RouteSectionItemFragment"
         tools:listitem="@layout/fragment_route_section_item" />
 
     <Button

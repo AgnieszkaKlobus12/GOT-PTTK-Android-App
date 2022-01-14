@@ -34,7 +34,6 @@ class PickedPassPointsFragment : Fragment() {
             if (passOfficial.FKpunktPosredni != null) {
                 binding.passThrough.text = mViewModel.getOfficialPoint(passOfficial.FKpunktPosredni!!).nazwa
             }
-            binding.passEnd.text = mViewModel.getOfficialPoint(passOfficial.FKpunktPosredni!!).nazwa
             binding.passPoints.text = passOfficial.punkty.toString()
             binding.passName.text = passOfficial.nazwa
         } else {

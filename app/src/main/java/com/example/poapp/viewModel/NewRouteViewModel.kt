@@ -46,6 +46,8 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun saveRoute() {
+        route.value = Route(0, 1, "", "oczekuje na wysłanie", 0)
+        routeSections = listOf()
         route.value!!.id = routeRepository.insert(route.value!!).toInt()
     }
 
@@ -65,7 +67,8 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
 
     fun removeRoute() {
         if (route.value != null && route.value!!.id != 0) {
-            routeRepository.update(route.value!!)
+            routeSectionRepository.deleteAllFor(route.value!!.id.toLong())
+            routeRepository.delete(route.value!!.id.toLong())
         }
     }
 
@@ -76,7 +79,6 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
         return true
     }
 
-
     fun updateRoutePoints(): Int {
         var sum = 0
         for (section in routeSections) {
@@ -86,6 +88,7 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
                 getUserPass(section.FKodcinekWlasny!!).punkty.toInt()
             }
         }
+        route.value!!.punkty = sum
         return sum
     }
 

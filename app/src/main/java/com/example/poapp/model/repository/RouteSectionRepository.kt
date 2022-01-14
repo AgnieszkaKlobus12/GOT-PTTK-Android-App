@@ -13,4 +13,8 @@ class RouteSectionRepository(private val routeSectionDAO: RouteSectionDAO) {
         return routeSectionDAO.getRouteSectionForRoute(routeID)
     }
 
+    fun deleteAllFor(routeID: Long) {
+        routeSectionDAO.deleteAllFor(routeID)
+    }
+
 }

@@ -54,12 +54,12 @@ class MountainPassPickAdapter<E>(
                 holder.through.text = mViewModel.getUserPoint(item.FKpunktPosredniWlasny).nazwa
             }
             holder.name.text = item.nazwa
-            holder.itemView.setOnClickListener {
-                if (item is MountainPassOfficial) {
-                    onMountainPassPickedListener.onPassSelected(item, null)
-                } else {
-                    onMountainPassPickedListener.onPassSelected(null, item)
-                }
+        }
+        holder.itemView.setOnClickListener {
+            if (item is MountainPassOfficial) {
+                onMountainPassPickedListener.onPassSelected(item, null)
+            } else {
+                onMountainPassPickedListener.onPassSelected(null, item as MountainPassUser)
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.viewModel.NewRouteViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SaveRouteFragment : Fragment() {
 
@@ -23,12 +26,17 @@ class SaveRouteFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_save_route, container, false)
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val points = mViewModel.updateRoutePoints()
-        var date = ""
-        view.findViewById<CalendarView>(R.id.calendarView).setOnDateChangeListener { calendarView, year, month, dayOfMonth ->
+        val dateMillis = view.findViewById<CalendarView>(R.id.calendarView).date
+
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        var date = formatter.format(dateMillis)
+
+        view.findViewById<CalendarView>(R.id.calendarView).setOnDateChangeListener { _, year, month, dayOfMonth ->
             var monthString = (month + 1).toString()
             if (month + 1 < 10) {
                 monthString = "0${month + 1}"

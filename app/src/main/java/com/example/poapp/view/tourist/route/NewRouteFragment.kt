@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.viewModel.NewRouteViewModel
@@ -101,7 +100,6 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
 
 
         val list = view.findViewById<RecyclerView>(R.id.route_section_list)
-        list.layoutManager = LinearLayoutManager(context)
         val allRouteSection = mViewModel.getAllRouteSections()
         list.adapter = RouteSectionAdapter(
             allRouteSection, mViewModel

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.tourist.route.RouteDetailsFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/route_section_list"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/add_mountain_pass_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".view.tourist.route.RouteSectionItemFragment"
+        tools:listitem="@layout/fragment_route_section_item" />
+
+    <Button
+        android:id="@+id/edit_proofs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edytuj dowody" />
+
+    <Button
+        android:id="@+id/edit_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edytuj" />
+
+    <Button
+        android:id="@+id/delete_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Usuń" />
+
+    <Button
+        android:id="@+id/send_to_leader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wyślij do potwierdzenia" />
+
+</LinearLayout>

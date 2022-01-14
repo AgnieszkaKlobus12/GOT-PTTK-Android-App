@@ -19,4 +19,7 @@ interface RouteDAO {
     @Query("delete from Trasy")
     fun deleteAll()
 
+    @Query("select * from Trasy where id = :routeID")
+    fun getRoute(routeID: Int): List<Route>
+
 }

@@ -11,18 +11,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.model.entity.Route
-import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.NewRouteViewModel
 
-class NewRouteFragment(private val route: Route?) : Fragment() {
+class NewRouteFragment(private val routeId: Int?) : Fragment() {
 
     private val mViewModel: NewRouteViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (route != null) {
-            mViewModel.setRoute(route)
+        if (routeId != null) {
+            mViewModel.setRoute(routeId)
+        } else {
+            mViewModel.saveRoute()
         }
     }
 
@@ -46,7 +46,7 @@ class NewRouteFragment(private val route: Route?) : Fragment() {
         }
 
         view.findViewById<Button>(R.id.add_proof_button).setOnClickListener {
-            if (mViewModel.getAllRouteSections().value?.isEmpty() == true) {
+            if (mViewModel.getAllRouteSections().isEmpty()) {
                 showAddRouteSectionDialog()
                 return@setOnClickListener
             }
@@ -54,36 +54,46 @@ class NewRouteFragment(private val route: Route?) : Fragment() {
         }
 
         view.findViewById<Button>(R.id.end_button).setOnClickListener {
-            if (mViewModel.getAllRouteSections().value?.isEmpty() == true) {
+            if (mViewModel.getAllRouteSections().isEmpty()) {
                 showAddRouteSectionDialog()
                 return@setOnClickListener
             }
-            TODO()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    SaveRouteFragment()
+                )
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
         official.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
-                    PickMountainPassFragment(true)
+                    PickMountainPassFragment(true, mViewModel.route.value!!.id, mViewModel.getLastSection())
                 )
                 ?.addToBackStack(null)
                 ?.commit()
         }
+
         own.setOnClickListener {
-            TODO()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    PickMountainPassFragment(false, mViewModel.route.value!!.id, mViewModel.getLastSection())
+                )
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
 
         val list = view.findViewById<RecyclerView>(R.id.route_section_list)
         list.layoutManager = LinearLayoutManager(context)
-        var allRouteSection = emptyList<RouteSection>()
-        mViewModel.getAllRouteSections().observe(viewLifecycleOwner, { passes ->
-            passes?.let { allRouteSection = it }
-            list.adapter = RouteSectionAdapter(
-                allRouteSection, mViewModel
-            )
-        })
+        val allRouteSection = mViewModel.getAllRouteSections()
+        list.adapter = RouteSectionAdapter(
+            allRouteSection, mViewModel
+        )
     }
 
     private fun showAddRouteSectionDialog() {

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/last_routes_list"
+        android:id="@+id/mountain_passes_list_pick"
         android:name="com.example.po.ui.tourist.ItemFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

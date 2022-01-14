@@ -15,8 +15,8 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     private val routeRepository: RouteRepository
     private val routeSectionRepository: RouteSectionRepository
     val route =
-        MutableLiveData(Route(0, 0, "", "", 0))
-    private var routeSections = MutableLiveData(listOf<RouteSection>())
+        MutableLiveData(Route(0, 1, "", "", 0))
+    private var routeSections = listOf<RouteSection>()
 
 
     init {
@@ -25,18 +25,39 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
         routeSectionRepository = RouteSectionRepository(database.routeSectionDAO())
     }
 
-    fun setRoute(route: Route) {
-        this.route.value = route
-        routeSections =
-            routeSectionRepository.getRouteSectionForRoute(route.id.toLong()) as MutableLiveData<List<RouteSection>>
+    fun setRoute(route: Int) {
+        this.route.value = routeRepository.getRoute(route)[0]
+        routeSections = routeSectionRepository.getRouteSectionForRoute(route.toLong())
     }
 
-    fun getAllRouteSections(routeId: Int = route.value!!.id): LiveData<List<RouteSection>> {
+    fun getLastSection(): RouteSection? {
+        return if (routeSections.isNotEmpty()) {
+            routeSections.last()
+        } else {
+            null
+        }
+    }
+
+    fun saveRoute() {
+        route.value!!.id = routeRepository.insert(route.value!!).toInt()
+    }
+
+    fun getAllRouteSections(routeId: Int = route.value!!.id): List<RouteSection> {
         return routeSections
     }
 
     fun getAllRoutes(idUser: Int): LiveData<List<Route>> {
         return routeRepository.getAllForUser(idUser)
+    }
+
+    fun updateRoute() {
+        //TODO
+    }
+
+
+    fun updateRoutePoints(): Int {
+        //TODO sum points for route
+        return 10
     }
 
     fun getStartNameForRoute(routeId: Int): String {

@@ -1,6 +1,5 @@
 package com.example.poapp.model.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -16,6 +15,6 @@ interface RouteSectionDAO {
     @Query("delete from OdcinkiTras")
     fun deleteAll()
 
-    @Query("select * from OdcinkiTras where FKtrasa = :routeID")
-    fun getRouteSectionForRoute(routeID: Long): LiveData<List<RouteSection>>
+    @Query("select * from OdcinkiTras where FKtrasa = :routeID order by id desc")
+    fun getRouteSectionForRoute(routeID: Long): List<RouteSection>
 }

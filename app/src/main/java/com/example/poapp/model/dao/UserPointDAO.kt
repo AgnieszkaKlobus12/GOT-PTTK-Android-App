@@ -8,19 +8,19 @@ import com.example.poapp.model.entity.UserPoint
 interface UserPointDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(geoPoint: UserPoint): Long
+    fun insert(userPoint: UserPoint): Long
 
     @Update
-    fun update(geoPoint: UserPoint)
+    fun update(userPoint: UserPoint)
 
     @Query("select * from PunktyWlasne")
     fun getAll(): LiveData<List<UserPoint>>
 
     @Query("select * from PunktyWlasne where id = :pointID")
-    fun getOfficialPoint(pointID: Int): List<UserPoint>
+    fun getUserPoint(pointID: Int): List<UserPoint>
 
     @Query("select * from PunktyWlasne where nazwa = :pointName")
-    fun getOfficialPoint(pointName: String): List<UserPoint>
+    fun getUserPoint(pointName: String): List<UserPoint>
 
     @Query("delete from PunktyWlasne")
     fun deleteAll()

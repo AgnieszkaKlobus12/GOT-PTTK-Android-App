@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.poapp.model.dao.MountainPassOfficialDAO
 import com.example.poapp.model.entity.MountainPassOfficial
 
-class MountainPassRepository(private val mountainPassDAO: MountainPassOfficialDAO) {
+class MountainPassOfficialRepository(private val mountainPassDAO: MountainPassOfficialDAO) {
 
     fun insert(mountainPass: MountainPassOfficial): Long {
         return mountainPassDAO.insert(mountainPass)

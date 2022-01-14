@@ -38,6 +38,7 @@
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_mountain_pass_item.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_mountain_pass_item2.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_mountain_pass_pick.xml" value="0.23641304347826086" />
+        <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_mountain_passes_list.xml" value="0.23233695652173914" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_new_geo_point.xml" value="0.1503623188405797" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_new_mountain_pass.xml" value="0.1503623188405797" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_new_route.xml" value="0.20199275362318841" />
@@ -48,10 +49,12 @@
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_odcinki.xml" value="0.16802536231884058" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_odcinki_lista.xml" value="0.4513018322082932" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_pick_mountain_pass.xml" value="0.23641304347826086" />
+        <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_picked_pass_points.xml" value="0.33" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_potwierdz_lista.xml" value="0.12916666666666668" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_route_item.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_route_list.xml" value="0.20199275362318841" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_route_section_item.xml" value="0.20199275362318841" />
+        <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/layout/fragment_save_route.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/menu/pracownik_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/menu/przodownik_menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/agaha/Desktop/POApp/app/src/main/res/menu/settings_menu.xml" value="0.14322916666666666" />

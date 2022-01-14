@@ -15,4 +15,7 @@ interface MountainPassProofDAO {
     @Query("delete from DowodyOdcinkow")
     fun deleteAll()
 
+    @Query("select * from DowodyOdcinkow where FKodcinek=:routeSectionId")
+    fun proofsFor(routeSectionId: Long): List<MountainPassProof>
+
 }

@@ -15,6 +15,6 @@ interface RouteSectionDAO {
     @Query("delete from OdcinkiTras")
     fun deleteAll()
 
-    @Query("select * from OdcinkiTras where FKtrasa = :routeID order by id desc")
+    @Query("select * from OdcinkiTras where FKtrasa = :routeID order by id asc")
     fun getRouteSectionForRoute(routeID: Long): List<RouteSection>
 }

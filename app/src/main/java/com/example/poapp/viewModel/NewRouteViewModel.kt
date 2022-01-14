@@ -15,7 +15,7 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     private val routeRepository: RouteRepository
     private val routeSectionRepository: RouteSectionRepository
     val route =
-        MutableLiveData(Route(0, 0, "", "", 0))
+        MutableLiveData(Route(0, 1, "", "", 0))
     private var routeSections = MutableLiveData(listOf<RouteSection>())
 
 
@@ -25,10 +25,22 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
         routeSectionRepository = RouteSectionRepository(database.routeSectionDAO())
     }
 
-    fun setRoute(route: Route) {
-        this.route.value = route
+    fun setRoute(route: Int) {
+        this.route.value = routeRepository.getRoute(route)[0]
         routeSections =
-            routeSectionRepository.getRouteSectionForRoute(route.id.toLong()) as MutableLiveData<List<RouteSection>>
+            routeSectionRepository.getRouteSectionForRoute(route.toLong()) as MutableLiveData<List<RouteSection>>
+    }
+
+    fun getLastSection(): RouteSection? {
+        return if (routeSections.value!!.isNotEmpty()) {
+            routeSections.value!!.last()
+        } else {
+            null
+        }
+    }
+
+    fun saveRoute() {
+        route.value!!.id = routeRepository.insert(route.value!!).toInt()
     }
 
     fun getAllRouteSections(routeId: Int = route.value!!.id): LiveData<List<RouteSection>> {

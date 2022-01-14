@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 
 @Database(
     entities = [User::class, Proof::class, MountainPassProof::class, MountainGroup::class, MountainPassOfficial::class, RouteSection::class, MountainPassUser::class, Badge::class, MountainRange::class, Employee::class, Leader::class, OfficialPoint::class, UserPoint::class, Route::class, Tourist::class, LeaderPermissions::class],
-    version = 10
+    version = 11
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -1047,7 +1047,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val dolina_filipka_rusinowa_polana = mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 dolina_filipka.toInt(),
                                 rusinowa_polana.toInt(),
@@ -1059,7 +1059,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 rusinowa_polana.toInt(),
                                 dolina_filipka.toInt(),
@@ -1071,7 +1071,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 wierch_poroniec.toInt(),
                                 rusinowa_polana.toInt(),
@@ -1083,7 +1083,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 rusinowa_polana.toInt(),
                                 wierch_poroniec.toInt(),
@@ -1095,7 +1095,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 palenica_bialczanska.toInt(),
                                 rusinowa_polana.toInt(),
@@ -1107,7 +1107,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 rusinowa_polana.toInt(),
                                 palenica_bialczanska.toInt(),
@@ -1119,7 +1119,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 polana_pod_woloszynem.toInt(),
                                 rusinowa_polana.toInt(),
@@ -1131,7 +1131,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 rusinowa_polana.toInt(),
                                 polana_pod_woloszynem.toInt(),
@@ -1144,7 +1144,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 wierch_poroniec.toInt(),
                                 lysa_polana.toInt(),
@@ -1156,7 +1156,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 lysa_polana.toInt(),
                                 wierch_poroniec.toInt(),
@@ -1168,7 +1168,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 palenica_bialczanska.toInt(),
                                 lysa_polana.toInt(),
@@ -1180,7 +1180,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 lysa_polana.toInt(),
                                 palenica_bialczanska.toInt(),
@@ -1193,7 +1193,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val rusinowa_polana_gesia_szyja = mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 rusinowa_polana.toInt(),
                                 gesia_szyja.toInt(),
@@ -1205,7 +1205,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 gesia_szyja.toInt(),
                                 rusinowa_polana.toInt(),
@@ -1217,7 +1217,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 rowien_waksmundzka.toInt(),
                                 gesia_szyja.toInt(),
@@ -1229,7 +1229,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val gesia_szyja_rowien_waksmundzka = mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 gesia_szyja.toInt(),
                                 rowien_waksmundzka.toInt(),
@@ -1242,7 +1242,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 5,
                                 psia_trawka.toInt(),
                                 rowien_waksmundzka.toInt(),
@@ -1254,7 +1254,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val rowien_waksmundzka_psia_trawka = mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 rowien_waksmundzka.toInt(),
                                 psia_trawka.toInt(),
@@ -1266,7 +1266,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 polana_pod_woloszynem.toInt(),
                                 rowien_waksmundzka.toInt(),
@@ -1278,7 +1278,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 rowien_waksmundzka.toInt(),
                                 polana_pod_woloszynem.toInt(),
@@ -1290,7 +1290,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 czerwony_staw_dolina_panszczycy.toInt(),
                                 rowien_waksmundzka.toInt(),
@@ -1302,7 +1302,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 rowien_waksmundzka.toInt(),
                                 czerwony_staw_dolina_panszczycy.toInt(),
@@ -1314,7 +1314,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 czerwony_staw_dolina_panszczycy.toInt(),
                                 rowien_waksmundzka.toInt(),
@@ -1326,7 +1326,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 rowien_waksmundzka.toInt(),
                                 czerwony_staw_dolina_panszczycy.toInt(),
@@ -1338,7 +1338,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 7,
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
                                 rowien_waksmundzka.toInt(),
@@ -1350,7 +1350,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 8,
                                 rowien_waksmundzka.toInt(),
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
@@ -1363,7 +1363,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
                                 psia_trawka.toInt(),
@@ -1375,7 +1375,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 7,
                                 psia_trawka.toInt(),
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
@@ -1387,7 +1387,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 5,
                                 brzeziny.toInt(),
                                 psia_trawka.toInt(),
@@ -1399,7 +1399,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 psia_trawka.toInt(),
                                 brzeziny.toInt(),
@@ -1413,7 +1413,7 @@ abstract class AppDatabase : RoomDatabase() {
                             mountainPassOfficialDAO.insert(
                                 MountainPassOfficial(
                                     0,
-                                    "",
+                                    "-",
                                     4,
                                     palenica_bialczanska.toInt(),
                                     wodogrzmoty_mickiewicza.toInt(),
@@ -1425,7 +1425,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 wodogrzmoty_mickiewicza.toInt(),
                                 palenica_bialczanska.toInt(),
@@ -1437,7 +1437,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 polana_pod_woloszynem.toInt(),
                                 wodogrzmoty_mickiewicza.toInt(),
@@ -1449,7 +1449,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 wodogrzmoty_mickiewicza.toInt(),
                                 polana_pod_woloszynem.toInt(),
@@ -1461,7 +1461,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 schronisko_PTTK_roztoka.toInt(),
                                 wodogrzmoty_mickiewicza.toInt(),
@@ -1473,7 +1473,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 wodogrzmoty_mickiewicza.toInt(),
                                 schronisko_PTTK_roztoka.toInt(),
@@ -1486,7 +1486,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 8,
                                 wodogrzmoty_mickiewicza.toInt(),
                                 schronisko_PTTK_morskie_oko.toInt(),
@@ -1499,7 +1499,7 @@ abstract class AppDatabase : RoomDatabase() {
                             mountainPassOfficialDAO.insert(
                                 MountainPassOfficial(
                                     0,
-                                    "",
+                                    "-",
                                     5,
                                     schronisko_PTTK_morskie_oko.toInt(),
                                     wodogrzmoty_mickiewicza.toInt(),
@@ -1524,7 +1524,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 schronisko_PTTK_morskie_oko.toInt(),
                                 czarny_staw_morskie_oko.toInt(),
@@ -1536,7 +1536,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 czarny_staw_morskie_oko.toInt(),
                                 schronisko_PTTK_morskie_oko.toInt(),
@@ -1548,7 +1548,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 rysy.toInt(),
                                 czarny_staw_morskie_oko.toInt(),
@@ -1560,7 +1560,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 13,
                                 czarny_staw_morskie_oko.toInt(),
                                 rysy.toInt(),
@@ -1572,7 +1572,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 mieguszowiecka_przelecz_pod_chlopkiem.toInt(),
                                 czarny_staw_morskie_oko.toInt(),
@@ -1584,7 +1584,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 10,
                                 czarny_staw_morskie_oko.toInt(),
                                 mieguszowiecka_przelecz_pod_chlopkiem.toInt(),
@@ -1597,7 +1597,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 schronisko_PTTK_morskie_oko.toInt(),
                                 dolina_za_mnichem.toInt(),
@@ -1609,7 +1609,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 dolina_za_mnichem.toInt(),
                                 schronisko_PTTK_morskie_oko.toInt(),
@@ -1621,7 +1621,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 wrota_chalubinskiego.toInt(),
                                 dolina_za_mnichem.toInt(),
@@ -1633,7 +1633,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 dolina_za_mnichem.toInt(),
                                 wrota_chalubinskiego.toInt(),
@@ -1646,7 +1646,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 szpiglasowy_wierch.toInt(),
                                 szpiglasowa_przelecz.toInt(),
@@ -1658,7 +1658,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 szpiglasowa_przelecz.toInt(),
                                 szpiglasowy_wierch.toInt(),
@@ -1670,7 +1670,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 8,
                                 tablica_s_bronikowskiego.toInt(),
                                 szpiglasowa_przelecz.toInt(),
@@ -1682,7 +1682,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 szpiglasowa_przelecz.toInt(),
                                 tablica_s_bronikowskiego.toInt(),
@@ -1694,7 +1694,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 dolina_za_mnichem.toInt(),
                                 szpiglasowa_przelecz.toInt(),
@@ -1706,7 +1706,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 szpiglasowa_przelecz.toInt(),
                                 dolina_za_mnichem.toInt(),
@@ -1719,7 +1719,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 siklawa.toInt(),
                                 schronisko_PTTK_dolina_pieciu_stawow_polskich.toInt(),
@@ -1731,7 +1731,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 schronisko_PTTK_dolina_pieciu_stawow_polskich.toInt(),
                                 siklawa.toInt(),
@@ -1743,7 +1743,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 9,
                                 schronisko_PTTK_morskie_oko.toInt(),
                                 schronisko_PTTK_dolina_pieciu_stawow_polskich.toInt(),
@@ -1755,7 +1755,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 5,
                                 schronisko_PTTK_dolina_pieciu_stawow_polskich.toInt(),
                                 schronisko_PTTK_morskie_oko.toInt(),
@@ -1792,7 +1792,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 tablica_s_bronikowskiego.toInt(),
                                 siklawa.toInt(),
@@ -1804,7 +1804,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 siklawa.toInt(),
                                 tablica_s_bronikowskiego.toInt(),
@@ -1816,7 +1816,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 10,
                                 wodogrzmoty_mickiewicza.toInt(),
                                 siklawa.toInt(),
@@ -1828,7 +1828,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 14,
                                 siklawa.toInt(),
                                 wodogrzmoty_mickiewicza.toInt(),
@@ -1841,7 +1841,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 8,
                                 siklawa.toInt(),
                                 kozi_wierch.toInt(),
@@ -1853,7 +1853,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 kozi_wierch.toInt(),
                                 siklawa.toInt(),
@@ -1865,7 +1865,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 kozia_przelecz.toInt(),
                                 kozi_wierch.toInt(),
@@ -1878,7 +1878,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 tablica_s_bronikowskiego.toInt(),
                                 kozia_przelecz.toInt(),
@@ -1890,7 +1890,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 kozia_przelecz.toInt(),
                                 tablica_s_bronikowskiego.toInt(),
@@ -1902,7 +1902,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 kozia_dolinka.toInt(),
                                 kozia_przelecz.toInt(),
@@ -1914,7 +1914,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 kozia_przelecz.toInt(),
                                 kozia_dolinka.toInt(),
@@ -1926,7 +1926,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 przelecz_zawrat.toInt(),
                                 kozia_przelecz.toInt(),
@@ -1940,7 +1940,7 @@ abstract class AppDatabase : RoomDatabase() {
                             mountainPassOfficialDAO.insert(
                                 MountainPassOfficial(
                                     0,
-                                    "",
+                                    "-",
                                     8,
                                     czarny_staw_gasienicowy.toInt(),
                                     przelecz_zawrat.toInt(),
@@ -1952,7 +1952,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 przelecz_zawrat.toInt(),
                                 czarny_staw_gasienicowy.toInt(),
@@ -1964,7 +1964,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 7,
                                 tablica_s_bronikowskiego.toInt(),
                                 przelecz_zawrat.toInt(),
@@ -1976,7 +1976,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 przelecz_zawrat.toInt(),
                                 tablica_s_bronikowskiego.toInt(),
@@ -1989,7 +1989,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val przelecz_zawrat_swinica = mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 przelecz_zawrat.toInt(),
                                 swinica.toInt(),
@@ -2001,7 +2001,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 swinica.toInt(),
                                 przelecz_zawrat.toInt(),
@@ -2013,7 +2013,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 swinicka_przelecz.toInt(),
                                 swinica.toInt(),
@@ -2025,7 +2025,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val swinica_swinicka_przelecz = mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 swinica.toInt(),
                                 swinicka_przelecz.toInt(),
@@ -2038,7 +2038,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 przelecz_liliowe.toInt(),
                                 swinicka_przelecz.toInt(),
@@ -2050,7 +2050,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 swinicka_przelecz.toInt(),
                                 przelecz_liliowe.toInt(),
@@ -2062,7 +2062,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 5,
                                 zielony_staw_gasienicowy.toInt(),
                                 swinicka_przelecz.toInt(),
@@ -2074,7 +2074,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 swinicka_przelecz.toInt(),
                                 zielony_staw_gasienicowy.toInt(),
@@ -2087,7 +2087,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 czarny_staw_gasienicowy.toInt(),
                                 kozia_dolinka.toInt(),
@@ -2099,7 +2099,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 zleb_kulczynskiego.toInt(),
                                 kozia_dolinka.toInt(),
@@ -2111,7 +2111,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 kozia_dolinka.toInt(),
                                 zleb_kulczynskiego.toInt(),
@@ -2124,7 +2124,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 kozi_wierch.toInt(),
                                 zleb_kulczynskiego.toInt(),
@@ -2136,7 +2136,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 przelecz_liliowe.toInt(),
                                 kozia_dolinka.toInt(),
@@ -2148,7 +2148,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 kozia_dolinka.toInt(),
                                 przelecz_liliowe.toInt(),
@@ -2161,7 +2161,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 kozia_dolinka.toInt(),
                                 skrajny_granat.toInt(),
@@ -2173,7 +2173,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 zleb_kulczynskiego.toInt(),
                                 skrajny_granat.toInt(),
@@ -2185,7 +2185,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 8,
                                 czarny_staw_gasienicowy.toInt(),
                                 skrajny_granat.toInt(),
@@ -2197,7 +2197,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 skrajny_granat.toInt(),
                                 czarny_staw_gasienicowy.toInt(),
@@ -2210,7 +2210,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 9,
                                 schronisko_PTTK_dolina_pieciu_stawow_polskich.toInt(),
                                 przelecz_krzyzne.toInt(),
@@ -2222,7 +2222,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 przelecz_krzyzne.toInt(),
                                 schronisko_PTTK_dolina_pieciu_stawow_polskich.toInt(),
@@ -2234,7 +2234,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 8,
                                 czerwony_staw_dolina_panszczycy.toInt(),
                                 przelecz_krzyzne.toInt(),
@@ -2246,7 +2246,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 przelecz_krzyzne.toInt(),
                                 czerwony_staw_dolina_panszczycy.toInt(),
@@ -2258,7 +2258,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 skrajny_granat.toInt(),
                                 przelecz_krzyzne.toInt(),
@@ -2271,7 +2271,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 koscielec.toInt(),
                                 przelecz_karb.toInt(),
@@ -2283,7 +2283,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 przelecz_karb.toInt(),
                                 koscielec.toInt(),
@@ -2295,7 +2295,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 zielony_staw_gasienicowy.toInt(),
                                 przelecz_karb.toInt(),
@@ -2307,7 +2307,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 przelecz_karb.toInt(),
                                 zielony_staw_gasienicowy.toInt(),
@@ -2319,7 +2319,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 czarny_staw_gasienicowy.toInt(),
                                 przelecz_karb.toInt(),
@@ -2331,7 +2331,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 przelecz_karb.toInt(),
                                 czarny_staw_gasienicowy.toInt(),
@@ -2344,7 +2344,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 przelecz_liliowe.toInt(),
                                 dwoisniak.toInt(),
@@ -2356,7 +2356,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 5,
                                 dwoisniak.toInt(),
                                 przelecz_liliowe.toInt(),
@@ -2368,7 +2368,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
                                 dwoisniak.toInt(),
@@ -2380,7 +2380,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 dwoisniak.toInt(),
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
@@ -2392,7 +2392,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 1,
                                 zielony_staw_gasienicowy.toInt(),
                                 dwoisniak.toInt(),
@@ -2404,7 +2404,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 dwoisniak.toInt(),
                                 zielony_staw_gasienicowy.toInt(),
@@ -2417,7 +2417,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 2,
                                 czarny_staw_gasienicowy.toInt(),
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
@@ -2429,7 +2429,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 3,
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
                                 czarny_staw_gasienicowy.toInt(),
@@ -2441,7 +2441,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 4,
                                 czerwony_staw_dolina_panszczycy.toInt(),
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
@@ -2453,7 +2453,7 @@ abstract class AppDatabase : RoomDatabase() {
                         mountainPassOfficialDAO.insert(
                             MountainPassOfficial(
                                 0,
-                                "",
+                                "-",
                                 6,
                                 schronisko_PTTK_hala_gasienicowa.toInt(),
                                 czerwony_staw_dolina_panszczycy.toInt(),
@@ -2498,7 +2498,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 1.5,
                                 143,
                                 murowaniec.toInt(),
@@ -2514,7 +2514,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 1.5,
                                 25,
                                 null,
@@ -2530,7 +2530,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 2.2,
                                 200,
                                 murowaniec.toInt(),
@@ -2546,7 +2546,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 2.2,
                                 11,
                                 null,
@@ -2563,7 +2563,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 3.6,
                                 293,
                                 parking_tpn.toInt(),
@@ -2579,7 +2579,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 3.6,
                                 52,
                                 null,
@@ -2595,7 +2595,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 5.8,
                                 577,
                                 parking_tpn.toInt(),
@@ -2611,7 +2611,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 5.8,
                                 577,
                                 null,
@@ -2627,7 +2627,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 4.9,
                                 575,
                                 parking_tpn.toInt(),
@@ -2643,7 +2643,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 4.9,
                                 55,
                                 null,
@@ -2659,7 +2659,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 4.5,
                                 362,
                                 parking_tpn.toInt(),
@@ -2675,7 +2675,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 4.5,
                                 81,
                                 null,
@@ -2691,7 +2691,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 1.4,
                                 35,
                                 parking_tpn.toInt(),
@@ -2707,7 +2707,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 1.4,
                                 20,
                                 null,
@@ -2724,7 +2724,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 1.2,
                                 65,
                                 zazadnia.toInt(),
@@ -2740,7 +2740,7 @@ abstract class AppDatabase : RoomDatabase() {
                             MountainPassUser(
                                 0,
                                 tourist1.toInt(),
-                                "",
+                                "-",
                                 1.2,
                                 12,
                                 null,

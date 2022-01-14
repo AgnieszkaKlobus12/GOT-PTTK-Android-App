@@ -28,9 +28,9 @@ import androidx.room.PrimaryKey
 )
 data class RouteSection(
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val FKtrasa: Int,
-    val FKodcinekWlasny: Int?,
-    val FKodcinekOficjalny: Int?,
+    var FKtrasa: Int,
+    var FKodcinekWlasny: Int?,
+    var FKodcinekOficjalny: Int?,
     var czasPrzejscia: Int
 )
 

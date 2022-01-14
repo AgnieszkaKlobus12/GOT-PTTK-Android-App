@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +11,10 @@ import com.example.poapp.model.entity.MountainPassOfficial
 import com.example.poapp.model.entity.MountainPassUser
 import com.example.poapp.viewModel.MountainPassListViewModel
 
-
 class MountainPassPickAdapter<E>(
     private val values: List<E>,
-    private val mViewModel: MountainPassListViewModel
+    private val mViewModel: MountainPassListViewModel,
+    private val onMountainPassPickedListener: OnMountainPassPickedListener
 ) :
     RecyclerView.Adapter<MountainPassPickAdapter<E>.MountainPassItemHolder>() {
 
@@ -31,30 +32,37 @@ class MountainPassPickAdapter<E>(
             holder.start.text = mViewModel.getOfficialPoint(item.FKpunktPoczatkowy).nazwa
             holder.end.text = mViewModel.getOfficialPoint(item.FKpunktKoncowy).nazwa
             holder.points.text = item.punkty.toString()
-            holder.through.text =
-                item.FKpunktPosredni?.let { mViewModel.getOfficialPoint(it).nazwa }
+            if (item.FKpunktPosredni != null) {
+                holder.through.text =
+                    mViewModel.getOfficialPoint(item.FKpunktPosredni!!).nazwa
+            }
             holder.name.text = item.nazwa
         } else if (item is MountainPassUser) {
-            holder.start.text = item.FKpunktPoczatkowyOficjalny?.let {
-                mViewModel.getOfficialPoint(it).nazwa
+            if (item.FKpunktPoczatkowyOficjalny != null) {
+                holder.start.text = mViewModel.getOfficialPoint(item.FKpunktPoczatkowyOficjalny).nazwa
+            } else {
+                holder.start.text = mViewModel.getUserPoint(item.FKpunktPoczatkowyWlasny!!).nazwa
             }
-            holder.start.text = item.FKpunktPoczatkowyWlasny?.let {
-                mViewModel.getUserPoint(it).nazwa
-            }
-            holder.end.text = item.FKpunktKoncowyOficjalny?.let {
-                mViewModel.getOfficialPoint(it).nazwa
-            }
-            holder.end.text = item.FKpunktKoncowyWlasny?.let {
-                mViewModel.getUserPoint(it).nazwa
+            if (item.FKpunktKoncowyOficjalny != null) {
+                holder.end.text = mViewModel.getOfficialPoint(item.FKpunktKoncowyOficjalny).nazwa
+            } else {
+                holder.end.text = mViewModel.getUserPoint(item.FKpunktKoncowyWlasny!!).nazwa
             }
             holder.points.text = item.punkty.toString()
-            holder.through.text = item.FKpunktPosredniOficjalny?.let {
-                mViewModel.getOfficialPoint(it).nazwa
-            }
-            holder.through.text = item.FKpunktPosredniWlasny?.let {
-                mViewModel.getUserPoint(it).nazwa
+            if (item.FKpunktPosredniOficjalny != null) {
+                holder.through.text = mViewModel.getOfficialPoint(item.FKpunktPosredniOficjalny).nazwa
+            } else if (item.FKpunktPosredniWlasny != null) {
+                holder.through.text = mViewModel.getUserPoint(item.FKpunktPosredniWlasny).nazwa
             }
             holder.name.text = item.nazwa
+            holder.itemView.setOnClickListener {
+                Log.e("debug", "selected")
+                if (item is MountainPassOfficial) {
+                    onMountainPassPickedListener.onPassSelected(item, null)
+                } else {
+                    onMountainPassPickedListener.onPassSelected(null, item)
+                }
+            }
         }
     }
 

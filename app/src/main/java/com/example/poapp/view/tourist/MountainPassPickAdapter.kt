@@ -1,6 +1,5 @@
 package com.example.poapp.view.tourist
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +55,6 @@ class MountainPassPickAdapter<E>(
             }
             holder.name.text = item.nazwa
             holder.itemView.setOnClickListener {
-                Log.e("debug", "selected")
                 if (item is MountainPassOfficial) {
                     onMountainPassPickedListener.onPassSelected(item, null)
                 } else {

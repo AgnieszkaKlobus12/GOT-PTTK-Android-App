@@ -30,6 +30,22 @@ class PickMountainPassFragment(
         super.onViewCreated(view, savedInstanceState)
 
         val listener = object : OnMountainPassPickedListener {
+            private fun dialog() {
+                // TODO dialog że się musi zgadzać początek i koniec
+                Toast.makeText(requireContext(), "dialog", Toast.LENGTH_SHORT).show()
+            }
+
+            private fun save() {
+                mViewModel.routeId = routeId
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(
+                        R.id.nav_host_fragment_activity_save_route,
+                        PickedPassPointsFragment()
+                    )
+                    ?.addToBackStack(null)
+                    ?.commit()
+            }
+
             override fun onPassSelected(official: MountainPassOfficial?, user: MountainPassUser?) {
                 if (official != null) {
                     mViewModel.routeSection.value?.FKodcinekOficjalny = official.id
@@ -99,6 +115,8 @@ class PickMountainPassFragment(
                             }
                         }
                     }
+                } else {
+                    save()
                 }
             }
         }
@@ -117,22 +135,6 @@ class PickMountainPassFragment(
                 list.adapter = MountainPassPickAdapter(allPasses, mViewModel, listener)
             })
         }
-    }
-
-    private fun dialog() {
-        // TODO dialog że się musi zgadzać początek i koniec
-        Toast.makeText(requireContext(), "dialog", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun save() {
-        mViewModel.routeId = routeId
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(
-                R.id.nav_host_fragment_activity_save_route,
-                PickedPassPointsFragment()
-            )
-            ?.addToBackStack(null)
-            ?.commit()
     }
 
 }

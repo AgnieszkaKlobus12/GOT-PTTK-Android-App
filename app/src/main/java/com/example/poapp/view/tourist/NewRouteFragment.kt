@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,17 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
             mViewModel.setRoute(routeId)
         } else {
             mViewModel.saveRoute()
+        }
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            mViewModel.removeRoute()
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    RouteListFragment()
+                )
+                ?.addToBackStack(null)
+                ?.commit()
         }
     }
 

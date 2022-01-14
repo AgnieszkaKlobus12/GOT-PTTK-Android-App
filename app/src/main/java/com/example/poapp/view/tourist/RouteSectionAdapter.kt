@@ -30,8 +30,12 @@ class RouteSectionAdapter(
         holder.points.text = mViewModel.getRouteSectionPoints(item).toString()
         holder.through.text = mViewModel.getThroughPointName(item)
         holder.name.text = mViewModel.getRouteSectionName(item)
-        holder.proof.text = "todo"
-        // TODO
+        //TODO kolorki w ifie
+        if (mViewModel.hasProof(item)) {
+            holder.proof.text = "TAK"
+        } else {
+            holder.proof.text = "NIE"
+        }
     }
 
     override fun getItemCount(): Int = values.size

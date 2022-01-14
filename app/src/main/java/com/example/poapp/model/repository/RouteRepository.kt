@@ -17,4 +17,12 @@ class RouteRepository(private val routeDAO: RouteDAO) {
     fun getRoute(id: Int): List<Route> {
         return routeDAO.getRoute(id)
     }
+
+    fun update(route: Route) {
+        routeDAO.update(route)
+    }
+
+    fun delete(routeId: Long) {
+        routeDAO.delete(routeId)
+    }
 }

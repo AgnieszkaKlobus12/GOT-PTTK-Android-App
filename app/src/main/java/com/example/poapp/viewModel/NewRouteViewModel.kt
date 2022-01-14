@@ -15,7 +15,7 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     private val routeRepository: RouteRepository
     private val routeSectionRepository: RouteSectionRepository
     val route =
-        MutableLiveData(Route(0, 1, "", "", 0))
+        MutableLiveData(Route(0, 1, "", "oczekuje na wysłanie", 0))
     private var routeSections = listOf<RouteSection>()
 
 
@@ -51,7 +51,20 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun updateRoute() {
+        if (route.value != null && route.value!!.id != 0) {
+            routeRepository.update(route.value!!)
+        }
+    }
+
+    fun removeRoute() {
+        if (route.value != null && route.value!!.id != 0) {
+            routeRepository.update(route.value!!)
+        }
+    }
+
+    fun hasProof(routeSection: RouteSection): Boolean {
         //TODO
+        return false
     }
 
 

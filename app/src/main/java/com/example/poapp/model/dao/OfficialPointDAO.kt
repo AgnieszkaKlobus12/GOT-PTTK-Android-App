@@ -8,10 +8,10 @@ import com.example.poapp.model.entity.OfficialPoint
 interface OfficialPointDAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(geoPoint: OfficialPoint): Long
+    fun insert(officialPoint: OfficialPoint): Long
 
     @Update
-    fun update(geoPoint: OfficialPoint)
+    fun update(officialPoint: OfficialPoint)
 
     @Query("select * from PunktyOficjalne")
     fun getAll(): LiveData<List<OfficialPoint>>

@@ -41,7 +41,9 @@ class SaveRouteFragment : Fragment() {
         }
         view.findViewById<TextView>(R.id.points_sum).text = points.toString()
         view.findViewById<Button>(R.id.cancel_save_route).setOnClickListener {
-            //TODO - remove route
+            //todo dialog czy na pewno anulować
+            mViewModel.removeRoute() //jeśli tak to to
+            return@setOnClickListener //jeśli nie to to
         }
         view.findViewById<Button>(R.id.save_route_btn).setOnClickListener {
             mViewModel.route.value!!.dataPrzejscia = date

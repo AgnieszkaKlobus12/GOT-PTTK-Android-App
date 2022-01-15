@@ -16,11 +16,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.model.entity.Route
 import com.example.poapp.view.MainActivity
-import com.example.poapp.viewModel.NewRouteViewModel
+import com.example.poapp.viewModel.RouteViewModel
 
 class RouteListFragment : Fragment() {
 
-    private val mViewModel: NewRouteViewModel by activityViewModels()
+    private val mViewModel: RouteViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {

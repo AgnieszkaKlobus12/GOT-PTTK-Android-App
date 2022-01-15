@@ -3,6 +3,7 @@ package com.example.poapp.model.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.poapp.model.entity.Leader
+import com.example.poapp.model.entity.User
 
 @Dao
 interface LeaderDAO {
@@ -14,7 +15,7 @@ interface LeaderDAO {
     fun update(leader: Leader)
 
     @Query("select * from Przodownicy where nrLegitymacji = :leaderId")
-    fun getLeader(leaderId: Long): Leader
+    fun getLeader(leaderId: Int): List<Leader>
 
     @Delete
     fun delete(tourist: Leader)
@@ -24,4 +25,7 @@ interface LeaderDAO {
 
     @Query("select * from Przodownicy")
     fun getAll(): LiveData<List<Leader>>
+
+    @Query("select * from Uzytkownicy where id = :userId")
+    fun getUserLeader(userId: Int): List<User>
 }

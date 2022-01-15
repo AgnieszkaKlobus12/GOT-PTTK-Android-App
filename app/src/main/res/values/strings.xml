@@ -86,6 +86,8 @@
     <string name="zero">0</string>
     <string name="save_route">Zapisz trasę</string>
     <string name="points_sum">Suma punktów:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

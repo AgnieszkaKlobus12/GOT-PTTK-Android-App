@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.model.entity.Route
-import com.example.poapp.viewModel.NewRouteViewModel
+import com.example.poapp.viewModel.RouteViewModel
 
 class RouteAdapter(
     private val context: Context,
     private val values: List<Route>,
-    private val mViewModel: NewRouteViewModel,
+    private val mViewModel: RouteViewModel,
     private val onRouteClickedListener: OnRouteClickedListener
 ) :
     RecyclerView.Adapter<RouteAdapter.RouteItemHolder>() {

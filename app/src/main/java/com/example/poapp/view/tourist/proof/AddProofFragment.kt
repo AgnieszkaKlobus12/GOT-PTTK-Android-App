@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentAddProofBinding
 
@@ -27,15 +28,23 @@ class AddProofFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addImage.setOnClickListener {
-            TODO()
+            activity?.supportFragmentManager?.popBackStack("AddProof", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    AddImageSectionsListFragment()
+                )
+                ?.addToBackStack("AddProof")
+                ?.commit()
         }
         binding.addLeader.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack("AddProof", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
                     AddProofLeaderFragment()
                 )
-                ?.addToBackStack(null)
+                ?.addToBackStack("AddProof")
                 ?.commit()
         }
     }

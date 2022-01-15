@@ -14,11 +14,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
-import com.example.poapp.viewModel.NewRouteViewModel
+import com.example.poapp.viewModel.RouteViewModel
 
 class NewRouteFragment(private val routeId: Int?) : Fragment() {
 
-    private val mViewModel: NewRouteViewModel by activityViewModels()
+    private val mViewModel: RouteViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

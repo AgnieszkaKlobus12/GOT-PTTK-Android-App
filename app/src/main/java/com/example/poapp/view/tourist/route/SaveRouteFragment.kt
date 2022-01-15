@@ -13,13 +13,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
-import com.example.poapp.viewModel.NewRouteViewModel
+import com.example.poapp.viewModel.RouteViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
 class SaveRouteFragment : Fragment() {
 
-    private val mViewModel: NewRouteViewModel by activityViewModels()
+    private val mViewModel: RouteViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

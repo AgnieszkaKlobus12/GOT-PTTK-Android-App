@@ -8,7 +8,7 @@ import com.example.poapp.model.AppDatabase
 import com.example.poapp.model.entity.*
 import com.example.poapp.model.repository.*
 
-class NewRouteViewModel(application: Application) : AndroidViewModel(application) {
+class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
     private val routeRepository: RouteRepository
     private val mountainPassOfficialRepository: MountainPassOfficialRepository
@@ -17,6 +17,9 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     private val officialPointRepository: OfficialPointRepository
     private val routeSectionRepository: RouteSectionRepository
     private val mountainPassProofRepository: MountainPassProofRepository
+    private val proofRepository: ProofRepository
+    private val leaderRepository: LeaderRepository
+
     val route =
         MutableLiveData(Route(0, 1, "", "oczekuje na wysłanie", 0))
     private var routeSections = listOf<RouteSection>()
@@ -30,6 +33,8 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
         officialPointRepository = OfficialPointRepository(database.officialPointDAO())
         userPointRepository = UserPointRepository(database.userPointDAO())
         mountainPassProofRepository = MountainPassProofRepository(database.mountainPassProofDAO())
+        proofRepository = ProofRepository(database.proofDAO())
+        leaderRepository = LeaderRepository(database.leaderDAO())
     }
 
     fun setRoute(route: Int) {
@@ -150,10 +155,16 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun getRouteSectionName(routeSection: RouteSection): String {
-        if (routeSection.FKodcinekOficjalny != null) {
-            return getOfficialPass(routeSection.FKodcinekOficjalny!!).nazwa
+        val name = if (routeSection.FKodcinekOficjalny != null) {
+            getOfficialPass(routeSection.FKodcinekOficjalny!!).nazwa
+        } else {
+            getUserPass(routeSection.FKodcinekWlasny!!).nazwa
         }
-        return getUserPass(routeSection.FKodcinekWlasny!!).nazwa
+        return if (name != "null") {
+            name
+        } else {
+            "-"
+        }
     }
 
     private fun getOfficialPass(id: Int): MountainPassOfficial {
@@ -171,4 +182,51 @@ class NewRouteViewModel(application: Application) : AndroidViewModel(application
     fun getOfficialPoint(id: Int): OfficialPoint {
         return officialPointRepository.getOfficialPoint(id)[0]
     }
+
+
+    //0 if correct, -1 if route already has leader, -2 if leader doesn't exists
+    fun saveLeaderProof(leaderID: Long): Int {
+        if (getLeader(leaderID) == null) {
+            return -2
+        }
+        if (route.value?.id?.let { getLeaderForRoute(it.toLong()) } == null) {
+            val proof = Proof(0, null, leaderID.toInt())
+            val proofId = proofRepository.insert(proof)
+            val sections = getRouteSectionsForRoute(route.value!!.id.toLong())
+            for (section in sections) {
+                val sectionProof = MountainPassProof(0, section.id, proofId.toInt())
+                mountainPassProofRepository.insert(sectionProof)
+            }
+            return 0
+        }
+        return -1
+    }
+
+    fun getLeaderForRoute(routeId: Long): Long? {
+        val proofs = mountainPassProofRepository.proofsFor(getRouteSectionsForRoute(routeId))
+        for (proof in proofs) {
+            val leader = proofRepository.getProof(proof.FKdowod.toLong()).FKprzodownik
+            if (leader != null) {
+                return leader.toLong()
+            }
+        }
+        return null
+    }
+
+    fun getRouteSectionsForRoute(routeId: Long): List<RouteSection> {
+        return routeSectionRepository.getRouteSectionForRoute(routeId)
+    }
+
+    fun getLeaderName(leaderID: Long): String {
+        val user = leaderRepository.getLeaderUser(leaderID)
+        return if (user != null) {
+            user.imie + " " + user.nazwisko
+        } else "Przodownik nie znaleziony"
+    }
+
+    fun getLeader(leaderID: Long): Leader? {
+        return leaderRepository.getLeader(leaderID)
+    }
+
+    //todo wiem że tu sprawdzasz Aga, dodawnie dowodów sie jebie przy cofaniu
 }

@@ -12,13 +12,13 @@ import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentRouteDetailsBinding
 import com.example.poapp.view.tourist.proof.EditProofsFragment
-import com.example.poapp.viewModel.NewRouteViewModel
+import com.example.poapp.viewModel.RouteViewModel
 
 class RouteDetailsFragment(private val routeId: Long) : Fragment() {
 
     private var _binding: FragmentRouteDetailsBinding? = null
     private val binding get() = _binding!!
-    private val mViewModel: NewRouteViewModel by activityViewModels()
+    private val mViewModel: RouteViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentRouteDetailsBinding.inflate(inflater, container, false)

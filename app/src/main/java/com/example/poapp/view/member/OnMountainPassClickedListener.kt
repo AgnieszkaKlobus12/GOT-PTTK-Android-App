@@ -1,4 +1,4 @@
-package com.example.poapp.view.employee
+package com.example.poapp.view.member
 
 import com.example.poapp.model.entity.MountainPassOfficial
 

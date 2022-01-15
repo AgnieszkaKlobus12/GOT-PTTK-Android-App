@@ -12,15 +12,15 @@
         <activity
             android:name=".view.leader.ConfirmRouteActivity"
             android:exported="true"
-            android:theme="@style/Theme.przodownik_theme" />
+            android:theme="@style/Theme.leader_theme" />
         <activity
             android:name=".view.tourist.route.SaveRouteActivity"
             android:exported="true"
-            android:theme="@style/Theme.turysta_theme" />
+            android:theme="@style/Theme.tourist_theme" />
         <activity
-            android:name=".view.employee.MountainPassesActivity"
+            android:name=".view.member.MountainPassesActivity"
             android:exported="true"
-            android:theme="@style/Theme.pracownik_theme" />
+            android:theme="@style/Theme.member_theme" />
         <activity
             android:name=".view.MainActivity"
             android:exported="true"

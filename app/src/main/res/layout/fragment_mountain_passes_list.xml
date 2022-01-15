@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.employee.MountainPassesListFragment">
+    tools:context=".view.member.MountainPassesListFragment">
 
     <TextView
         android:id="@+id/mountain_passes_list_text"
@@ -21,7 +21,7 @@
         android:name="com.example.po.ui.employee.MountainPassFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:context=".view.employee.MountainPassFragment"
+        tools:context=".view.member.MountainPassFragment"
         tools:listitem="@layout/fragment_mountain_pass_item"
         android:layout_marginBottom="10dp"
         android:layout_marginHorizontal="10dp"

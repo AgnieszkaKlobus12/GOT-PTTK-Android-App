@@ -1,4 +1,4 @@
-package com.example.poapp.view.employee
+package com.example.poapp.view.member
 
 import android.content.Context
 import android.view.LayoutInflater

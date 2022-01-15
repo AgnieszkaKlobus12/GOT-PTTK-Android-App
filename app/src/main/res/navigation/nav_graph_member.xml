@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/mountainPassesListFragment"
-        android:name="com.example.poapp.view.employee.MountainPassesListFragment"
+        android:name="com.example.poapp.view.member.MountainPassesListFragment"
         android:label="fragment_mountain_passes_list"
         tools:layout="@layout/fragment_mountain_passes_list" >
         <action

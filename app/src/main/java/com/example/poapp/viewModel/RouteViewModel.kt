@@ -255,8 +255,8 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getBitmapAsByteArray(bitmap: Bitmap): ByteArray {
-        val nh = (bitmap.height * (512.0 / bitmap.width)).toInt()
-        val scaled = Bitmap.createScaledBitmap(bitmap, 512, nh, true)
+        val nh = (bitmap.height * (2048.0 / bitmap.width)).toInt()
+        val scaled = Bitmap.createScaledBitmap(bitmap, 2048, nh, true)
         val outputStream = ByteArrayOutputStream()
         scaled.compress(Bitmap.CompressFormat.JPEG, 0, outputStream)
         return outputStream.toByteArray()

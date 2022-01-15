@@ -20,9 +20,9 @@ class MainActivity : AppCompatActivity() {
 
         //TODO
         binding.saveRoute.setOnClickListener {
-            Toast.makeText(this, "TODO - finish", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, SaveRouteActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "TODO - bug fixes", Toast.LENGTH_SHORT).show()
         }
 
         //TODO

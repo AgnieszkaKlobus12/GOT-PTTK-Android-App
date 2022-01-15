@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,10 +24,11 @@
 
     <TextView
         android:id="@+id/route_points_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintLeft_toRightOf="@id/route_points_label"
+        app:layout_constraintStart_toEndOf="@id/route_points_label"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/route_points_label" />
 
     <TextView
@@ -34,15 +36,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start"
-        app:layout_constraintLeft_toLeftOf="@id/route_points_label"
-        app:layout_constraintTop_toBottomOf="@id/route_points_label" />
+        app:layout_constraintStart_toStartOf="@id/route_points_label"
+        app:layout_constraintTop_toBottomOf="@id/route_points_value" />
 
     <TextView
         android:id="@+id/route_start_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintLeft_toRightOf="@id/route_start_label"
+        app:layout_constraintStart_toEndOf="@id/route_start_label"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/route_start_label" />
 
     <TextView
@@ -55,10 +58,11 @@
 
     <TextView
         android:id="@+id/route_end_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintLeft_toRightOf="@id/route_end_label"
+        app:layout_constraintStart_toEndOf="@id/route_end_label"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/route_end_label" />
 
     <TextView
@@ -73,10 +77,11 @@
 
     <TextView
         android:id="@+id/route_status_value"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintLeft_toRightOf="@id/route_status_label"
+        app:layout_constraintStart_toEndOf="@id/route_status_label"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/route_status_label" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

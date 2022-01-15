@@ -3,6 +3,7 @@ package com.example.poapp.model.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import kotlin.math.roundToInt
 
 @Entity(
     tableName = "OdcinkiWlasne", foreignKeys = [
@@ -70,7 +71,15 @@ data class MountainPassUser(
     val FKpunktPosredniOficjalny: Int?,
     val FKpasmoGorskie: Int
 ) {
-    var punkty = podejscie / 100 + dlugosc / 1000
+    var punkty: Int = (
+            if (podejscie < 51)
+                dlugosc.roundToInt()
+            else {
+                if (podejscie < 100)
+                    1 + dlugosc.roundToInt()
+                else
+                    podejscie / 100 + dlugosc.roundToInt()
+            })
 }
 
 //    CONSTRAINT POCZĄTEKwłasnyXORoficjalny

@@ -17,8 +17,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".view.tourist.route.RouteSectionItemFragment"
-        tools:listitem="@layout/fragment_route_section_item" />
+        tools:context=".view.MountainPassItemFragment"
+        tools:listitem="@layout/fragment_mountain_pass_item" />
 
     <Button
         android:id="@+id/edit_proofs"

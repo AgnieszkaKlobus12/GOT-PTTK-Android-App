@@ -1,5 +1,7 @@
 package com.example.poapp.view.tourist.route
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,11 +21,11 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (routeId != null) {
+
+        if (routeId != null)
             mViewModel.setRoute(routeId)
-        } else {
+        else
             mViewModel.saveRoute()
-        }
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             mViewModel.removeRoute()
@@ -37,11 +39,7 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_new_route, container, false)
     }
 
@@ -98,15 +96,24 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                 ?.commit()
         }
 
-
         val list = view.findViewById<RecyclerView>(R.id.route_section_list)
-        val allRouteSection = mViewModel.getAllRouteSections()
-        list.adapter = RouteSectionAdapter(
-            allRouteSection, mViewModel
-        )
+        val allRouteSections = mViewModel.getAllRouteSections()
+        list.adapter = RouteSectionAdapter(activity as Context, allRouteSections, mViewModel)
     }
 
     private fun showAddRouteSectionDialog() {
-        //TODO dialog - "dodaj przynajmniej jeden odcinek
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.no_passes_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
+        return
     }
 }

@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.route
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.example.poapp.model.entity.Route
 import com.example.poapp.viewModel.NewRouteViewModel
 
 class RouteAdapter(
+    private val context: Context,
     private val values: List<Route>,
     private val mViewModel: NewRouteViewModel,
     private val onRouteClickedListener: OnRouteClickedListener
@@ -17,10 +19,7 @@ class RouteAdapter(
     RecyclerView.Adapter<RouteAdapter.RouteItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RouteItemHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.fragment_route_item, parent,
-            false
-        )
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_route_item, parent, false)
         return RouteItemHolder(itemView)
     }
 
@@ -31,6 +30,12 @@ class RouteAdapter(
         holder.start.text = mViewModel.getStartNameForRoute(item.id)
         holder.end.text = mViewModel.getEndNameForRoute(item.id)
         holder.status.text = item.status
+
+        if (holder.status.text == context.resources.getString(R.string.confirmed))
+            holder.status.setTextColor(context.getColor(R.color.green))
+        if (holder.status.text == context.resources.getString(R.string.not_confirmed))
+            holder.status.setTextColor(context.getColor(R.color.red))
+
         holder.itemView.setOnClickListener { onRouteClickedListener.onItemClick(item) }
     }
 
@@ -38,10 +43,10 @@ class RouteAdapter(
 
     inner class RouteItemHolder(iv: View) : RecyclerView.ViewHolder(iv) {
         val date: TextView = iv.findViewById(R.id.route_date_value)
-        val points: TextView = iv.findViewById(R.id.route_points_label)
-        val start: TextView = iv.findViewById(R.id.route_start_label)
-        val end: TextView = iv.findViewById(R.id.route_end_label)
-        val status: TextView = iv.findViewById(R.id.route_status_label)
+        val points: TextView = iv.findViewById(R.id.route_points_value)
+        val start: TextView = iv.findViewById(R.id.route_start_value)
+        val end: TextView = iv.findViewById(R.id.route_end_value)
+        val status: TextView = iv.findViewById(R.id.route_status_value)
     }
 
 }

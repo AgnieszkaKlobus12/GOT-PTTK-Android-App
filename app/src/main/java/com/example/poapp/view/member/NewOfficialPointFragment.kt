@@ -60,7 +60,6 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                     builder.create()
                 }
                 alertDialog.show()
-
                 return@setOnClickListener
             }
 
@@ -84,7 +83,6 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                     builder.create()
                 }
                 alertDialog.show()
-
                 return@setOnClickListener
             }
 

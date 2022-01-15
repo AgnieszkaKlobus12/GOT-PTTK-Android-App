@@ -11,8 +11,13 @@ import com.example.poapp.R
 import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.RouteViewModel
 
-class RouteSectionsPickAdapter(private val values: List<RouteSection>, private val mViewModel: RouteViewModel) :
+class RouteSectionsPickAdapter(
+    private val values: List<RouteSection>,
+    private val mViewModel: RouteViewModel,
+    private val onRouteSectionSelectedListener: OnRouteSectionSelectedListener
+) :
     RecyclerView.Adapter<RouteSectionsPickAdapter.RouteSectionItemHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RouteSectionsPickAdapter.RouteSectionItemHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.fragment_mountain_pass_item, parent, false)
         return RouteSectionItemHolder(itemView)
@@ -37,10 +42,12 @@ class RouteSectionsPickAdapter(private val values: List<RouteSection>, private v
         holder.itemView.setOnClickListener { //todo kolorki
             if (holder.selected.isChecked) {
                 holder.selected.isChecked = false
-                holder.itemView.setBackgroundColor(Color.rgb(150, 150, 150))
+                holder.itemView.setBackgroundColor(Color.rgb(0, 0, 0))
+                onRouteSectionSelectedListener.uncheck(item.id.toLong())
             } else {
                 holder.selected.isChecked = true
-                holder.itemView.setBackgroundColor(Color.rgb(0, 0, 0))
+                holder.itemView.setBackgroundColor(Color.rgb(150, 150, 150))
+                onRouteSectionSelectedListener.check(item.id.toLong())
             }
         }
     }

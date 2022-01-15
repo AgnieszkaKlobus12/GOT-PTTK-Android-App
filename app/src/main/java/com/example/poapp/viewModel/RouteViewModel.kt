@@ -1,12 +1,17 @@
 package com.example.poapp.viewModel
 
 import android.app.Application
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.poapp.model.AppDatabase
 import com.example.poapp.model.entity.*
 import com.example.poapp.model.repository.*
+import java.io.ByteArrayOutputStream
+
 
 class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -23,6 +28,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     val route =
         MutableLiveData(Route(0, 1, "", "oczekuje na wysłanie", 0))
     private var routeSections = listOf<RouteSection>()
+    var proofsNotSaved = mutableListOf<Proof>()
 
     init {
         val database = AppDatabase.getInstance(application)
@@ -226,6 +232,40 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getLeader(leaderID: Long): Leader? {
         return leaderRepository.getLeader(leaderID)
+    }
+
+    fun getRouteSectionsForProof(proof: Proof): List<RouteSection> {
+        val sectionsIDs = mountainPassProofRepository.routeSectionsIDsFor(proof.id.toLong())
+        return routeSectionRepository.getSections(sectionsIDs)
+    }
+
+    fun saveImageProof(routeSectionsIDs: List<Long>, bitmap: Bitmap) {
+        val array = getBitmapAsByteArray(bitmap)
+        if (array.isEmpty()) {
+            Log.e("empty", "empty")
+        }
+        val proof = Proof(0, array, null)
+        val proofId = proofRepository.insert(proof)
+        proof.id = proofId.toInt()
+        proofsNotSaved.add(proof)
+        for (sectionID in routeSectionsIDs) {
+            val sectionProof = MountainPassProof(0, sectionID.toInt(), proofId.toInt())
+            mountainPassProofRepository.insert(sectionProof)
+        }
+    }
+
+    private fun getBitmapAsByteArray(bitmap: Bitmap): ByteArray {
+        val nh = (bitmap.height * (512.0 / bitmap.width)).toInt()
+        val scaled = Bitmap.createScaledBitmap(bitmap, 512, nh, true)
+        val outputStream = ByteArrayOutputStream()
+        scaled.compress(Bitmap.CompressFormat.JPEG, 0, outputStream)
+        return outputStream.toByteArray()
+    }
+
+    fun getImage(byteArray: ByteArray?): Bitmap? {
+        return if (byteArray != null) {
+            BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
+        } else null
     }
 
     //todo wiem że tu sprawdzasz Aga, dodawnie dowodów sie jebie przy cofaniu

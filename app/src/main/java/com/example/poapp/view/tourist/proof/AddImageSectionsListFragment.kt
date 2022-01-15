@@ -1,20 +1,29 @@
 package com.example.poapp.view.tourist.proof
 
+import android.app.Activity
+import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.viewModel.RouteViewModel
+import java.io.InputStream
 
 
 class AddImageSectionsListFragment : Fragment() {
 
     private val mViewModel: RouteViewModel by activityViewModels()
+    private val PICK_IMAGE = 1
+    val selected = mutableListOf<Long>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,10 +36,56 @@ class AddImageSectionsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(R.id.route_section_pick_list).adapter =
-            RouteSectionsPickAdapter(mViewModel.getAllRouteSections(), mViewModel)
+            RouteSectionsPickAdapter(mViewModel.getAllRouteSections(), mViewModel, object : OnRouteSectionSelectedListener {
+                override fun check(routeSectionId: Long) {
+                    selected.add(routeSectionId)
+                }
+
+                override fun uncheck(routeSectionId: Long) {
+                    selected.remove(routeSectionId)
+                }
+            })
+
         view.findViewById<Button>(R.id.pick_picture_button).setOnClickListener {
-            //todo
+            if (selected.isEmpty()) {
+                dialogPickSection()
+                return@setOnClickListener
+            }
+            val getIntent = Intent(Intent.ACTION_GET_CONTENT)
+            getIntent.type = "image/*"
+            val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            pickIntent.type = "image/*"
+            val chooserIntent = Intent.createChooser(getIntent, getString(R.string.pick_proof_image))
+            chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, arrayOf(pickIntent))
+
+            startActivityForResult(chooserIntent, PICK_IMAGE)
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (data == null) {
+                Toast.makeText(requireContext(), getString(R.string.image_not_selected), Toast.LENGTH_SHORT).show()
+                return
+            }
+            val inputStream: InputStream? = requireContext().contentResolver.openInputStream(data.data!!)
+            val bitmap = BitmapFactory.decodeStream(inputStream)
+            if (inputStream != null) {
+                mViewModel.saveImageProof(selected, bitmap)
+            }
+            activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    ProofListFragment()
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        }
+
+    }
+
+    private fun dialogPickSection() {
+        //todo musi byc wybrany co najmniej jeden odcinek
+    }
 }

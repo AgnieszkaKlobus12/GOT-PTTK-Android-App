@@ -21,4 +21,7 @@ interface MountainPassProofDAO {
     @Query("select * from DowodyOdcinkow where FKodcinek in (:routeSections)")
     fun proofsFor(routeSections: List<Long>): List<MountainPassProof>
 
+    @Query("select * from DowodyOdcinkow where FKdowod =:proofId")
+    fun sectionsFor(proofId: Int): List<MountainPassProof>
+
 }

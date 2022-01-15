@@ -17,4 +17,8 @@ class RouteSectionRepository(private val routeSectionDAO: RouteSectionDAO) {
         routeSectionDAO.deleteAllFor(routeID)
     }
 
+    fun getSections(sectionsIDs: List<Int>): List<RouteSection> {
+        return routeSectionDAO.getSections(sectionsIDs)
+    }
+
 }

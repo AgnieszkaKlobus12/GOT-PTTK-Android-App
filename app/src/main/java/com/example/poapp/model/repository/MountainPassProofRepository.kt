@@ -20,4 +20,13 @@ class MountainPassProofRepository(private val mountainPassProofDAO: MountainPass
     fun insert(mountainPassProof: MountainPassProof) {
         mountainPassProofDAO.insert(mountainPassProof)
     }
+
+    fun routeSectionsIDsFor(proofId: Long): List<Int> {
+        val mountainPassProofs = mountainPassProofDAO.sectionsFor(proofId.toInt())
+        val sectionsIDs = mutableListOf<Int>()
+        for (passProof in mountainPassProofs) {
+            sectionsIDs.add(passProof.FKodcinek)
+        }
+        return sectionsIDs
+    }
 }

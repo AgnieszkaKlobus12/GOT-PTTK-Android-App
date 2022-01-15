@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 
 @Database(
     entities = [User::class, Proof::class, MountainPassProof::class, MountainGroup::class, MountainPassOfficial::class, RouteSection::class, MountainPassUser::class, Badge::class, MountainRange::class, Member::class, Leader::class, OfficialPoint::class, UserPoint::class, Route::class, Tourist::class, LeaderQualifications::class],
-    version = 13
+    version = 14
 )
 abstract class AppDatabase : RoomDatabase() {
 

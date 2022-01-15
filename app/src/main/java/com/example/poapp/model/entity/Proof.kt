@@ -16,7 +16,7 @@ import androidx.room.PrimaryKey
     ]
 )
 data class Proof(
-    @PrimaryKey(autoGenerate = true) val id: Int,
+    @PrimaryKey(autoGenerate = true) var id: Int,
     @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     var zdjecie: ByteArray?,
     val FKprzodownik: Int?

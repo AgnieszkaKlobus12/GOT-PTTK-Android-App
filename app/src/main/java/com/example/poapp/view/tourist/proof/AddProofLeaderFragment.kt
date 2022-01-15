@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.databinding.FragmentAddProofLeaderBinding
@@ -12,7 +13,7 @@ import com.example.poapp.viewModel.ProofViewModel
 
 class AddProofLeaderFragment : Fragment() {
 
-    private val _binding: FragmentAddProofLeaderBinding? = null
+    private var _binding: FragmentAddProofLeaderBinding? = null
     private val binding get() = _binding!!
     private val mViewModel: ProofViewModel by activityViewModels()
 
@@ -21,15 +22,20 @@ class AddProofLeaderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        FragmentAddProofLeaderBinding.inflate(inflater, container, false)
+        _binding = FragmentAddProofLeaderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.leaderId.addTextChangedListener {
+            val leader = mViewModel.getLeaderWithNumber(binding.leaderId.text.toString().toLong())
+        }
+
         binding.leaderProofSave.setOnClickListener {
-            TODO()
+//            mViewModel.getLeaderWithNumber(binding.leaderId)
+//            mViewModel.saveLeaderProof()
         }
         binding.leaderProofCancel.setOnClickListener {
             TODO()

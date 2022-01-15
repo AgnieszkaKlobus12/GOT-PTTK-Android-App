@@ -7,30 +7,33 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentRouteDetailsBinding
 import com.example.poapp.view.tourist.proof.EditProofsFragment
 import com.example.poapp.viewModel.NewRouteViewModel
 
-class RouteDetailsFragment : Fragment() {
+class RouteDetailsFragment(private val routeId: Long) : Fragment() {
 
     private var _binding: FragmentRouteDetailsBinding? = null
     private val binding get() = _binding!!
     private val mViewModel: NewRouteViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        FragmentRouteDetailsBinding.inflate(inflater, container, false)
+        _binding = FragmentRouteDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mViewModel.setRoute(routeId.toInt())
         val allRouteSection = mViewModel.getAllRouteSections()
         binding.routeSectionList.adapter = RouteSectionAdapter(activity as Context, allRouteSection, mViewModel)
 
         binding.editProofs.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentPickedPassPointsBinding
@@ -77,6 +78,7 @@ class PickedPassPointsFragment : Fragment() {
             }
             mViewModel.routeSection.value!!.czasPrzejscia = binding.timeValue.text.toString().toInt()
             mViewModel.saveRouteSection()
+            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,

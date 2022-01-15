@@ -1,7 +1,10 @@
 package com.example.poapp.model.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.example.poapp.model.entity.Proof
 
 @Dao
@@ -16,4 +19,6 @@ interface ProofDAO {
     @Query("select * from Dowody")
     fun getAll(): LiveData<List<Proof>>
 
+    @Query("select * from Dowody where id = :proofID")
+    fun getProof(proofID: Long): Proof
 }

@@ -14,7 +14,7 @@ interface LeaderDAO {
     fun update(leader: Leader)
 
     @Query("select * from Przodownicy where nrLegitymacji = :leaderId")
-    fun getLeader(leaderId: Long): List<Leader>
+    fun getLeader(leaderId: Long): Leader
 
     @Delete
     fun delete(tourist: Leader)

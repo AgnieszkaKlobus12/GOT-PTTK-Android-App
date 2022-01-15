@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
@@ -54,6 +55,7 @@ class PickMountainPassFragment(private val ifOfficial: Boolean, private val rout
 
             private fun save() {
                 mViewModel.routeId = routeId
+                activity?.supportFragmentManager?.popBackStack("NewRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.replace(
                         R.id.nav_host_fragment_activity_save_route,

@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.CalendarView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.viewModel.NewRouteViewModel
@@ -57,6 +58,7 @@ class SaveRouteFragment : Fragment() {
                     setPositiveButton(R.string.ok) { dialog, _ ->
                         dialog.dismiss()
                         mViewModel.removeRoute()
+                        activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                         activity?.supportFragmentManager?.beginTransaction()
                             ?.replace(
                                 R.id.nav_host_fragment_activity_save_route,
@@ -80,6 +82,7 @@ class SaveRouteFragment : Fragment() {
         view.findViewById<Button>(R.id.save_route_btn).setOnClickListener {
             mViewModel.route.value!!.dataPrzejscia = date
             mViewModel.updateRoute()
+            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,

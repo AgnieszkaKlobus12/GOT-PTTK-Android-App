@@ -21,7 +21,7 @@ class EditProofsFragment(private val routeId: Long) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        FragmentEditProofsBinding.inflate(inflater, container, false)
+        _binding = FragmentEditProofsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

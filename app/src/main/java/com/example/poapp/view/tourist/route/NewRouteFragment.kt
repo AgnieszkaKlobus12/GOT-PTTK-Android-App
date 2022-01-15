@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
@@ -29,6 +30,7 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             mViewModel.removeRoute()
+            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
@@ -60,6 +62,7 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                 return@setOnClickListener
             }
             Toast.makeText(activity, R.string.extension_point_label, Toast.LENGTH_SHORT).show()
+            //TODO Proof start
         }
 
         view.findViewById<Button>(R.id.end_button).setOnClickListener {
@@ -67,12 +70,13 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                 showAddRouteSectionDialog()
                 return@setOnClickListener
             }
+            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
                     SaveRouteFragment()
                 )
-                ?.addToBackStack(null)
+                ?.addToBackStack("null")
                 ?.commit()
         }
 
@@ -82,7 +86,7 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                     R.id.nav_host_fragment_activity_save_route,
                     PickMountainPassFragment(true, mViewModel.route.value!!.id, mViewModel.getLastSection())
                 )
-                ?.addToBackStack(null)
+                ?.addToBackStack("NewRoute")
                 ?.commit()
         }
 
@@ -92,7 +96,7 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                     R.id.nav_host_fragment_activity_save_route,
                     PickMountainPassFragment(false, mViewModel.route.value!!.id, mViewModel.getLastSection())
                 )
-                ?.addToBackStack(null)
+                ?.addToBackStack("NewRoute")
                 ?.commit()
         }
 

@@ -11,7 +11,7 @@ import com.example.poapp.databinding.FragmentAddProofBinding
 
 class AddProofFragment : Fragment() {
 
-    private val _binding: FragmentAddProofBinding? = null
+    private var _binding: FragmentAddProofBinding? = null
     private val binding get() = _binding!!
 
 
@@ -19,7 +19,7 @@ class AddProofFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        FragmentAddProofBinding.inflate(inflater, container, false)
+        _binding = FragmentAddProofBinding.inflate(inflater, container, false)
         return binding.root
     }
 

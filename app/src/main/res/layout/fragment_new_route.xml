@@ -16,8 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:context=".view.tourist.route.RouteSectionItemFragment"
-        tools:listitem="@layout/fragment_route_section_item" />
+        tools:context=".view.MountainPassItemFragment"
+        tools:listitem="@layout/fragment_mountain_pass_item" />
 
     <Button
         android:id="@+id/add_mountain_pass_button"
@@ -34,6 +34,7 @@
         android:id="@+id/own_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:text="@string/own_mountain_pass"
         android:visibility="gone"
         app:layout_constraintBaseline_toBaselineOf="@+id/official_button"
@@ -44,6 +45,7 @@
         android:id="@+id/official_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:text="@string/official_mountain_pass"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/add_proof_button"
@@ -55,7 +57,7 @@
         android:id="@+id/add_proof_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="10dp"
         android:text="@string/add_proof"
         app:layout_constraintBottom_toTopOf="@+id/end_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +68,8 @@
         android:id="@+id/end_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/adding_passes_end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

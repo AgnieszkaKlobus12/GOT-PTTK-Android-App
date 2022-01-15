@@ -1,11 +1,10 @@
-package com.example.poapp.view.employee
+package com.example.poapp.view.member
 
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
@@ -61,7 +60,6 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                     builder.create()
                 }
                 alertDialog.show()
-
                 return@setOnClickListener
             }
 
@@ -85,7 +83,6 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                     builder.create()
                 }
                 alertDialog.show()
-
                 return@setOnClickListener
             }
 

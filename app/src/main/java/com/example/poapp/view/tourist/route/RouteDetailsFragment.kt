@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.route
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,9 +28,7 @@ class RouteDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val allRouteSection = mViewModel.getAllRouteSections()
-        binding.routeSectionList.adapter = RouteSectionAdapter(
-            allRouteSection, mViewModel
-        )
+        binding.routeSectionList.adapter = RouteSectionAdapter(activity as Context, allRouteSection, mViewModel)
 
         binding.editProofs.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()
@@ -41,10 +40,10 @@ class RouteDetailsFragment : Fragment() {
                 ?.commit()
         }
         binding.editRoute.setOnClickListener {
-            Toast.makeText(requireContext(), getString(R.string.UC_not_selected), Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.not_implemented_label), Toast.LENGTH_SHORT).show()
         }
         binding.deleteRoute.setOnClickListener {
-            Toast.makeText(requireContext(), getString(R.string.UC_not_selected), Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.not_implemented_label), Toast.LENGTH_SHORT).show()
         }
         binding.sendToLeader.setOnClickListener {
             //TODO - for last UC

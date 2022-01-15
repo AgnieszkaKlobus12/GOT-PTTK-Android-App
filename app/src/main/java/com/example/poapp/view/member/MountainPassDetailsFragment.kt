@@ -1,4 +1,4 @@
-package com.example.poapp.view.employee
+package com.example.poapp.view.member
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentMountainPassDetailsBinding
 import com.example.poapp.viewModel.MountainPassOfficialViewModel
-
 
 class MountainPassDetailsFragment(private val mountainPassId: Int) : Fragment() {
     private var _binding: FragmentMountainPassDetailsBinding? = null
@@ -41,13 +40,14 @@ class MountainPassDetailsFragment(private val mountainPassId: Int) : Fragment() 
         binding.mountainRangeValue.text = mountainRange.nazwa
         binding.mountainGroupValue.text = mViewModel.getMountainGroup(mountainRange.FKgrupaGorska.toInt())[0].nazwa
         binding.statusValue.text = mountainPass.status
+
         if (binding.statusValue.text == resources.getString(R.string.active))
-            binding.statusValue.setTextColor(resources.getColor(R.color.green))
+            binding.statusValue.setTextColor(requireActivity().getColor(R.color.green))
         else
-            binding.statusValue.setTextColor(resources.getColor(R.color.red))
+            binding.statusValue.setTextColor(requireActivity().getColor(R.color.red))
 
         binding.deleteButton.setOnClickListener {
-            Toast.makeText(requireContext(), R.string.UC_not_selected, Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.not_implemented_label, Toast.LENGTH_SHORT).show()
         }
         binding.editButton.setOnClickListener {
             activity?.supportFragmentManager?.beginTransaction()

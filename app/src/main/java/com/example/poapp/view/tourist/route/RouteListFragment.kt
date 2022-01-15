@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.route
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,11 +18,7 @@ class RouteListFragment : Fragment() {
 
     private val mViewModel: NewRouteViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_route_list, container, false)
     }
 
@@ -33,8 +30,7 @@ class RouteListFragment : Fragment() {
         var allRoutes = emptyList<Route>()
         mViewModel.getAllRoutes(1).observe(viewLifecycleOwner, { passes ->
             passes?.let { allRoutes = it }
-            list.adapter = RouteAdapter(
-                allRoutes, mViewModel, object : OnRouteClickedListener {
+            list.adapter = RouteAdapter(activity as Context, allRoutes, mViewModel, object : OnRouteClickedListener {
                     override fun onItemClick(item: Route) {
 //                        activity?.supportFragmentManager?.beginTransaction()
 //                            ?.replace(

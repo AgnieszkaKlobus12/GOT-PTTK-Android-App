@@ -20,7 +20,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class LeaderPermissions(
+data class LeaderQualifications(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKprzodownik: Int,
     val FKgrupaGorska: Int

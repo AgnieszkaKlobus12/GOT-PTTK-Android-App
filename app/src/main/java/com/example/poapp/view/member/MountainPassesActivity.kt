@@ -1,4 +1,4 @@
-package com.example.poapp.view.employee
+package com.example.poapp.view.member
 
 import android.os.Bundle
 import android.view.Menu

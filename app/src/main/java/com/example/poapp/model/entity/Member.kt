@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
         )
     ]
 )
-data class Employee(
+data class Member(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKuzytkownik: Int,
     var nazwaOrganizacji: String, //enum

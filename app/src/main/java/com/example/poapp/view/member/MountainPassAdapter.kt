@@ -1,4 +1,4 @@
-package com.example.poapp.view.employee
+package com.example.poapp.view.member
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -31,16 +31,21 @@ class MountainPassAdapter(
         holder.startPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktPoczatkowy)[0].nazwa
         holder.endPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktKoncowy)[0].nazwa
         holder.passPoints.text = mountainPass.punkty.toString()
+
         if (mountainPass.FKpunktPosredni != null && mountainPass.FKpunktPosredni != 0)
             holder.throughPoint.text = mViewModel.getOfficialPoint(mountainPass.FKpunktPosredni!!)[0].nazwa
         else
             holder.throughPoint.text = "-"
+
         holder.name.text = mountainPass.nazwa
+
+        holder.statusLabel.text = context.resources.getString(R.string.status)
         holder.status.text = mountainPass.status
         if (holder.status.text == context.resources.getString(R.string.active))
             holder.status.setTextColor(context.getColor(R.color.green))
         else
             holder.status.setTextColor(context.getColor(R.color.red))
+
         holder.itemView.setOnClickListener {
             onMountainPassClickedListener.onItemClick(mountainPass)
         }
@@ -54,7 +59,8 @@ class MountainPassAdapter(
         val passPoints: TextView = iv.findViewById(R.id.pass_points)
         val throughPoint: TextView = iv.findViewById(R.id.pass_through)
         val name: TextView = iv.findViewById(R.id.pass_name)
-        val status: TextView = iv.findViewById(R.id.pass_status)
+        val statusLabel: TextView = iv.findViewById(R.id.pass_extra_label)
+        val status: TextView = iv.findViewById(R.id.pass_extra)
     }
 
 }

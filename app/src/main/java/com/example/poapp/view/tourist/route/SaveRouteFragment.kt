@@ -1,6 +1,7 @@
 package com.example.poapp.view.tourist.route
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,12 +32,12 @@ class SaveRouteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val points = mViewModel.updateRoutePoints()
-        val dateMillis = view.findViewById<CalendarView>(R.id.calendarView).date
+        val dateMillis = view.findViewById<CalendarView>(R.id.calendar).date
 
         val formatter = SimpleDateFormat("yyyy-MM-dd")
         var date = formatter.format(dateMillis)
 
-        view.findViewById<CalendarView>(R.id.calendarView).setOnDateChangeListener { _, year, month, dayOfMonth ->
+        view.findViewById<CalendarView>(R.id.calendar).setOnDateChangeListener { _, year, month, dayOfMonth ->
             var monthString = (month + 1).toString()
             if (month + 1 < 10) {
                 monthString = "0${month + 1}"
@@ -48,11 +49,34 @@ class SaveRouteFragment : Fragment() {
             date = "$year-$monthString-$dayString"
         }
         view.findViewById<TextView>(R.id.points_sum).text = points.toString()
+
         view.findViewById<Button>(R.id.cancel_save_route).setOnClickListener {
-            //todo dialog czy na pewno anulować
-            mViewModel.removeRoute() //jeśli tak to to
-            return@setOnClickListener //jeśli nie to to
+            val alertDialog = requireActivity().let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        dialog.dismiss()
+                        mViewModel.removeRoute()
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(
+                                R.id.nav_host_fragment_activity_save_route,
+                                RouteListFragment()
+                            )
+                            ?.addToBackStack(null)
+                            ?.commit()
+                    }
+                    setNegativeButton(R.string.back) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert)
+                    setMessage(R.string.confirm_cancel_message)
+                }
+                builder.create()
+            }
+            alertDialog.show()
+            return@setOnClickListener
         }
+
         view.findViewById<Button>(R.id.save_route_btn).setOnClickListener {
             mViewModel.route.value!!.dataPrzejscia = date
             mViewModel.updateRoute()

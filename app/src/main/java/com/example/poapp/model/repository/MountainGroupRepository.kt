@@ -21,4 +21,8 @@ class MountainGroupRepository(private val mountainGroupDAO: MountainGroupDAO) {
     fun getMountainGroup(id: Int): List<MountainGroup> {
         return mountainGroupDAO.getMountainGroup(id)
     }
+
+    fun getMountainGroups(groupsIDs: List<Int>): List<MountainGroup> {
+        return mountainGroupDAO.getMountainGroups(groupsIDs)
+    }
 }

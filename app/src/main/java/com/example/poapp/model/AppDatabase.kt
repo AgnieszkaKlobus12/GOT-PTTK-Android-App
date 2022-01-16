@@ -11,7 +11,7 @@ import kotlinx.coroutines.*
 
 @Database(
     entities = [User::class, Proof::class, MountainPassProof::class, MountainGroup::class, MountainPassOfficial::class, RouteSection::class, MountainPassUser::class, Badge::class, MountainRange::class, Member::class, Leader::class, OfficialPoint::class, UserPoint::class, Route::class, Tourist::class, LeaderQualifications::class],
-    version = 14
+    version = 15
 )
 abstract class AppDatabase : RoomDatabase() {
 
@@ -26,6 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun mountainRangeDAO(): MountainRangeDAO
     abstract fun mountainPassUserDAO(): MountainPassUserDAO
     abstract fun leaderDAO(): LeaderDAO
+    abstract fun leaderQualificationsDAO(): LeaderQualificationsDAO
     abstract fun proofDAO(): ProofDAO
     abstract fun mountainPassProofDAO(): MountainPassProofDAO
 
@@ -66,6 +67,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val mountainPassOfficialDAO = db.mountainPassOfficialDAO()
                         val userPointDAO = db.userPointDAO()
                         val mountainPassUserDAO = db.mountainPassUserDAO()
+                        val leaderQualificationsDAO = db.leaderQualificationsDAO()
                         val leaderDAO = db.leaderDAO()
                         val proofDAO = db.proofDAO()
                         val routeSectionDAO = db.routeSectionDAO()
@@ -82,6 +84,7 @@ abstract class AppDatabase : RoomDatabase() {
                         userPointDAO.deleteAll()
                         mountainPassUserDAO.deleteAll()
                         leaderDAO.deleteAll()
+                        leaderQualificationsDAO.deleteAll()
                         proofDAO.deleteAll()
                         routeSectionDAO.deleteAll()
                         routeDAO.deleteAll()
@@ -169,6 +172,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val tourist3 = touristDAO.insert(Tourist(0, user3.toInt(), 0, false))
                         val leader1 = leaderDAO.insert(Leader(0, tourist2.toInt()))
                         val leader2 = leaderDAO.insert(Leader(0, tourist3.toInt()))
+                        leaderQualificationsDAO.insert(LeaderQualifications(0, leader1.toInt(), tatry_podtatrze.toInt()))
 
                         val rusinowa_polana = officialPointDAO.insert(OfficialPoint(0, "Rusinowa Polana", 49.261037737025546, 20.08954157827796, tatry_wysokie.toInt()))
                         val dolina_filipka = officialPointDAO.insert(OfficialPoint(0, "Dolina Filipka", 49.28241531042575, 20.088050961369692, tatry_wysokie.toInt()))

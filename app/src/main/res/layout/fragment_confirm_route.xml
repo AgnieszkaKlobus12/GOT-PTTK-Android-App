@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.leader.ConfirmRouteListFragment">
+    <!--todo-->
+    <TextView
+        android:id="@+id/tourist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/route_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_points_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_points_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_start_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_start_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_end_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_end_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_mountain_group_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/confirm_route_mountain_group_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/show_route_sections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="odcinki" />
+
+    <Button
+        android:id="@+id/show_on_map"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="mapa" />
+
+    <Button
+        android:id="@+id/show_route_proofs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="dowody" />
+
+    <Button
+        android:id="@+id/reject_route"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="odrzuc" />
+
+    <Button
+        android:id="@+id/confirm_route"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="potwierdn" />
+</LinearLayout>

@@ -32,7 +32,7 @@ class RouteDetailsFragment(private val routeId: Long) : Fragment() {
         val allRouteSection = mViewModel.getAllRouteSections()
         binding.routeSectionList.adapter = RouteSectionAdapter(activity as Context, allRouteSection, mViewModel)
 
-        if (mViewModel.route.value!!.status != "oczekuje na wysłanie") {
+        if (mViewModel.route.value!!.status != getString(R.string.not_send)) {
             binding.editProofs.isEnabled = false
             binding.editRoute.isEnabled = false
             binding.deleteRoute.isEnabled = false
@@ -56,7 +56,16 @@ class RouteDetailsFragment(private val routeId: Long) : Fragment() {
             Toast.makeText(requireContext(), getString(R.string.not_implemented_label), Toast.LENGTH_SHORT).show()
         }
         binding.sendToLeader.setOnClickListener {
-            //TODO - for last UC
+            //todo dialog cz na pewno wysłać
+            //jak tak:
+            mViewModel.route.value!!.status = getString(R.string.waiting_for_confirmation)
+            mViewModel.updateRoute()
+            binding.editProofs.isEnabled = false
+            binding.editRoute.isEnabled = false
+            binding.deleteRoute.isEnabled = false
+            binding.sendToLeader.isEnabled = false
+            //jak nie:
+            return@setOnClickListener
         }
     }
 }

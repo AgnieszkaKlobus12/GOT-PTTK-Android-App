@@ -9,7 +9,7 @@ class RouteSectionRepository(private val routeSectionDAO: RouteSectionDAO) {
         return routeSectionDAO.insert(routeSection)
     }
 
-    fun getRouteSectionForRoute(routeID: Long): List<RouteSection> {
+    fun getRouteSectionForRoute(routeID: Int): List<RouteSection> {
         return routeSectionDAO.getRouteSectionForRoute(routeID)
     }
 

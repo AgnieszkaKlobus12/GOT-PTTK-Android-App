@@ -19,7 +19,7 @@
         android:id="@+id/confirmRouteListFragment"
         android:name="com.example.poapp.view.leader.ConfirmRouteListFragment"
         android:label="fragment_confirm_route_list"
-        tools:layout="@layout/fragment_confirm_route_list" >
+        tools:layout="@layout/fragment_confirm_route">
         <action
             android:id="@+id/action_confirmRouteListFragment_to_notImplementedFragment"
             app:destination="@id/notImplementedFragment" />

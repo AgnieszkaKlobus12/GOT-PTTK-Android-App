@@ -25,4 +25,8 @@ class RouteRepository(private val routeDAO: RouteDAO) {
     fun delete(routeId: Long) {
         routeDAO.delete(routeId)
     }
+
+    fun getForConfirmation(): List<Route> {
+        return routeDAO.getAllWithStatus("oczekuje na potwierdzenie")
+    }
 }

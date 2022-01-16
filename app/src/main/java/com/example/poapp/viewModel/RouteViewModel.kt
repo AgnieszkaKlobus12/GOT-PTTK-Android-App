@@ -44,7 +44,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setRoute(route: Int) {
         this.route.value = routeRepository.getRoute(route)[0]
-        routeSections = routeSectionRepository.getRouteSectionForRoute(route.toLong())
+        routeSections = routeSectionRepository.getRouteSectionForRoute(route)
     }
 
     fun getLastSection(): RouteSection? {
@@ -61,8 +61,8 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         route.value!!.id = routeRepository.insert(route.value!!).toInt()
     }
 
-    fun getAllRouteSections(): List<RouteSection> {
-        routeSections = routeSectionRepository.getRouteSectionForRoute(route.value!!.id.toLong())
+    fun getAllRouteSections(routeId: Int = route.value!!.id): List<RouteSection> {
+        routeSections = routeSectionRepository.getRouteSectionForRoute(routeId)
         return routeSections
     }
 
@@ -108,12 +108,12 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getStartNameForRoute(routeId: Int): String {
-        val routeSection = routeSectionRepository.getRouteSectionForRoute(routeId.toLong()).first()
+        val routeSection = routeSectionRepository.getRouteSectionForRoute(routeId).first()
         return getStartPointName(routeSection)
     }
 
     fun getEndNameForRoute(routeId: Int): String {
-        val routeSection = routeSectionRepository.getRouteSectionForRoute(routeId.toLong()).last()
+        val routeSection = routeSectionRepository.getRouteSectionForRoute(routeId).last()
         return getEndPointName(routeSection)
     }
 
@@ -224,7 +224,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getRouteSectionsForRoute(routeId: Long): List<RouteSection> {
-        return routeSectionRepository.getRouteSectionForRoute(routeId)
+        return routeSectionRepository.getRouteSectionForRoute(routeId.toInt())
     }
 
     fun getLeaderName(leaderID: Long): String {

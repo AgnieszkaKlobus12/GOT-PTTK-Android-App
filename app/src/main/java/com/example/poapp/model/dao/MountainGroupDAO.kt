@@ -24,4 +24,7 @@ interface MountainGroupDAO {
 
     @Query("select * from GrupyGorskie where id = :idMG")
     fun getMountainGroup(idMG: Int): List<MountainGroup>
+
+    @Query("select * from GrupyGorskie where id in (:groupsIDs)")
+    fun getMountainGroups(groupsIDs: List<Int>): List<MountainGroup>
 }

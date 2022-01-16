@@ -110,5 +110,10 @@
     <string name="no_proofs_message">Dla tej trasy nie załączono dowodu</string>
     <string name="no_proof_selected_message">Wybierz dowód do usunięcia</string>
     <string name="confirm_delete_message">Czy na pewno chcesz usunąć dowód?</string>
+    <string name="not_send">oczekuje na wysłanie</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="to_confirm">Do potwierdzenia:</string>
+    <string name="route_sections">Odcinki trasy</string>
 
 </resources>

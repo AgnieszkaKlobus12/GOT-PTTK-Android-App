@@ -3,7 +3,6 @@ package com.example.poapp.viewModel
 import android.app.Application
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,7 +27,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     val route =
         MutableLiveData(Route(0, 1, "", "oczekuje na wysłanie", 0))
     private var routeSections = listOf<RouteSection>()
-    var proofsNotSaved = mutableListOf<Proof>()
+    var proofsNotConfirmed = mutableListOf<Proof>()
 
     init {
         val database = AppDatabase.getInstance(application)
@@ -241,13 +240,10 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
     fun saveImageProof(routeSectionsIDs: List<Long>, bitmap: Bitmap) {
         val array = getBitmapAsByteArray(bitmap)
-        if (array.isEmpty()) {
-            Log.e("empty", "empty")
-        }
         val proof = Proof(0, array, null)
         val proofId = proofRepository.insert(proof)
         proof.id = proofId.toInt()
-        proofsNotSaved.add(proof)
+        proofsNotConfirmed.add(proof)
         for (sectionID in routeSectionsIDs) {
             val sectionProof = MountainPassProof(0, sectionID.toInt(), proofId.toInt())
             mountainPassProofRepository.insert(sectionProof)
@@ -266,6 +262,18 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         return if (byteArray != null) {
             BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
         } else null
+    }
+
+    fun deleteUnconfirmedProofs() {
+        for (proof in proofsNotConfirmed) {
+            mountainPassProofRepository.deleteAllForProof(proof.id)
+            proofRepository.delete(proof.id.toLong())
+        }
+        proofsNotConfirmed.clear()
+    }
+
+    fun confirmProofs() {
+        proofsNotConfirmed.clear()
     }
 
     //todo wiem że tu sprawdzasz Aga, dodawnie dowodów sie jebie przy cofaniu

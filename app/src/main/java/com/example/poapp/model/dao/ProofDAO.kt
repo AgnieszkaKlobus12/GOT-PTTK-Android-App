@@ -16,6 +16,9 @@ interface ProofDAO {
     @Query("delete from Dowody")
     fun deleteAll()
 
+    @Query("delete from Dowody where id = :proofID")
+    fun delete(proofID: Long)
+
     @Query("select * from Dowody")
     fun getAll(): LiveData<List<Proof>>
 

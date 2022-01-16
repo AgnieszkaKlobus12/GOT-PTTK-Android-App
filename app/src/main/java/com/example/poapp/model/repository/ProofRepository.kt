@@ -12,4 +12,8 @@ class ProofRepository(private val proofDAO: ProofDAO) {
     fun insert(proof: Proof): Long {
         return proofDAO.insert(proof)
     }
+
+    fun delete(proofID: Long) {
+        proofDAO.delete(proofID)
+    }
 }

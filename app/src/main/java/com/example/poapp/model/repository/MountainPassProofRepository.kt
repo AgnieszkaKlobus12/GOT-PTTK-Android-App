@@ -29,4 +29,8 @@ class MountainPassProofRepository(private val mountainPassProofDAO: MountainPass
         }
         return sectionsIDs
     }
+
+    fun deleteAllForProof(proofId: Int) {
+        mountainPassProofDAO.deleteAllForProof(proofId)
+    }
 }

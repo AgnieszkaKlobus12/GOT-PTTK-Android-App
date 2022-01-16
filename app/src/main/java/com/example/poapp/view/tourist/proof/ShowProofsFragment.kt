@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.proof
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,10 +18,7 @@ class ShowProofsFragment : Fragment() {
     private val binding get() = _binding!!
     private val mViewModel: RouteViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentProofListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,7 +39,7 @@ class ShowProofsFragment : Fragment() {
         binding.cancelSaveProofs.visibility = View.GONE
         binding.saveProofs.visibility = View.GONE
 
-        binding.proofList.adapter = ProofListAdapter(mViewModel.getRouteProofs(), mViewModel)
+        binding.proofList.adapter = ProofListAdapter(activity as Context, mViewModel.getRouteProofs(), mViewModel)
     }
 
 }

@@ -32,6 +32,13 @@ class RouteDetailsFragment(private val routeId: Long) : Fragment() {
         val allRouteSection = mViewModel.getAllRouteSections()
         binding.routeSectionList.adapter = RouteSectionAdapter(activity as Context, allRouteSection, mViewModel)
 
+        if (mViewModel.route.value!!.status != "oczekuje na wysłanie") {
+            binding.editProofs.isEnabled = false
+            binding.editRoute.isEnabled = false
+            binding.deleteRoute.isEnabled = false
+            binding.sendToLeader.isEnabled = false
+        }
+
         binding.editProofs.setOnClickListener {
             activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()

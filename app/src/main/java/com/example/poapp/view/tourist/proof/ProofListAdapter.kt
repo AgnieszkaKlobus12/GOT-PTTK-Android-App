@@ -1,6 +1,6 @@
 package com.example.poapp.view.tourist.proof
 
-import android.graphics.Color
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +13,7 @@ import com.example.poapp.model.entity.Proof
 import com.example.poapp.viewModel.RouteViewModel
 
 class ProofListAdapter(
+    private val context: Context,
     private val values: List<Proof>,
     private val mViewModel: RouteViewModel,
     private val onProofSelectedListener: OnProofSelectedListener? = null
@@ -40,14 +41,14 @@ class ProofListAdapter(
         holder.recyclerView.adapter = ProofSectionsAdapter(mViewModel.getRouteSectionsForProof(item), mViewModel)
 
         if (onProofSelectedListener != null) {
-            holder.itemView.setOnClickListener { //todo kolorki
+            holder.itemView.setOnClickListener {
                 if (holder.selected.isChecked) {
                     holder.selected.isChecked = false
-                    holder.itemView.setBackgroundColor(Color.rgb(0, 0, 0))
+                    holder.itemView.setBackgroundColor(context.getColor(R.color.white))
                     onProofSelectedListener.uncheck(item.id.toLong())
                 } else {
                     holder.selected.isChecked = true
-                    holder.itemView.setBackgroundColor(Color.rgb(150, 150, 150))
+                    holder.itemView.setBackgroundColor(context.getColor(R.color.blue_1))
                     onProofSelectedListener.check(item.id.toLong())
                 }
             }

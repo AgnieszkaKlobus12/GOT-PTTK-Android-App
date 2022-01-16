@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.proof
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,11 +25,7 @@ class AddProofLeaderFragment(private val new: Boolean = false) : Fragment() {
     private val binding get() = _binding!!
     private val mViewModel: RouteViewModel by activityViewModels()
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAddProofLeaderBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,24 +36,28 @@ class AddProofLeaderFragment(private val new: Boolean = false) : Fragment() {
         checkLeader()
         binding.leaderProofSave.setOnClickListener {
             when (mViewModel.saveLeaderProof(binding.leaderId.text.toString().toLong())) {
-                0 -> {
-                    close()
-                }
-                -1 -> {
-                    dialogLeaderAlreadyAdded()
-                }
-                else -> {
-                    dialogLeaderNotFound()
-                }
+                0 -> close()
+                -1 -> dialogLeaderAlreadyAdded()
+                else -> dialogLeaderNotFound()
             }
         }
         binding.leaderProofCancel.setOnClickListener {
-            //TODO dialog czy na pewno chcesz anulowwać
-
-            //jeśli tak to:
-            close()
-
-            //jeśli nie to :
+            val alertDialog = requireActivity().let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        dialog.dismiss()
+                        close()
+                    }
+                    setNegativeButton(R.string.back) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert)
+                    setMessage(R.string.confirm_cancel_message)
+                }
+                builder.create()
+            }
+            alertDialog.show()
             return@setOnClickListener
         }
 
@@ -99,11 +100,33 @@ class AddProofLeaderFragment(private val new: Boolean = false) : Fragment() {
     }
 
     private fun dialogLeaderAlreadyAdded() {
-        //TODO dialog że przodownik już jest dodany do tej trasy
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.leader_already_added_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 
     private fun dialogLeaderNotFound() {
-        //TODO dialog że przodownik w bazie nie istnieje
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.leader_not_found_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 
 }

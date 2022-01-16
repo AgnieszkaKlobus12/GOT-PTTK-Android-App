@@ -19,15 +19,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //TODO
-        binding.saveRoute.setOnClickListener {
+        binding.saveRouteAddProof.setOnClickListener {
             val intent = Intent(this, SaveRouteActivity::class.java)
             startActivity(intent)
-            Toast.makeText(this, "TODO - bug fixes", Toast.LENGTH_SHORT).show()
-        }
-
-        //TODO
-        binding.addProof.setOnClickListener {
-            Toast.makeText(this, "TODO", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "TODO - last layout, final check", Toast.LENGTH_SHORT).show()
         }
 
         binding.mountainPass.setOnClickListener {
@@ -37,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         //TODO
         binding.confirmRoute.setOnClickListener {
-            Toast.makeText(this, "TODO - finish", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "TODO", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ConfirmRouteActivity::class.java)
             startActivity(intent)
         }

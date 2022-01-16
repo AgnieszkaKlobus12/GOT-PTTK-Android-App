@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.proof
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,10 +19,7 @@ class EditProofsFragment(private val routeId: Long) : Fragment() {
     private val binding get() = _binding!!
     private val mViewModel: RouteViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentEditProofsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -71,7 +69,18 @@ class EditProofsFragment(private val routeId: Long) : Fragment() {
     }
 
     private fun dialogNoProofs() {
-        //todo dialog trasa nie ma żadnych dowodów
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.no_proofs_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 
 }

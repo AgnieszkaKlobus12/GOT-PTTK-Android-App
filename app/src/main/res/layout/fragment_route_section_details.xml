@@ -130,11 +130,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp" />
 
-        <Button
-            android:id="@+id/show_sections_on_map"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="mapa" />
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            tools:context=".MapsActivity" />
 
         <Button
             android:id="@+id/close_section_details"

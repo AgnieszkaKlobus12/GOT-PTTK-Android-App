@@ -10,6 +10,7 @@ import com.example.poapp.model.entity.Proof
 import com.example.poapp.model.entity.Route
 import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.model.repository.*
+import com.google.android.gms.maps.model.LatLng
 
 class ConfirmRouteViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -105,6 +106,34 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
 
     fun getLeaderName(leaderId: Int): String {
         return routeViewModel.getLeaderName(leaderId.toLong())
+    }
+
+    fun getStartCoordinatesForSection(routeSection: RouteSection): LatLng {
+        if (routeSection.FKodcinekOficjalny != null) {
+            val point = getOfficialPoint(routeViewModel.getOfficialPass(routeSection.FKodcinekOficjalny!!).FKpunktPoczatkowy)
+            return LatLng(point.szerokoscGeo, point.dlugoscGeo)
+        }
+        val pass = routeViewModel.getUserPass(routeSection.FKodcinekWlasny!!)
+        if (pass.FKpunktPoczatkowyWlasny != null) {
+            val point = routeViewModel.getUserPoint(pass.FKpunktPoczatkowyWlasny)
+            return LatLng(point.szerokoscGeo, point.dlugoscGeo)
+        }
+        val point = routeViewModel.getOfficialPoint(pass.FKpunktPoczatkowyOficjalny!!)
+        return LatLng(point.szerokoscGeo, point.dlugoscGeo)
+    }
+
+    fun getEndCoordinatesForSection(routeSection: RouteSection): LatLng {
+        if (routeSection.FKodcinekOficjalny != null) {
+            val point = getOfficialPoint(routeViewModel.getOfficialPass(routeSection.FKodcinekOficjalny!!).FKpunktKoncowy)
+            return LatLng(point.szerokoscGeo, point.dlugoscGeo)
+        }
+        val pass = routeViewModel.getUserPass(routeSection.FKodcinekWlasny!!)
+        if (pass.FKpunktKoncowyWlasny != null) {
+            val point = routeViewModel.getUserPoint(pass.FKpunktKoncowyWlasny)
+            return LatLng(point.szerokoscGeo, point.dlugoscGeo)
+        }
+        val point = routeViewModel.getOfficialPoint(pass.FKpunktKoncowyOficjalny!!)
+        return LatLng(point.szerokoscGeo, point.dlugoscGeo)
     }
 
     fun getImage(byteArray: ByteArray): Bitmap? {

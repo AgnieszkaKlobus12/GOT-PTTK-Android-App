@@ -11,13 +11,19 @@ import com.example.poapp.R
 import com.example.poapp.databinding.FragmentRouteSectionDetailsBinding
 import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.ConfirmRouteViewModel
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 
-class RouteSectionDetailsFragment(private val routeSection: RouteSection) : Fragment() {
+class RouteSectionDetailsFragment(private val routeSection: RouteSection) : Fragment(), OnMapReadyCallback {
 
     private var _binding: FragmentRouteSectionDetailsBinding? = null
     private val binding get() = _binding!!
     private val mViewModel: ConfirmRouteViewModel by activityViewModels()
-
+    private lateinit var mMap: GoogleMap
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +35,9 @@ class RouteSectionDetailsFragment(private val routeSection: RouteSection) : Frag
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
 
         binding.sectionDetailsEndValue.text = mViewModel.getSectionEndName(routeSection)
         binding.sectionDetailsStartValue.text = mViewModel.getSectionStartName(routeSection)
@@ -69,12 +78,25 @@ class RouteSectionDetailsFragment(private val routeSection: RouteSection) : Frag
                 ?.addToBackStack(null)
                 ?.commit()
         }
-        binding.showSectionsOnMap.setOnClickListener {
-//            val gmmIntentUri =
-//                Uri.parse("google.navigation:q=${mViewModel.getRouteSectionMapStart()}i&mode=w")
-//            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-//            mapIntent.setPackage("com.google.android.apps.maps")
-//            startActivity(mapIntent)
-        }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+
+        val start = mViewModel.getStartCoordinatesForSection(routeSection)
+        val end = mViewModel.getEndCoordinatesForSection(routeSection)
+        mMap.addMarker(
+            MarkerOptions()
+                .position(start)
+                .title("Start")
+        )
+        mMap.addMarker(
+            MarkerOptions()
+                .position(end)
+                .title("End")
+        )
+        mMap.mapType = GoogleMap.MAP_TYPE_SATELLITE
+        mMap.addPolyline(PolylineOptions().add(start, end))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(start, 13f))
     }
 }

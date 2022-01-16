@@ -188,15 +188,15 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun getOfficialPass(id: Int): MountainPassOfficial {
+    fun getOfficialPass(id: Int): MountainPassOfficial {
         return mountainPassOfficialRepository.geMountainPass(id)[0]
     }
 
-    private fun getUserPass(id: Int): MountainPassUser {
+    fun getUserPass(id: Int): MountainPassUser {
         return mountainPassUserRepository.geMountainPass(id)[0]
     }
 
-    private fun getUserPoint(id: Int): UserPoint {
+    fun getUserPoint(id: Int): UserPoint {
         return userPointRepository.getUserPoint(id)[0]
     }
 

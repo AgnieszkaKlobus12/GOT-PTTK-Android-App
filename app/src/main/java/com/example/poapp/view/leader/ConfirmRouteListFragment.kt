@@ -36,7 +36,7 @@ class ConfirmRouteListFragment : Fragment() {
             mViewModel, object : OnRouteClickedListener {
                 override fun onItemClick(item: Route) {
                     mViewModel.route.value = item
-                    activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    activity?.supportFragmentManager?.popBackStack("null", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                     activity?.supportFragmentManager?.beginTransaction()
                         ?.replace(
                             R.id.nav_host_fragment_activity_confirm,

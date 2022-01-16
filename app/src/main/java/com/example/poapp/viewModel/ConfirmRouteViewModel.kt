@@ -25,6 +25,8 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
     private val mountainRangeRepository: MountainRangeRepository
     private val routeSectionRepository: RouteSectionRepository
     private val routeRepository: RouteRepository
+    private val touristRepository: TouristRepository
+    private val userRepository: UserRepository
     private val leaderQualificationsRepository: LeaderQualificationsRepository
     var leaderId = 0
     val route =
@@ -38,6 +40,8 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
         officialPointRepository = OfficialPointRepository(database.officialPointDAO())
         userPointRepository = UserPointRepository(database.userPointDAO())
         proofRepository = ProofRepository(database.proofDAO())
+        userRepository = UserRepository(database.userDAO())
+        touristRepository = TouristRepository(database.touristDAO())
         mountainPassProofRepository = MountainPassProofRepository(database.mountainPassProofDAO())
         mountainRangeRepository = MountainRangeRepository(database.mountainRangeDAO())
         routeSectionRepository = RouteSectionRepository(database.routeSectionDAO())
@@ -47,8 +51,9 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun getTouristName(routeId: Long = route.value!!.id.toLong()): String {
-        //todo
-        return "todo"
+        val tourist = touristRepository.getTourist(routeRepository.getRoute(routeId.toInt())[0].FKturysta.toLong())
+        val user = userRepository.getUser(tourist.FKuzytkownik.toLong())[0]
+        return user.imie + " " + user.nazwisko
     }
 
     fun getStartNameForRoute(routeId: Int = route.value!!.id): String {
@@ -136,16 +141,27 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
         return LatLng(point.szerokoscGeo, point.dlugoscGeo)
     }
 
+    fun getStartCoordinates(): LatLng {
+        return getStartCoordinatesForSection(routeViewModel.getFirstSection(route.value!!.id)!!)
+    }
+
+    fun getEndCoordinates(): LatLng {
+        return getStartCoordinatesForSection(routeViewModel.getLastSection(route.value!!.id)!!)
+    }
+
     fun getImage(byteArray: ByteArray): Bitmap? {
         return routeViewModel.getImage(byteArray)
     }
 
     fun getMountainGroupName(routeId: Long = route.value!!.id.toLong()): String {
-        //todo
-        return "todo"
+        val pass = getRouteSectionsForRoute(routeId.toInt())[0]
+        if (pass.FKodcinekOficjalny != null) {
+            return mountainGroupRepository.getMountainGroup(routeViewModel.getOfficialPass(pass.FKodcinekOficjalny!!).FKpasmoGorskie)[0].nazwa
+        }
+        return mountainGroupRepository.getMountainGroup(routeViewModel.getUserPass(pass.FKodcinekWlasny!!).FKpasmoGorskie)[0].nazwa
     }
 
-    fun getLeaderMountainGroupsIDs(): List<Int> {
+    private fun getLeaderMountainGroupsIDs(): List<Int> {
         val qualifications = leaderQualificationsRepository.getQualificationsForLeader(leaderId)
         val groupsIDs = mutableListOf<Int>()
         for (qualification in qualifications) {
@@ -154,7 +170,7 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
         return groupsIDs
     }
 
-    fun getRouteSectionMountainGroupID(routeSection: RouteSection): Long {
+    private fun getRouteSectionMountainGroupID(routeSection: RouteSection): Long {
         return if (routeSection.FKodcinekOficjalny != null) {
             val pass = mountainPassOfficialRepository.geMountainPass(routeSection.FKodcinekOficjalny!!)
             val range = mountainRangeRepository.getMountainRange(pass[0].FKpasmoGorskie)
@@ -179,5 +195,15 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
             }
         }
         return forLeader
+    }
+
+    fun confirmRoute() {
+        route.value?.status = "zatwierdzona"
+        routeRepository.update(route.value!!)
+    }
+
+    fun rejectRoute() {
+        route.value?.status = "odrzucona"
+        routeRepository.update(route.value!!)
     }
 }

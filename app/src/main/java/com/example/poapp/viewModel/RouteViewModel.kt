@@ -47,9 +47,19 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         routeSections = routeSectionRepository.getRouteSectionForRoute(route)
     }
 
-    fun getLastSection(): RouteSection? {
+    fun getLastSection(routeId: Int = route.value!!.id): RouteSection? {
+        getAllRouteSections(routeId)
         return if (routeSections.isNotEmpty()) {
             routeSections.last()
+        } else {
+            null
+        }
+    }
+
+    fun getFirstSection(routeId: Int = route.value!!.id): RouteSection? {
+        getAllRouteSections(routeId)
+        return if (routeSections.isNotEmpty()) {
+            routeSections.first()
         } else {
             null
         }
@@ -292,9 +302,9 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         proofsNotConfirmed = mutableListOf()
     }
 
-    fun getRouteProofs(): List<Proof> {
+    fun getRouteProofs(routeId: Int = route.value!!.id): List<Proof> {
         val mountainPassProofs = mutableListOf<MountainPassProof>()
-        for (section in getAllRouteSections()) {
+        for (section in getAllRouteSections(routeId)) {
             mountainPassProofs += mountainPassProofRepository.proofsFor(section.id.toLong())
         }
         val proofs = mutableListOf<Proof>()

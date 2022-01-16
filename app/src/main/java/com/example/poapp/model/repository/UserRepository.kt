@@ -25,4 +25,8 @@ class UserRepository(private val userDao: UserDAO) {
     fun getAll(): LiveData<List<User>> {
         return userDao.getAll()
     }
+
+    fun getUser(id: Long): List<User> {
+        return userDao.getUser(id)
+    }
 }

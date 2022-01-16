@@ -33,16 +33,42 @@ class ConfirmRouteFragment : Fragment() {
         binding.confirmRouteMountainGroupValue.text = mViewModel.getMountainGroupName()
 
         binding.showOnMap.setOnClickListener {
-            //todo
+            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_confirm,
+                    MapFragment()
+                )
+                ?.addToBackStack("ConfirmRoute")
+                ?.commit()
         }
         binding.confirmRoute.setOnClickListener {
-            //todo
+            //todo dialog czy na pewno chcesz potwierdzić
+            //jeśli tak:
+            mViewModel.confirmRoute()
+            activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_confirm,
+                    ConfirmRouteListFragment()
+                )
+                ?.addToBackStack("ConfirmRoute")
+                ?.commit()
+            //jeśli nie:
+            return@setOnClickListener
         }
         binding.showRouteProofs.setOnClickListener {
-            //todo
+            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_confirm,
+                    ListProofsFragment()
+                )
+                ?.addToBackStack("ConfirmRoute")
+                ?.commit()
         }
         binding.showRouteSections.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_confirm,
@@ -52,7 +78,19 @@ class ConfirmRouteFragment : Fragment() {
                 ?.commit()
         }
         binding.rejectRoute.setOnClickListener {
-            //todo
+            //todo dialog czy na pewno chcesz odrzucić
+            //jeśli tak:
+            mViewModel.rejectRoute()
+            activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_confirm,
+                    ConfirmRouteListFragment()
+                )
+                ?.addToBackStack("ConfirmRoute")
+                ?.commit()
+            //jeśli nie:
+            return@setOnClickListener
         }
     }
 }

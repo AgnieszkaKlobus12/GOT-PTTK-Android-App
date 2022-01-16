@@ -40,15 +40,16 @@ class DeleteProofsFragment : Fragment() {
         binding.cancelSaveProofs.visibility = View.GONE
         binding.saveProofs.visibility = View.GONE
 
-        binding.proofList.adapter = ProofListAdapter(activity as Context, mViewModel.getRouteProofs(), mViewModel, object : OnProofSelectedListener {
-            override fun check(proofId: Long) {
-                selectedProofs.add(proofId)
-            }
+        binding.proofList.adapter = ProofListAdapter(activity as Context, mViewModel.getRouteProofs(),
+            mViewModel, object : OnProofSelectedListener {
+                override fun check(proofId: Long) {
+                    selectedProofs.add(proofId)
+                }
 
-            override fun uncheck(proofId: Long) {
-                selectedProofs.remove(proofId)
-            }
-        })
+                override fun uncheck(proofId: Long) {
+                    selectedProofs.remove(proofId)
+                }
+            })
     }
 
     private fun dialogEmptySelection() {

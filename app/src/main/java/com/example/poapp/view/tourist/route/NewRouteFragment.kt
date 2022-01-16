@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
+import com.example.poapp.view.tourist.proof.AddProofFragment
 import com.example.poapp.viewModel.RouteViewModel
 
 class NewRouteFragment(private val routeId: Int?) : Fragment() {
@@ -30,7 +31,7 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
 
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             mViewModel.removeRoute()
-            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.popBackStack("RouteDetails", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
@@ -62,7 +63,14 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                 return@setOnClickListener
             }
             Toast.makeText(activity, R.string.extension_point_label, Toast.LENGTH_SHORT).show()
-            //TODO Proof start
+            activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    AddProofFragment(true)
+                )
+                ?.addToBackStack("null")
+                ?.commit()
         }
 
         view.findViewById<Button>(R.id.end_button).setOnClickListener {

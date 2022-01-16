@@ -10,7 +10,6 @@ import com.example.poapp.R
 import com.example.poapp.model.entity.MountainPassOfficial
 import com.example.poapp.model.entity.MountainPassUser
 import com.example.poapp.viewModel.MountainPassListViewModel
-import org.w3c.dom.Text
 
 class MountainPassPickAdapter<E>(
     private val context: Context,
@@ -76,8 +75,8 @@ class MountainPassPickAdapter<E>(
         holder.itemView.setOnClickListener {
             if (item is MountainPassOfficial)
                 onMountainPassPickedListener.onPassSelected(item, null)
-            else
-                onMountainPassPickedListener.onPassSelected(null, item as MountainPassUser)
+            if (item is MountainPassUser)
+                onMountainPassPickedListener.onPassSelected(null, item)
         }
     }
 

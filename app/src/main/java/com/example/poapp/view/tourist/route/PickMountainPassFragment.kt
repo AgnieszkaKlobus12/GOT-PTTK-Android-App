@@ -66,10 +66,14 @@ class PickMountainPassFragment(private val ifOfficial: Boolean, private val rout
             }
 
             override fun onPassSelected(official: MountainPassOfficial?, user: MountainPassUser?) {
-                if (official != null)
+                if (official != null) {
                     mViewModel.routeSection.value?.FKodcinekOficjalny = official.id
-                else
-                    mViewModel.routeSection.value?.FKodcinekWlasny = user!!.id
+                    mViewModel.routeSection.value?.FKodcinekWlasny = null
+                }
+                if (user != null) {
+                    mViewModel.routeSection.value?.FKodcinekWlasny = user.id
+                    mViewModel.routeSection.value?.FKodcinekOficjalny = null
+                }
 
                 if (lastSection != null) {
                     if (lastSection.FKodcinekOficjalny != null) {

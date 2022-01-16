@@ -39,7 +39,7 @@ class RouteDetailsFragment(private val routeId: Long) : Fragment() {
                     R.id.nav_host_fragment_activity_save_route,
                     EditProofsFragment(mViewModel.route.value!!.id.toLong())
                 )
-                ?.addToBackStack(null)
+                ?.addToBackStack("RouteDetails")
                 ?.commit()
         }
         binding.editRoute.setOnClickListener {

@@ -10,7 +10,7 @@ import com.example.poapp.R
 import com.example.poapp.databinding.FragmentAddProofBinding
 
 
-class AddProofFragment : Fragment() {
+class AddProofFragment(private val new: Boolean = false) : Fragment() {
 
     private var _binding: FragmentAddProofBinding? = null
     private val binding get() = _binding!!
@@ -32,7 +32,7 @@ class AddProofFragment : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
-                    AddImageSectionsListFragment()
+                    AddImageSectionsListFragment(new)
                 )
                 ?.addToBackStack("AddProof")
                 ?.commit()
@@ -42,7 +42,7 @@ class AddProofFragment : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
-                    AddProofLeaderFragment()
+                    AddProofLeaderFragment(new)
                 )
                 ?.addToBackStack("AddProof")
                 ?.commit()

@@ -19,7 +19,7 @@ import com.example.poapp.viewModel.RouteViewModel
 import java.io.InputStream
 
 
-class AddImageSectionsListFragment : Fragment() {
+class AddImageSectionsListFragment(private val new: Boolean = false) : Fragment() {
 
     private val mViewModel: RouteViewModel by activityViewModels()
     private val PICK_IMAGE = 1
@@ -77,7 +77,7 @@ class AddImageSectionsListFragment : Fragment() {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_save_route,
-                    ProofListFragment()
+                    ProofListFragment(new)
                 )
                 ?.addToBackStack(null)
                 ?.commit()

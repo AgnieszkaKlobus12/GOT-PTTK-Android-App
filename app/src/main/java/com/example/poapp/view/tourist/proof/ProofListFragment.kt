@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentProofListBinding
+import com.example.poapp.view.tourist.route.NewRouteFragment
 import com.example.poapp.viewModel.RouteViewModel
 
 
-class ProofListFragment : Fragment() {
+class ProofListFragment(private val new: Boolean = false) : Fragment() {
 
     private var _binding: FragmentProofListBinding? = null
     private val binding get() = _binding!!
@@ -22,6 +24,11 @@ class ProofListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            mViewModel.deleteUnconfirmedProofs()
+            close()
+        }
+
         _binding = FragmentProofListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -35,14 +42,7 @@ class ProofListFragment : Fragment() {
         }
         binding.saveProofs.setOnClickListener {
             mViewModel.confirmProofs()
-            activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_save_route,
-                    EditProofsFragment(mViewModel.route.value!!.id.toLong())
-                )
-                ?.addToBackStack("EditProofs")
-                ?.commit()
+            close()
         }
         binding.proofList.adapter = ProofListAdapter(mViewModel.proofsNotConfirmed, mViewModel)
 
@@ -52,17 +52,33 @@ class ProofListFragment : Fragment() {
         //todo dialog czy na pewno anulować
         //jeśli tak:
         mViewModel.deleteUnconfirmedProofs()
-        activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(
-                R.id.nav_host_fragment_activity_save_route,
-                EditProofsFragment(mViewModel.route.value!!.id.toLong())
-            )
-            ?.addToBackStack("EditProofs")
-            ?.commit()
+        close()
 
         //jeśli nie:
         return
+    }
+
+    private fun close() {
+        if (new) {
+            activity?.supportFragmentManager?.popBackStack("NewRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    NewRouteFragment(mViewModel.route.value!!.id)
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        } else {
+            mViewModel.deleteUnconfirmedProofs()
+            activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    EditProofsFragment(mViewModel.route.value!!.id.toLong())
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        }
     }
 
 }

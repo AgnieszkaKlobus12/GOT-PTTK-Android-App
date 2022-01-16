@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentAddProofLeaderBinding
+import com.example.poapp.view.tourist.route.NewRouteFragment
 import com.example.poapp.viewModel.RouteViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
@@ -17,7 +18,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
-class AddProofLeaderFragment : Fragment() {
+class AddProofLeaderFragment(private val new: Boolean = false) : Fragment() {
 
     private var _binding: FragmentAddProofLeaderBinding? = null
     private val binding get() = _binding!!
@@ -39,14 +40,7 @@ class AddProofLeaderFragment : Fragment() {
         binding.leaderProofSave.setOnClickListener {
             when (mViewModel.saveLeaderProof(binding.leaderId.text.toString().toLong())) {
                 0 -> {
-                    activity?.supportFragmentManager?.popBackStack("AddProof", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                    activity?.supportFragmentManager?.beginTransaction()
-                        ?.replace(
-                            R.id.nav_host_fragment_activity_save_route,
-                            EditProofsFragment(mViewModel.route.value!!.id.toLong())
-                        )
-                        ?.addToBackStack(null)
-                        ?.commit()
+                    close()
                 }
                 -1 -> {
                     dialogLeaderAlreadyAdded()
@@ -60,6 +54,25 @@ class AddProofLeaderFragment : Fragment() {
             //TODO dialog czy na pewno chcesz anulowwać
 
             //jeśli tak to:
+            close()
+
+            //jeśli nie to :
+            return@setOnClickListener
+        }
+
+    }
+
+    private fun close() {
+        if (new) {
+            activity?.supportFragmentManager?.popBackStack("NewRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_save_route,
+                    NewRouteFragment(mViewModel.route.value!!.id)
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        } else {
             activity?.supportFragmentManager?.popBackStack("AddProof", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
@@ -68,11 +81,7 @@ class AddProofLeaderFragment : Fragment() {
                 )
                 ?.addToBackStack(null)
                 ?.commit()
-
-            //jeśli nie to :
-            return@setOnClickListener
         }
-
     }
 
     private fun checkLeader() {

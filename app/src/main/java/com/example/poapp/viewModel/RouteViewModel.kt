@@ -62,6 +62,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getAllRouteSections(): List<RouteSection> {
+        routeSections = routeSectionRepository.getRouteSectionForRoute(route.value!!.id.toLong())
         return routeSections
     }
 
@@ -77,6 +78,10 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
     fun removeRoute() {
         if (route.value != null && route.value!!.id != 0) {
+            val proofsIDs = mutableListOf<Long>()
+            for (proof in getRouteProofs())
+                proofsIDs.add(proof.id.toLong())
+            removeProofs(proofsIDs as List<Long>)
             routeSectionRepository.deleteAllFor(route.value!!.id.toLong())
             routeRepository.delete(route.value!!.id.toLong())
         }
@@ -95,7 +100,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
             sum += if (section.FKodcinekOficjalny != null) {
                 getOfficialPass(section.FKodcinekOficjalny!!).punkty
             } else {
-                getUserPass(section.FKodcinekWlasny!!).punkty.toInt()
+                getUserPass(section.FKodcinekWlasny!!).punkty
             }
         }
         route.value!!.punkty = sum
@@ -156,7 +161,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         if (routeSection.FKodcinekOficjalny != null) {
             return getOfficialPass(routeSection.FKodcinekOficjalny!!).punkty
         }
-        return getUserPass(routeSection.FKodcinekWlasny!!).punkty.toInt()
+        return getUserPass(routeSection.FKodcinekWlasny!!).punkty
     }
 
     fun getRouteSectionName(routeSection: RouteSection): String {
@@ -207,7 +212,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         return -1
     }
 
-    fun getLeaderForRoute(routeId: Long): Long? {
+    private fun getLeaderForRoute(routeId: Long): Long? {
         val proofs = mountainPassProofRepository.proofsFor(getRouteSectionsForRoute(routeId))
         for (proof in proofs) {
             val leader = proofRepository.getProof(proof.FKdowod.toLong()).FKprzodownik
@@ -218,7 +223,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         return null
     }
 
-    fun getRouteSectionsForRoute(routeId: Long): List<RouteSection> {
+    private fun getRouteSectionsForRoute(routeId: Long): List<RouteSection> {
         return routeSectionRepository.getRouteSectionForRoute(routeId)
     }
 
@@ -273,7 +278,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun confirmProofs() {
-        proofsNotConfirmed.clear()
+        proofsNotConfirmed = mutableListOf()
     }
 
     fun getRouteProofs(): List<Proof> {
@@ -294,6 +299,4 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
             proofRepository.delete(proofId)
         }
     }
-
-    //todo wiem że tu sprawdzasz Aga, dodawnie dowodów sie jebie przy cofaniu
 }

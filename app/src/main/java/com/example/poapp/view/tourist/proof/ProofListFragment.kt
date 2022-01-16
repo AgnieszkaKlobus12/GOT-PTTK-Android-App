@@ -1,5 +1,7 @@
 package com.example.poapp.view.tourist.proof
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,10 +22,7 @@ class ProofListFragment(private val new: Boolean = false) : Fragment() {
     private val binding get() = _binding!!
     private val mViewModel: RouteViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             mViewModel.deleteUnconfirmedProofs()
             close()
@@ -44,18 +43,28 @@ class ProofListFragment(private val new: Boolean = false) : Fragment() {
             mViewModel.confirmProofs()
             close()
         }
-        binding.proofList.adapter = ProofListAdapter(mViewModel.proofsNotConfirmed, mViewModel)
+        binding.proofList.adapter = ProofListAdapter(activity as Context, mViewModel.proofsNotConfirmed, mViewModel)
 
     }
 
     private fun dialogCancel() {
-        //todo dialog czy na pewno anulować
-        //jeśli tak:
-        mViewModel.deleteUnconfirmedProofs()
-        close()
-
-        //jeśli nie:
-        return
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setPositiveButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                    mViewModel.deleteUnconfirmedProofs()
+                    close()
+                }
+                setNegativeButton(R.string.back) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.confirm_cancel_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 
     private fun close() {

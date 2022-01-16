@@ -6,8 +6,8 @@
         android:allowBackup="false"
         android:fullBackupOnly="false"
         android:icon="@drawable/e_got_pttk"
+        android:roundIcon="@drawable/e_got_pttk_round"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
             android:name=".view.leader.ConfirmRouteActivity"

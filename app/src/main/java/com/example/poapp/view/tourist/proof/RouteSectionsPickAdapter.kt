@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.proof
 
+import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.RouteViewModel
 
 class RouteSectionsPickAdapter(
+    private val context: Context,
     private val values: List<RouteSection>,
     private val mViewModel: RouteViewModel,
     private val onRouteSectionSelectedListener: OnRouteSectionSelectedListener
@@ -33,20 +35,24 @@ class RouteSectionsPickAdapter(
         holder.end.text = mViewModel.getEndPointName(item)
         holder.through.text = mViewModel.getThroughPointName(item)
         holder.name.text = mViewModel.getRouteSectionName(item)
-        holder.isPoofLabel.text = "Dowód:"
-        if (mViewModel.hasProof(item)) { //todo kolorki
-            holder.isProof.text = "TAK"
+        holder.isPoofLabel.text = context.resources.getString(R.string.proof)
+
+        if (mViewModel.hasProof(item)) {
+            holder.isProof.text = context.resources.getString(R.string.yes_capitalized)
+            holder.isProof.setTextColor(context.getColor(R.color.green))
         } else {
-            holder.isProof.text = "NIE"
+            holder.isProof.text = context.resources.getString(R.string.no_capitalized)
+            holder.isProof.setTextColor(context.getColor(R.color.red))
         }
-        holder.itemView.setOnClickListener { //todo kolorki
+
+        holder.itemView.setOnClickListener {
             if (holder.selected.isChecked) {
                 holder.selected.isChecked = false
-                holder.itemView.setBackgroundColor(Color.rgb(0, 0, 0))
+                holder.itemView.setBackgroundColor(context.getColor(R.color.white))
                 onRouteSectionSelectedListener.uncheck(item.id.toLong())
             } else {
                 holder.selected.isChecked = true
-                holder.itemView.setBackgroundColor(Color.rgb(150, 150, 150))
+                holder.itemView.setBackgroundColor(context.getColor(R.color.blue_1))
                 onRouteSectionSelectedListener.check(item.id.toLong())
             }
         }

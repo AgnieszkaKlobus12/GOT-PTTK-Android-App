@@ -1,13 +1,12 @@
 <resources>
     <string name="app_name">E-GOT PTTK</string>
-    <string name="save_route_use_case">Zapisanie trasy A. Kłobus</string>
+    <string name="save_route_add_proof_use_case">Zapisanie trasy i zamieszczenie dowodu A. Kłobus</string>
     <string name="mountain_pass_use_case">Edycja odcinka A. Stecka</string>
     <string name="confirm_route_use_case">Potwierdzenie trasy A. Stecka</string>
-    <string name="add_proof_use_case">Zamieszczenie dowodu A. Kłobus</string>
 
     <string name="extension_point_label">Przejście do innego PU</string>
     <string name="not_implemented_label">PU nie wybrany do implementacji</string>
-    <string name="implemented_elsewhere_label">Aby obejrzeć implementację PU na głównym ekranie naciśnij przycisk Zapisanie trasy A. Kłobus</string>
+    <string name="implemented_elsewhere_label">Aby obejrzeć implementację PU na głównym ekranie naciśnij przycisk Zapisanie trasy i zamieszczenie dowodu A. Kłobus</string>
 
     <string name="nav_mountain_passes_list_label">Spis odcinków</string>
     <string name="nav_account_label">Utwórz konto</string>
@@ -80,17 +79,36 @@
     <string name="no_point_name_message">Podaj nazwę punktu</string>
 
     <string name="no_passes_message">Dodaj przynajmniej jeden odcinek</string>
+    <string name="no_passes_chosen_message">Wybierz przynajmniej jeden odcinek</string>
     <string name="previous_end_current_start_message">Koniec poprzedniego odcinka musi być początkiem nowego odcinka</string>
     <string name="negative_time_message">Czas przejścia musi być większy od zera</string>
     <string name="minutes">min</string>
     <string name="zero">0</string>
     <string name="save_route">Zapisz trasę</string>
     <string name="points_sum">Suma punktów:</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="pick_proof_image">Wybierz obraz dowodu</string>
     <string name="image_not_selected">Nie udało się wybrać obrazu</string>
     <string name="delete">Usuń</string>
-
+    <string name="edit_proofs">Edytuj dowody</string>
+    <string name="send_to_leader">Wyślij do potwierdzenia</string>
+    <string name="see_proofs">Zobacz dowody</string>
+    <string name="delete_proofs">Usuń dowód</string>
+    <string name="add_image">Dodaj zdjęcie</string>
+    <string name="add_leader">Dodaj dane przodownika</string>
+    <string name="id_no">Numer legitymacji:</string>
+    <string name="id_no_undecorated">Numer legitymacji</string>
+    <string name="leader">Przodownik:</string>
+    <string name="leader_undecorated">Przodownik</string>
+    <string name="name_and_surname">Imię i nazwisko:</string>
+    <string name="include_image">Załącz obraz</string>
+    <string name="choose_image">Wybierz obraz</string>
+    <string name="mountain_passes">Odcinki</string>
+    <string name="close">Zamknij</string>
+    <string name="leader_already_added_message">Dla tej trasy załączono już dane przodownika</string>
+    <string name="leader_not_found_message">Nie znaleziono przodownika o takim numerze legitymacji</string>
+    <string name="no_proofs_message">Dla tej trasy nie załączono dowodu</string>
+    <string name="no_proof_selected_message">Wybierz dowód do usunięcia</string>
+    <string name="confirm_delete_message">Czy na pewno chcesz usunąć dowód?</string>
 
 </resources>

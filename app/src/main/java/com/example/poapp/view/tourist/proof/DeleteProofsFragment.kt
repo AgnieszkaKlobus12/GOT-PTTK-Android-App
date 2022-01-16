@@ -1,5 +1,7 @@
 package com.example.poapp.view.tourist.proof
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,10 +20,7 @@ class DeleteProofsFragment : Fragment() {
     private val mViewModel: RouteViewModel by activityViewModels()
     private val selectedProofs = mutableListOf<Long>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentProofListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -29,7 +28,8 @@ class DeleteProofsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.close.text = getString(R.string.delete) //todo kolorek buttona
+        //todo kolorek buttona
+        binding.close.text = getString(R.string.delete)
         binding.close.setOnClickListener {
             if (selectedProofs.isEmpty()) {
                 dialogEmptySelection()
@@ -40,36 +40,57 @@ class DeleteProofsFragment : Fragment() {
         binding.cancelSaveProofs.visibility = View.GONE
         binding.saveProofs.visibility = View.GONE
 
-        binding.proofList.adapter = ProofListAdapter(mViewModel.getRouteProofs(), mViewModel, object : OnProofSelectedListener {
+        binding.proofList.adapter = ProofListAdapter(activity as Context, mViewModel.getRouteProofs(), mViewModel, object : OnProofSelectedListener {
             override fun check(proofId: Long) {
                 selectedProofs.add(proofId)
             }
 
-            override fun uncheck(profId: Long) {
-                selectedProofs.remove(profId)
+            override fun uncheck(proofId: Long) {
+                selectedProofs.remove(proofId)
             }
         })
     }
 
     private fun dialogEmptySelection() {
-        //todo dialog najpierw wybierz dowód do usunięcia
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.no_proof_selected_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 
     private fun dialogConfirmDelete() {
-        //todo dialog czy na pewno chcesz usunąć
-        //jeśli tak to:
-        mViewModel.removeProofs(selectedProofs)
-        activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-        activity?.supportFragmentManager?.beginTransaction()
-            ?.replace(
-                R.id.nav_host_fragment_activity_save_route,
-                EditProofsFragment(mViewModel.route.value!!.id.toLong())
-            )
-            ?.addToBackStack("EditProofs")
-            ?.commit()
-
-        //jeśli nie to:
-        return
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setPositiveButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                    mViewModel.removeProofs(selectedProofs)
+                    activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    activity?.supportFragmentManager?.beginTransaction()
+                        ?.replace(
+                            R.id.nav_host_fragment_activity_save_route,
+                            EditProofsFragment(mViewModel.route.value!!.id.toLong())
+                        )
+                        ?.addToBackStack("EditProofs")
+                        ?.commit()
+                }
+                setNegativeButton(R.string.back) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.confirm_delete_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 
 }

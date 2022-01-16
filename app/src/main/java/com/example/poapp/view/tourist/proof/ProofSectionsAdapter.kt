@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.proof
 
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,12 @@ class ProofSectionsAdapter(
         holder.extra.visibility = View.GONE
         holder.extraLabel.visibility = View.GONE
 
+        holder.start.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
+        holder.startLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
         holder.start.text = mViewModel.getStartPointName(item)
+
+        holder.end.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
+        holder.endLabel.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14F)
         holder.end.text = mViewModel.getEndPointName(item)
     }
 
@@ -40,7 +46,9 @@ class ProofSectionsAdapter(
 
     inner class ProofSectionItemHolder(iv: View) : RecyclerView.ViewHolder(iv) {
         val start: TextView = iv.findViewById(R.id.pass_start)
+        val startLabel: TextView = iv.findViewById(R.id.pass_start_label)
         val end: TextView = iv.findViewById(R.id.pass_end)
+        val endLabel: TextView = iv.findViewById(R.id.pass_end_label)
         val points: TextView = iv.findViewById(R.id.pass_points)
         val pointsLabel: TextView = iv.findViewById(R.id.pass_points_label)
         val through: TextView = iv.findViewById(R.id.pass_through)

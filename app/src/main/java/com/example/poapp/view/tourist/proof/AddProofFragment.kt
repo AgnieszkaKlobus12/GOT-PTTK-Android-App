@@ -15,11 +15,7 @@ class AddProofFragment(private val new: Boolean = false) : Fragment() {
     private var _binding: FragmentAddProofBinding? = null
     private val binding get() = _binding!!
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentAddProofBinding.inflate(inflater, container, false)
         return binding.root
     }

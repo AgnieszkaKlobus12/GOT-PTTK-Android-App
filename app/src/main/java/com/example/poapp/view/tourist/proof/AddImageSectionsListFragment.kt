@@ -1,6 +1,8 @@
 package com.example.poapp.view.tourist.proof
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -25,10 +27,7 @@ class AddImageSectionsListFragment(private val new: Boolean = false) : Fragment(
     private val PICK_IMAGE = 1
     val selected = mutableListOf<Long>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_add_image_sections_list, container, false)
     }
 
@@ -36,7 +35,7 @@ class AddImageSectionsListFragment(private val new: Boolean = false) : Fragment(
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(R.id.route_section_pick_list).adapter =
-            RouteSectionsPickAdapter(mViewModel.getAllRouteSections(), mViewModel, object : OnRouteSectionSelectedListener {
+            RouteSectionsPickAdapter(activity as Context, mViewModel.getAllRouteSections(), mViewModel, object : OnRouteSectionSelectedListener {
                 override fun check(routeSectionId: Long) {
                     selected.add(routeSectionId)
                 }
@@ -82,10 +81,20 @@ class AddImageSectionsListFragment(private val new: Boolean = false) : Fragment(
                 ?.addToBackStack(null)
                 ?.commit()
         }
-
     }
 
     private fun dialogPickSection() {
-        //todo musi byc wybrany co najmniej jeden odcinek
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(R.string.no_passes_chosen_message)
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 }

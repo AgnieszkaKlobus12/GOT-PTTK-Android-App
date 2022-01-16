@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.tourist.proof.AddProofLeaderFragment">
+    <!--    todo-->
 
     <TextView
         android:layout_width="wrap_content"

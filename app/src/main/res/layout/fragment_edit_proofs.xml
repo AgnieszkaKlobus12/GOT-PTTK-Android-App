@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.tourist.proof.EditProofsFragment">
-
+    <!--todo-->
     <Button
         android:id="@+id/add_proof"
         android:layout_width="wrap_content"

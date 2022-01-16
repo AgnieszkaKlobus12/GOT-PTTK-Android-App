@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <!--    todo-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Odcinki:" />
 
+    <!--    ten wrap content w recyclerze musi być trust me-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/proof_sections_list"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="10dp"
         app:layoutManager="LinearLayoutManager"

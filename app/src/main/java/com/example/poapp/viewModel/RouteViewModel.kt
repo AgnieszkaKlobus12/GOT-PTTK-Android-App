@@ -276,5 +276,17 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         proofsNotConfirmed.clear()
     }
 
+    fun getRouteProofs(): List<Proof> {
+        val mountainPassProofs = mutableListOf<MountainPassProof>()
+        for (section in getAllRouteSections()) {
+            mountainPassProofs += mountainPassProofRepository.proofsFor(section.id.toLong())
+        }
+        val proofs = mutableListOf<Proof>()
+        for (mountainPassProof in mountainPassProofs) {
+            proofs.add(proofRepository.getProof(mountainPassProof.FKdowod.toLong()))
+        }
+        return proofs.distinct()
+    }
+
     //todo wiem że tu sprawdzasz Aga, dodawnie dowodów sie jebie przy cofaniu
 }

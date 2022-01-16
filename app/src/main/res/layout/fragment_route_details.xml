@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.tourist.route.RouteDetailsFragment">
+    <!--    todo -->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/route_section_list"

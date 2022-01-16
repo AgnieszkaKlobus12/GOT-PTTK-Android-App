@@ -11,7 +11,8 @@ import com.example.poapp.viewModel.ConfirmRouteViewModel
 
 class RouteSectionSmallAdapter(
     private val values: List<RouteSection>,
-    private val mViewModel: ConfirmRouteViewModel
+    private val mViewModel: ConfirmRouteViewModel,
+    private val onSectionClickedListener: OnSectionClickedListener
 ) :
     RecyclerView.Adapter<RouteSectionSmallAdapter.RouteSectionSmallItemHolder>() {
 
@@ -25,6 +26,10 @@ class RouteSectionSmallAdapter(
         holder.start.text = mViewModel.getSectionStartName(item)
         holder.end.text = mViewModel.getSectionEndName(item)
         holder.time.text = item.czasPrzejscia.toString()
+
+        holder.itemView.setOnClickListener {
+            onSectionClickedListener.onClick(item)
+        }
     }
 
     override fun getItemCount(): Int = values.size

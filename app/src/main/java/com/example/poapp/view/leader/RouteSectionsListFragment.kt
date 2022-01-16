@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
+import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.ConfirmRouteViewModel
 
 
@@ -26,6 +28,17 @@ class RouteSectionsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(R.id.route_sections_small_list).adapter =
-            RouteSectionSmallAdapter(mViewModel.getRouteSectionsForRoute(), mViewModel)
+            RouteSectionSmallAdapter(mViewModel.getRouteSectionsForRoute(), mViewModel, object : OnSectionClickedListener {
+                override fun onClick(routeSection: RouteSection) {
+                    activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    activity?.supportFragmentManager?.beginTransaction()
+                        ?.replace(
+                            R.id.nav_host_fragment_activity_confirm,
+                            RouteSectionDetailsFragment(routeSection)
+                        )
+                        ?.addToBackStack(null)
+                        ?.commit()
+                }
+            })
     }
 }

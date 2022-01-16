@@ -62,6 +62,10 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
                 showAddRouteSectionDialog()
                 return@setOnClickListener
             }
+            if (mViewModel.getRouteSectionsWithoutProof().isEmpty()) {
+                dialogAllSectionsHaveProofs()
+                return@setOnClickListener
+            }
             Toast.makeText(activity, R.string.extension_point_label, Toast.LENGTH_SHORT).show()
             activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
@@ -127,5 +131,20 @@ class NewRouteFragment(private val routeId: Int?) : Fragment() {
         }
         alertDialog.show()
         return
+    }
+
+    private fun dialogAllSectionsHaveProofs() {
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(getString(R.string.no_section_without_proof))
+            }
+            builder.create()
+        }
+        alertDialog.show()
     }
 }

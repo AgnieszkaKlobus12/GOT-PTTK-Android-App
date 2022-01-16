@@ -66,6 +66,17 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         return routeSections
     }
 
+    fun getRouteSectionsWithoutProof(): List<RouteSection> {
+        getAllRouteSections()
+        val result = mutableListOf<RouteSection>()
+        for (section in routeSections) {
+            if (mountainPassProofRepository.proofsFor(section.id.toLong()).isEmpty()) {
+                result.add(section)
+            }
+        }
+        return result
+    }
+
     fun getAllRoutes(idUser: Int): LiveData<List<Route>> {
         return routeRepository.getAllForUser(idUser)
     }

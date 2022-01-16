@@ -29,6 +29,10 @@ class EditProofsFragment(private val routeId: Long) : Fragment() {
 
         mViewModel.setRoute(routeId.toInt())
         binding.addProof.setOnClickListener {
+            if (mViewModel.getRouteSectionsWithoutProof().isEmpty()) {
+                dialogAllSectionsHaveProofs()
+                return@setOnClickListener
+            }
             activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
@@ -83,4 +87,18 @@ class EditProofsFragment(private val routeId: Long) : Fragment() {
         alertDialog.show()
     }
 
+    private fun dialogAllSectionsHaveProofs() {
+        val alertDialog = requireActivity().let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setNeutralButton(R.string.ok) { dialog, _ ->
+                    dialog.dismiss()
+                }
+                setTitle(R.string.alert)
+                setMessage(getString(R.string.no_section_without_proof))
+            }
+            builder.create()
+        }
+        alertDialog.show()
+    }
 }

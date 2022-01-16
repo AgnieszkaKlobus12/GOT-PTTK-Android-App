@@ -35,7 +35,7 @@ class AddImageSectionsListFragment(private val new: Boolean = false) : Fragment(
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<RecyclerView>(R.id.route_section_pick_list).adapter =
-            RouteSectionsPickAdapter(activity as Context, mViewModel.getAllRouteSections(), mViewModel, object : OnRouteSectionSelectedListener {
+            RouteSectionsPickAdapter(activity as Context, mViewModel.getRouteSectionsWithoutProof(), mViewModel, object : OnRouteSectionSelectedListener {
                 override fun check(routeSectionId: Long) {
                     selected.add(routeSectionId)
                 }

@@ -1,10 +1,12 @@
 package com.example.poapp.view.tourist.proof
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SwitchCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.poapp.R
 import com.example.poapp.model.entity.Proof
@@ -12,7 +14,8 @@ import com.example.poapp.viewModel.RouteViewModel
 
 class ProofListAdapter(
     private val values: List<Proof>,
-    private val mViewModel: RouteViewModel
+    private val mViewModel: RouteViewModel,
+    private val onProofSelectedListener: OnProofSelectedListener? = null
 ) :
     RecyclerView.Adapter<ProofListAdapter.ProofItemHolder>() {
 
@@ -35,6 +38,20 @@ class ProofListAdapter(
             holder.leaderId.text = mViewModel.getLeader(item.FKprzodownik.toLong())?.nrLegitymacji.toString()
         }
         holder.recyclerView.adapter = ProofSectionsAdapter(mViewModel.getRouteSectionsForProof(item), mViewModel)
+
+        if (onProofSelectedListener != null) {
+            holder.itemView.setOnClickListener { //todo kolorki
+                if (holder.selected.isChecked) {
+                    holder.selected.isChecked = false
+                    holder.itemView.setBackgroundColor(Color.rgb(0, 0, 0))
+                    onProofSelectedListener.uncheck(item.id.toLong())
+                } else {
+                    holder.selected.isChecked = true
+                    holder.itemView.setBackgroundColor(Color.rgb(150, 150, 150))
+                    onProofSelectedListener.check(item.id.toLong())
+                }
+            }
+        }
     }
 
     override fun getItemCount(): Int = values.size
@@ -46,6 +63,7 @@ class ProofListAdapter(
         val leaderName: TextView = iv.findViewById(R.id.leader_name_value)
         val leaderIdLabel: TextView = iv.findViewById(R.id.leader_id_label)
         val leaderId: TextView = iv.findViewById(R.id.leader_id_value)
+        val selected: SwitchCompat = iv.findViewById(R.id.proof_selected)
     }
 
 }

@@ -288,5 +288,12 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         return proofs.distinct()
     }
 
+    fun removeProofs(selectedProofs: List<Long>) {
+        for (proofId in selectedProofs) {
+            mountainPassProofRepository.deleteAllForProof(proofId.toInt())
+            proofRepository.delete(proofId)
+        }
+    }
+
     //todo wiem że tu sprawdzasz Aga, dodawnie dowodów sie jebie przy cofaniu
 }

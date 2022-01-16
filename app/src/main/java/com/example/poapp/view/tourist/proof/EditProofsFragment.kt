@@ -41,18 +41,37 @@ class EditProofsFragment(private val routeId: Long) : Fragment() {
                 ?.commit()
         }
         binding.deleteProof.setOnClickListener {
-            TODO()
+            if (mViewModel.getRouteProofs().isEmpty()) {
+                dialogNoProofs()
+            } else {
+                activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(
+                        R.id.nav_host_fragment_activity_save_route,
+                        DeleteProofsFragment()
+                    )
+                    ?.addToBackStack("EditProofs")
+                    ?.commit()
+            }
         }
         binding.seeProofs.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_save_route,
-                    ShowProofsFragment()
-                )
-                ?.addToBackStack("EditProofs")
-                ?.commit()
+            if (mViewModel.getRouteProofs().isEmpty()) {
+                dialogNoProofs()
+            } else {
+                activity?.supportFragmentManager?.popBackStack("EditProofs", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.replace(
+                        R.id.nav_host_fragment_activity_save_route,
+                        ShowProofsFragment()
+                    )
+                    ?.addToBackStack("EditProofs")
+                    ?.commit()
+            }
         }
+    }
+
+    private fun dialogNoProofs() {
+        //todo dialog trasa nie ma żadnych dowodów
     }
 
 }

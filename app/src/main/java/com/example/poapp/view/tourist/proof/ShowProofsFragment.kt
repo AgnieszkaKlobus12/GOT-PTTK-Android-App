@@ -42,7 +42,6 @@ class ShowProofsFragment : Fragment() {
         binding.saveProofs.visibility = View.GONE
 
         binding.proofList.adapter = ProofListAdapter(mViewModel.getRouteProofs(), mViewModel)
-
     }
 
 }

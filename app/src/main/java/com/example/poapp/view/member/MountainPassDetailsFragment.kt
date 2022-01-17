@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentMountainPassDetailsBinding
@@ -31,7 +32,7 @@ class MountainPassDetailsFragment(private val mountainPassId: Int) : Fragment() 
         if (mountainPass.FKpunktPosredni != null && mountainPass.FKpunktPosredni != 0)
             binding.pointThrough.text =
                 mViewModel.getOfficialPoint(mountainPass.FKpunktPosredni!!)[0].nazwa
-         else
+        else
             binding.pointThrough.text = "-"
 
         binding.pointsValue.text = mountainPass.punkty.toString()
@@ -50,12 +51,13 @@ class MountainPassDetailsFragment(private val mountainPassId: Int) : Fragment() 
             Toast.makeText(requireContext(), R.string.not_implemented_label, Toast.LENGTH_SHORT).show()
         }
         binding.editButton.setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack("PassDetails", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_mountain_passes_list,
                     NewMountainPassFragment(mountainPass.id)
                 )
-                ?.addToBackStack(null)
+                ?.addToBackStack("PassDetails")
                 ?.commit()
         }
     }

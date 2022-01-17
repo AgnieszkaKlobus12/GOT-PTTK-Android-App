@@ -49,6 +49,12 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
         }
     }
 
+    fun updateMountainPass(mountainPassOfficial1: MountainPassOfficial) {
+        viewModelScope.launch(Dispatchers.IO) {
+            mountainPassRepository.update(mountainPassOfficial1)
+        }
+    }
+
     fun getAll(): LiveData<List<MountainPassOfficial>> {
         return mountainPassRepository.getAll()
     }

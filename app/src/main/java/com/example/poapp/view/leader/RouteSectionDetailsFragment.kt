@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
+import com.example.poapp.databinding.FragmentRouteSectionDetailsBinding
 import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.ConfirmRouteViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -16,7 +17,6 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
-import com.example.poapp.databinding.FragmentRouteSectionDetailsBinding
 
 class RouteSectionDetailsFragment(private val routeSection: RouteSection) : Fragment(), OnMapReadyCallback {
 
@@ -47,6 +47,7 @@ class RouteSectionDetailsFragment(private val routeSection: RouteSection) : Frag
         val proof = mViewModel.getSectionProof(routeSection)
         when {
             proof == null -> {
+                binding.sectionDetailsLeaderNameLabel.visibility = View.GONE
                 binding.sectionDetailsProofImage.visibility = View.GONE
                 binding.sectionDetailsLeaderNameValue.visibility = View.GONE
                 binding.sectionDetailsLeaderLabel.visibility = View.GONE

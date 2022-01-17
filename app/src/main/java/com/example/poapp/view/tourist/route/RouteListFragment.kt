@@ -25,7 +25,7 @@ class RouteListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                activity?.supportFragmentManager?.popBackStack("RouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                activity?.supportFragmentManager?.popBackStack("null", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 startActivity(intent)
             }

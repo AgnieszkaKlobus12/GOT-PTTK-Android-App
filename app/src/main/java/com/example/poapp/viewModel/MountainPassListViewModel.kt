@@ -43,7 +43,7 @@ class MountainPassListViewModel(application: Application) : AndroidViewModel(app
     }
 
     fun getAllOfficialPasses(): LiveData<List<MountainPassOfficial>> {
-        return mountainPassOfficialRepository.getAll()
+        return mountainPassOfficialRepository.getAllActive()
     }
 
     fun getOfficialPoint(id: Int): OfficialPoint {

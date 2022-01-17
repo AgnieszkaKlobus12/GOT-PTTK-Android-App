@@ -17,4 +17,12 @@ class MountainPassOfficialRepository(private val mountainPassDAO: MountainPassOf
     fun geMountainPass(id: Int): List<MountainPassOfficial> {
         return mountainPassDAO.getMountainPass(id)
     }
+
+    fun update(mountainPass: MountainPassOfficial) {
+        mountainPassDAO.update(mountainPass)
+    }
+
+    fun getAllActive(): LiveData<List<MountainPassOfficial>> {
+        return mountainPassDAO.getAllWithStatus("aktywny")
+    }
 }

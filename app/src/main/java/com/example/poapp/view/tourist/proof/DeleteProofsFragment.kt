@@ -28,8 +28,8 @@ class DeleteProofsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //todo kolorek buttona
         binding.close.text = getString(R.string.delete)
+        binding.close.setBackgroundColor(requireActivity().getColor(R.color.red))
         binding.close.setOnClickListener {
             if (selectedProofs.isEmpty()) {
                 dialogEmptySelection()

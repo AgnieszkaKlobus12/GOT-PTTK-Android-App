@@ -18,7 +18,7 @@ data class Badge(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKturysta: Int,
     var wymaganePunkty: Int,
-    var dataPrzyznania: String, //YYYY-MM-DD
-    var rodzaj: String, //enum
-    var stopien: String //enum
+    var dataPrzyznania: String,
+    var rodzaj: String,
+    var stopien: String
 )

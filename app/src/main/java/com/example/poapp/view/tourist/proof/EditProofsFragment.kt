@@ -12,7 +12,6 @@ import com.example.poapp.R
 import com.example.poapp.databinding.FragmentEditProofsBinding
 import com.example.poapp.viewModel.RouteViewModel
 
-
 class EditProofsFragment(private val routeId: Long) : Fragment() {
 
     private var _binding: FragmentEditProofsBinding? = null

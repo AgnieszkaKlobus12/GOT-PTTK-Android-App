@@ -17,6 +17,6 @@ import androidx.room.PrimaryKey
 data class Member(
     @PrimaryKey(autoGenerate = true) val id: Int,
     val FKuzytkownik: Int,
-    var nazwaOrganizacji: String, //enum
-    var dataZatrudnienia: String //YYYY-MM-DD
+    var nazwaOrganizacji: String,
+    var dataZatrudnienia: String
 )

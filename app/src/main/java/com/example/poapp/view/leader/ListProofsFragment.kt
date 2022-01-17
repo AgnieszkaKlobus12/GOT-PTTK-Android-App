@@ -20,7 +20,6 @@ class ListProofsFragment : Fragment() {
     private val routeViewModel: RouteViewModel by activityViewModels()
     private val mViewModel: ConfirmRouteViewModel by activityViewModels()
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentProofListBinding.inflate(inflater, container, false)
         return binding.root
@@ -46,7 +45,7 @@ class ListProofsFragment : Fragment() {
             ProofListAdapter(
                 activity as Context,
                 routeViewModel.getRouteProofs(mViewModel.route.value!!.id),
-                routeViewModel, null, true
+                routeViewModel, null
             )
     }
 

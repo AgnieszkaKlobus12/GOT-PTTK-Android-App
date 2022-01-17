@@ -81,13 +81,3 @@ data class MountainPassUser(
                     podejscie / 100 + dlugosc.roundToInt()
             })
 }
-
-//    CONSTRAINT POCZĄTEKwłasnyXORoficjalny
-//    CHECK ((OdcinkiWłasne.FKpunktPoczątkowyWłasny IS NULL OR OdcinkiWłasne.FKpunktPoczątkowyOficjalny IS NULL) AND (OdcinkiWłasne.FKpunktPoczątkowyWłasny IS NOT NULL OR OdcinkiWłasne.FKpunktPoczątkowyOficjalny IS NOT NULL)),
-
-//    CONSTRAINT KONIECwłasnyXORoficjalny
-//    CHECK ((OdcinkiWłasne.FKpunktKońcowyWłasny IS NULL OR OdcinkiWłasne.FKpunktKońcowyOficjalny IS NULL) AND (OdcinkiWłasne.FKpunktKońcowyWłasny IS NOT NULL OR OdcinkiWłasne.FKpunktKońcowyOficjalny IS NOT NULL)),
-
-//    CONSTRAINT POŚREDNIwłasnyNANDoficjalny
-//    CHECK (OdcinkiWłasne.FKpunktPośredniWłasny IS NOT NULL OR OdcinkiWłasne.FKpunktPośredniOficjalny IS NOT NULL));
-

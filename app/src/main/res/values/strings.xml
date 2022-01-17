@@ -48,7 +48,7 @@
     <string name="edit">Edytuj</string>
     <string name="save">Zapisz</string>
     <string name="cancel">Anuluj</string>
-    <string name="finish_editing_pass">Zakończ edycję</string>
+    <string name="finish_editing_pass">Zakończ</string>
 
     <string name="edit_points">Edytuj punkty</string>
     <string name="edit_name">Edytuj nazwę</string>
@@ -72,6 +72,7 @@
     <string name="ok">OK</string>
 
     <string name="negative_points_message">Liczba punktów nie może być mniejsza od zera</string>
+    <string name="too_many_points_message">Liczba punktów nie może być większa niż 100</string>
     <string name="mountain_range_error_message">Nie ma takiego pasma górskiego</string>
     <string name="confirm_cancel_message">Czy na pewno chcesz anulować?</string>
     <string name="no_point_set_message">Odcinek musi mieć punkt początkowy i końcowy</string>
@@ -82,6 +83,7 @@
     <string name="no_passes_chosen_message">Wybierz przynajmniej jeden odcinek</string>
     <string name="previous_end_current_start_message">Koniec poprzedniego odcinka musi być początkiem nowego odcinka</string>
     <string name="negative_time_message">Czas przejścia musi być większy od zera</string>
+    <string name="time_too_long_message">Czas przejścia nie może być większy niż 24h</string>
     <string name="minutes">min</string>
     <string name="zero">0</string>
     <string name="save_route">Zapisz trasę</string>
@@ -111,9 +113,20 @@
     <string name="no_proof_selected_message">Wybierz dowód do usunięcia</string>
     <string name="confirm_delete_message">Czy na pewno chcesz usunąć dowód?</string>
     <string name="not_send">oczekuje na wysłanie</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string name="to_confirm">Do potwierdzenia:</string>
     <string name="route_sections">Odcinki trasy</string>
     <string name="no_section_without_proof">Wszystkie odcinki tej trasy mają już dowody!</string>
+    <string name="confirm_send_to_leader_message">Czy na pewno chcesz wysłać trasę do potwierdzenia?</string>
+    <string name="confirm_route_confirmation_message">Czy na pewno chcesz potwierdzić tę trasę?</string>
+    <string name="confirm_route_rejection_message">Czy na pewno chcesz odrzucić tę trasę?</string>
+    <string name="confirm_route">Potwierdź</string>
+    <string name="reject_route">Odrzuć</string>
+    <string name="show_proofs">Pokaż dowody</string>
+    <string name="show_on_map">Pokaż na mapie</string>
+    <string name="show_mountain_passes">Pokaż odcinki</string>
+    <string name="confirm_route_title">Potwierdź trasę</string>
+    <string name="routes_to_confirm">Trasy do potwierdzenia:</string>
+    <string name="proof_image_description">Zdjęcie przedstawiające dowód przebycia trasy załączony przez turystę</string>
 
 </resources>

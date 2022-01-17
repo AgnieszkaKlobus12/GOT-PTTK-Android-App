@@ -20,7 +20,6 @@ import com.example.poapp.R
 import com.example.poapp.viewModel.RouteViewModel
 import java.io.InputStream
 
-
 class AddImageSectionsListFragment(private val new: Boolean = false) : Fragment() {
 
     private val mViewModel: RouteViewModel by activityViewModels()

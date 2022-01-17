@@ -1,5 +1,6 @@
 package com.example.poapp.view.leader
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,18 +44,30 @@ class ConfirmRouteFragment : Fragment() {
                 ?.commit()
         }
         binding.confirmRoute.setOnClickListener {
-            //todo dialog czy na pewno chcesz potwierdzić
-            //jeśli tak:
-            mViewModel.confirmRoute()
-            activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    ConfirmRouteListFragment()
-                )
-                ?.addToBackStack("ConfirmRoute")
-                ?.commit()
-            //jeśli nie:
+            val alertDialog = requireActivity().let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        dialog.dismiss()
+                        mViewModel.confirmRoute()
+                        activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(
+                                R.id.nav_host_fragment_activity_confirm,
+                                ConfirmRouteListFragment()
+                            )
+                            ?.addToBackStack("ConfirmRoute")
+                            ?.commit()
+                    }
+                    setNegativeButton(R.string.back) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert)
+                    setMessage(R.string.confirm_route_confirmation_message)
+                }
+                builder.create()
+            }
+            alertDialog.show()
             return@setOnClickListener
         }
         binding.showRouteProofs.setOnClickListener {
@@ -78,18 +91,30 @@ class ConfirmRouteFragment : Fragment() {
                 ?.commit()
         }
         binding.rejectRoute.setOnClickListener {
-            //todo dialog czy na pewno chcesz odrzucić
-            //jeśli tak:
-            mViewModel.rejectRoute()
-            activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    ConfirmRouteListFragment()
-                )
-                ?.addToBackStack("ConfirmRoute")
-                ?.commit()
-            //jeśli nie:
+            val alertDialog = requireActivity().let {
+                val builder = AlertDialog.Builder(it)
+                builder.apply {
+                    setPositiveButton(R.string.ok) { dialog, _ ->
+                        dialog.dismiss()
+                        mViewModel.rejectRoute()
+                        activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                        activity?.supportFragmentManager?.beginTransaction()
+                            ?.replace(
+                                R.id.nav_host_fragment_activity_confirm,
+                                ConfirmRouteListFragment()
+                            )
+                            ?.addToBackStack("ConfirmRoute")
+                            ?.commit()
+                    }
+                    setNegativeButton(R.string.back) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setTitle(R.string.alert)
+                    setMessage(R.string.confirm_route_rejection_message)
+                }
+                builder.create()
+            }
+            alertDialog.show()
             return@setOnClickListener
         }
     }

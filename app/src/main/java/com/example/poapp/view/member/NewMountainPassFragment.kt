@@ -12,7 +12,7 @@ import com.example.poapp.R
 import com.example.poapp.databinding.FragmentNewMountainPassBinding
 import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
-//if id !=0 then edit existing, else add new
+//if id != 0 then edit existing MountainPass, else add new MountainPass
 class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
     private var _binding: FragmentNewMountainPassBinding? = null
     private val binding get() = _binding!!
@@ -21,7 +21,7 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //check if MountainPass exists, save in ViewModel if so
+        //check if MountainPass exists and save existing MountainPass in ViewModel
         if (mountainPassId != 0) {
             val mountainPass = mViewModel.getMountainPassOfficial(mountainPassId)[0]
             mViewModel.setMountainPass(mountainPass)
@@ -186,14 +186,9 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                 alertDialog.show()
                 return@setOnClickListener
             }
+
             val mountainRangeStart = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPoczatkowy)[0].FKpasmoGorskie
-            val mountainRangeEnd = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktKoncowy)[0].FKpasmoGorskie
-            var mountainRangeThrough = mountainRangeStart
-            if (mViewModel.mountainPassOfficial.value!!.FKpunktPosredni != null && mViewModel.mountainPassOfficial.value!!.FKpunktPosredni != 0)
-                mountainRangeThrough = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPosredni!!)[0].FKpasmoGorskie
-            else
-                mViewModel.mountainPassOfficial.value!!.FKpunktPosredni = null
-            if (mountainRangeStart != mountainRangeEnd || mountainRangeStart != mountainRangeThrough || mountainRangeEnd != mountainRangeThrough) {
+            if (mViewModel.pointsNotInSameRange(mViewModel.mountainPassOfficial.value!!)) {
                 val alertDialog = requireActivity().let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {

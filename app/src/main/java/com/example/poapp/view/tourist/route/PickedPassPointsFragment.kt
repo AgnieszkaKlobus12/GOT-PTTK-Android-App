@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
-import com.example.poapp.databinding.FragmentPickedPassPointsBinding
 import com.example.poapp.viewModel.MountainPassListViewModel
+import com.example.poapp.databinding.FragmentPickedPassPointsBinding
 
 class PickedPassPointsFragment : Fragment() {
 
@@ -61,6 +61,22 @@ class PickedPassPointsFragment : Fragment() {
         }
 
         binding.addRoutePassButton.setOnClickListener {
+            if (binding.timeValue.text.toString().toInt() >= 1440) {
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.time_too_long_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
+                return@setOnClickListener
+            }
+
             if (binding.timeValue.text.toString().toInt() <= 0) {
                 val alertDialog = requireActivity().let {
                     val builder = AlertDialog.Builder(it)

@@ -18,7 +18,6 @@ import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
 class AddProofLeaderFragment(private val new: Boolean = false) : Fragment() {
 
     private var _binding: FragmentAddProofLeaderBinding? = null

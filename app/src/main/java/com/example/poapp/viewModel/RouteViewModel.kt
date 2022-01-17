@@ -2,15 +2,13 @@ package com.example.poapp.viewModel
 
 import android.app.Application
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.poapp.Utils
 import com.example.poapp.model.AppDatabase
 import com.example.poapp.model.entity.*
 import com.example.poapp.model.repository.*
-import java.io.ByteArrayOutputStream
-
 
 class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -215,7 +213,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    //0 if correct, -1 if route already has leader, -2 if leader doesn't exists
+    //0 if correct, -1 if route already has a leader assigned as proof, -2 if there is no such leader
     fun saveLeaderProof(leaderID: Long): Int {
         if (getLeader(leaderID) == null) {
             return -2
@@ -277,17 +275,11 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun getBitmapAsByteArray(bitmap: Bitmap): ByteArray {
-        val nh = (bitmap.height * (2048.0 / bitmap.width)).toInt()
-        val scaled = Bitmap.createScaledBitmap(bitmap, 2048, nh, true)
-        val outputStream = ByteArrayOutputStream()
-        scaled.compress(Bitmap.CompressFormat.JPEG, 0, outputStream)
-        return outputStream.toByteArray()
+        return Utils.getBitmapAsByteArray(bitmap)
     }
 
     fun getImage(byteArray: ByteArray?): Bitmap? {
-        return if (byteArray != null) {
-            BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-        } else null
+        return Utils.getImage(byteArray)
     }
 
     fun deleteUnconfirmedProofs() {

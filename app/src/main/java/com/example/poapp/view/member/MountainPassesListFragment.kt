@@ -30,8 +30,7 @@ class MountainPassesListFragment : Fragment() {
         var allPasses = emptyList<MountainPassOfficial>()
         mViewModel.getAll().observe(viewLifecycleOwner, { passes ->
             passes?.let { allPasses = it }
-            list.adapter = MountainPassAdapter(
-                activity as Context, allPasses, mViewModel, object : OnMountainPassClickedListener {
+            list.adapter = MountainPassAdapter(activity as Context, allPasses, mViewModel, object : OnMountainPassClickedListener {
                     override fun onItemClick(item: MountainPassOfficial) {
                         activity?.supportFragmentManager?.beginTransaction()
                             ?.replace(

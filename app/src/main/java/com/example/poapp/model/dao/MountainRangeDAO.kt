@@ -13,6 +13,9 @@ interface MountainRangeDAO {
     @Query("delete from PasmaGorskie")
     fun deleteAll()
 
+    @Query("delete from PasmaGorskie where id=:mountainRangeId")
+    fun delete(mountainRangeId: Int)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(mountainRange: MountainRange): Long
 

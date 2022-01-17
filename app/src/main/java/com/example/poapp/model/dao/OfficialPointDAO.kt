@@ -25,4 +25,10 @@ interface OfficialPointDAO {
     @Query("delete from PunktyOficjalne")
     fun deleteAll()
 
+    @Query("delete from PunktyOficjalne where id=:officialPointId")
+    fun delete(officialPointId: Int)
+
+    @Query("select * from PunktyOficjalne where FKpasmoGorskie=:mountainRangeID")
+    fun getOfficialPointInRange(mountainRangeID: Int): List<OfficialPoint>
+
 }

@@ -13,17 +13,13 @@ import com.example.poapp.model.entity.Route
 import com.example.poapp.view.tourist.route.OnRouteClickedListener
 import com.example.poapp.viewModel.ConfirmRouteViewModel
 
-
 class ConfirmRouteListFragment : Fragment() {
 
     private var _binding: FragmentConfirmRouteListBinding? = null
     private val binding get() = _binding!!
     private val mViewModel: ConfirmRouteViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentConfirmRouteListBinding.inflate(inflater, container, false)
         mViewModel.leaderId = 1
         return binding.root

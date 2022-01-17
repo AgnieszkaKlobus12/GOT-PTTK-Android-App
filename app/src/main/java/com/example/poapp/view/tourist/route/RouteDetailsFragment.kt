@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
-import com.example.poapp.databinding.FragmentRouteDetailsBinding
 import com.example.poapp.view.tourist.proof.EditProofsFragment
 import com.example.poapp.viewModel.RouteViewModel
+import com.example.poapp.databinding.FragmentRouteDetailsBinding
 
 class RouteDetailsFragment(private val routeId: Long) : Fragment() {
 

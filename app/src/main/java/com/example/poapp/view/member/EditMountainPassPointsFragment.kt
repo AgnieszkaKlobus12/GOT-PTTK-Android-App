@@ -26,8 +26,23 @@ class EditMountainPassPointsFragment : Fragment() {
 
         binding.editMountainPassPoints.setText(mViewModel.mountainPassOfficial.value!!.punkty.toString())
         binding.saveMountainPassPoints.setOnClickListener {
-            if (binding.editMountainPassPoints.text.toString().toInt() < 0) {
+            if (binding.editMountainPassPoints.text.toString().toInt() >= 100) {
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.too_many_points_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
+                return@setOnClickListener
+            }
 
+            if (binding.editMountainPassPoints.text.toString().toInt() < 0) {
                 val alertDialog = requireActivity().let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {

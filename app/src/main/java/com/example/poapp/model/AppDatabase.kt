@@ -395,7 +395,7 @@ abstract class AppDatabase : RoomDatabase() {
                         val route2_section5 = routeSectionDAO.insert(RouteSection(0, route2.toInt(), null, swinicka_przelecz_zielony_staw_gasienicowy.toInt(), 45))
                         val route2_section6 = routeSectionDAO.insert(RouteSection(0, route2.toInt(), zielony_staw_gasienicowy_murowaniec.toInt(), null, 50))
 
-                        val route3 = routeDAO.insert(Route(0, tourist1.toInt(), "2022-01-09", "oczekuje na wysłanie", 12))
+                        val route3 = routeDAO.insert(Route(0, tourist1.toInt(), "2022-01-09", "oczekuje na potwierdzenie", 12))
                         val route3_section1 = routeSectionDAO.insert(RouteSection(0, route3.toInt(), parking_tpn_palenica_bialczanska.toInt(), null, 19))
                         val route3_section2 = routeSectionDAO.insert(RouteSection(0, route3.toInt(), null, palenica_bialczanska_wodogrzmoty_mickiewicza.toInt(), 45))
                         val route3_section3 = routeSectionDAO.insert(RouteSection(0, route3.toInt(), null, wodogrzmoty_mickiewicza_schronisko_PTTK_morskie_oko.toInt(), 96))

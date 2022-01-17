@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
@@ -22,6 +23,17 @@ class RouteSectionsListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        view.findViewById<Button>(R.id.close_route_sections).setOnClickListener {
+            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(
+                    R.id.nav_host_fragment_activity_confirm,
+                    ConfirmRouteFragment()
+                )
+                ?.addToBackStack(null)
+                ?.commit()
+        }
 
         view.findViewById<RecyclerView>(R.id.route_sections_small_list).adapter =
             RouteSectionSmallAdapter(mViewModel.getRouteSectionsForRoute(), mViewModel, object : OnSectionClickedListener {

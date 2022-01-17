@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     def lifecycle_version = "2.1.0"
     def room_version = "2.2.3"
 
@@ -51,6 +50,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"

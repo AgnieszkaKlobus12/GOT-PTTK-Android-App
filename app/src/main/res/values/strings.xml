@@ -115,5 +115,16 @@
     <string name="to_confirm">Do potwierdzenia:</string>
     <string name="route_sections">Odcinki trasy</string>
     <string name="no_section_without_proof">Wszystkie odcinki tej trasy mają już dowody!</string>
+    <string name="confirm_send_to_leader_message">Czy na pewno chcesz wysłać trasę do potwierdzenia?</string>
+    <string name="confirm_route_confirmation_message">Czy na pewno chcesz potwierdzić tę trasę?</string>
+    <string name="confirm_route_rejection_message">Czy na pewno chcesz odrzucić tę trasę?</string>
+    <string name="confirm_route">Potwierdź</string>
+    <string name="reject_route">Odrzuć</string>
+    <string name="show_proofs">Pokaż dowody</string>
+    <string name="show_on_map">Pokaż na mapie</string>
+    <string name="show_mountain_passes">Pokaż odcinki</string>
+    <string name="confirm_route_title">Potwierdź trasę</string>
+    <string name="routes_to_confirm">Trasy do potwierdzenia:</string>
+    <string name="proof_image_description">Zdjęcie przedstawiające dowód przebycia trasy załączony przez turystę</string>
 
 </resources>

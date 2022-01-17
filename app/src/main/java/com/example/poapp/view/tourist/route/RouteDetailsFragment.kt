@@ -1,5 +1,6 @@
 package com.example.poapp.view.tourist.route
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -56,16 +57,45 @@ class RouteDetailsFragment(private val routeId: Long) : Fragment() {
             Toast.makeText(requireContext(), getString(R.string.not_implemented_label), Toast.LENGTH_SHORT).show()
         }
         binding.sendToLeader.setOnClickListener {
-            //todo dialog cz na pewno wysłać
-            //jak tak:
-            mViewModel.route.value!!.status = getString(R.string.waiting_for_confirmation)
-            mViewModel.updateRoute()
-            binding.editProofs.isEnabled = false
-            binding.editRoute.isEnabled = false
-            binding.deleteRoute.isEnabled = false
-            binding.sendToLeader.isEnabled = false
-            //jak nie:
-            return@setOnClickListener
+
+            if (mViewModel.getRouteProofs().isNotEmpty()) {
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setPositiveButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                            mViewModel.route.value!!.status = getString(R.string.waiting_for_confirmation)
+                            mViewModel.updateRoute()
+                            binding.editProofs.isEnabled = false
+                            binding.editRoute.isEnabled = false
+                            binding.deleteRoute.isEnabled = false
+                            binding.sendToLeader.isEnabled = false
+                        }
+                        setNegativeButton(R.string.back) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.confirm_send_to_leader_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
+                return@setOnClickListener
+            } else {
+                val alertDialog = requireActivity().let {
+                    val builder = AlertDialog.Builder(it)
+                    builder.apply {
+                        setNeutralButton(R.string.ok) { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        setTitle(R.string.alert)
+                        setMessage(R.string.no_proofs_message)
+                    }
+                    builder.create()
+                }
+                alertDialog.show()
+                return@setOnClickListener
+            }
         }
     }
 }

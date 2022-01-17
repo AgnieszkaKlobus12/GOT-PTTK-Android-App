@@ -18,3 +18,6 @@ Trasy wpisane do książeczki GOT PTTK muszą zostać potwierdzone przez przodow
 Książeczki osób ubiegających się o GOT PTTK popularną i małą weryfikują Terenowe Referaty Weryfikacyjne GOT PTTK lub Centralny Referat Weryfikacyjny GOT PTTK.
 
 Celem projektu jest zaoferowanie alternatywy dla papierowej książeczki GOT PTTK w postaci systemu elektronicznego. System będzie zapewniał możliwość wprowadzania, modyfikacji oraz usuwania danych dotyczących odcinków tras punktowanych do GOT PTTK przez użytkowników do tego uprawnionych, a także wyszukiwania i prezentacji odcinków tras przez wszystkich użytkowników. Oprócz tego, system będzie umożliwiał dokumentowanie tras wycieczek odbytych w ramach zdobywania kolejnych rodzajów i stopni GOT PTTK. 
+
+W ramach projektu zaprojektowno aplikację korzystającą z bazy danych. Zaprojektowaną aplikację zaimplementowano jako natywną aplikację mobilną na system Android z lokalną bazą danych SQLite.
+-

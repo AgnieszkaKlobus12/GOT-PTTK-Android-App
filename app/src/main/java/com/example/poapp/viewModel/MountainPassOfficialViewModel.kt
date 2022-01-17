@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.poapp.Utils
 import com.example.poapp.model.AppDatabase
 import com.example.poapp.model.entity.MountainGroup
 import com.example.poapp.model.entity.MountainPassOfficial
@@ -81,5 +82,9 @@ class MountainPassOfficialViewModel(application: Application) : AndroidViewModel
 
     fun getMountainRange(name: String): List<MountainRange> {
         return mountainRangeRepository.getMountainRange(name)
+    }
+
+    fun pointsNotInSameRange(mountainPassOfficial: MountainPassOfficial): Boolean {
+        return Utils.pointsNotInSameRange(mountainPassOfficial, officialPointRepository)
     }
 }

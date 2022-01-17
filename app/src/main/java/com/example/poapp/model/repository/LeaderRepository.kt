@@ -18,4 +18,5 @@ class LeaderRepository(private val leaderDAO: LeaderDAO) {
     fun getLeaderUser(leaderId: Long): User? {
         return getLeader(leaderId)?.FKturysta?.let { leaderDAO.getUserLeader(it) }?.get(0)
     }
+
 }

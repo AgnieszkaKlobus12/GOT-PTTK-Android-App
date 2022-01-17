@@ -12,7 +12,7 @@ import com.example.poapp.R
 import com.example.poapp.databinding.FragmentNewMountainPassBinding
 import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
-//if id !=0 then edit existing, else add new
+//if id != 0 then edit existing MountainPass, else add new MountainPass
 class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
     private var _binding: FragmentNewMountainPassBinding? = null
     private val binding get() = _binding!!
@@ -21,7 +21,7 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //check if MountainPass exists, save in ViewModel if so
+        //check if MountainPass exists and save existing MountainPass in ViewModel
         if (mountainPassId != 0) {
             val mountainPass = mViewModel.getMountainPassOfficial(mountainPassId)[0]
             mViewModel.setMountainPass(mountainPass)

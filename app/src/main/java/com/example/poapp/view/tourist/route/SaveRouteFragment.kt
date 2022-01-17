@@ -21,10 +21,7 @@ class SaveRouteFragment : Fragment() {
 
     private val mViewModel: RouteViewModel by activityViewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_save_route, container, false)
     }
 

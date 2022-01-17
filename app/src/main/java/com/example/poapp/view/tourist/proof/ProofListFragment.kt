@@ -15,7 +15,6 @@ import com.example.poapp.databinding.FragmentProofListBinding
 import com.example.poapp.view.tourist.route.NewRouteFragment
 import com.example.poapp.viewModel.RouteViewModel
 
-
 class ProofListFragment(private val new: Boolean = false) : Fragment() {
 
     private var _binding: FragmentProofListBinding? = null

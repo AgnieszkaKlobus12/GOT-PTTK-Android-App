@@ -12,8 +12,7 @@ import com.example.poapp.viewModel.RouteViewModel
 
 class ProofSectionsAdapter(
     private val values: List<RouteSection>,
-    private val mViewModel: RouteViewModel,
-    private val isLeader: Boolean = false
+    private val mViewModel: RouteViewModel
 ) :
     RecyclerView.Adapter<ProofSectionsAdapter.ProofSectionItemHolder>() {
 

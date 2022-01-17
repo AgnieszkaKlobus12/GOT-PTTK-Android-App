@@ -12,8 +12,8 @@ import com.example.poapp.databinding.FragmentNewOfficialPointBinding
 import com.example.poapp.model.entity.OfficialPoint
 import com.example.poapp.viewModel.MountainPassOfficialViewModel
 
-//if id != 0, then update existing point, else create new
-//changeNr - 0 start, 1 through, 2 end
+//if id != 0 then update existing MountainPass, else add new MountainPass
+//changeNr - 0 starting point, 1 point through, 2 end point
 class NewOfficialPointFragment(private val officialPointID: Int, private val changeNr: Int) : Fragment() {
     private var _binding: FragmentNewOfficialPointBinding? = null
     private val binding get() = _binding!!
@@ -29,7 +29,7 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
 
         var officialPoint = OfficialPoint(0, "", 0.0, 0.0, 0)
 
-        //if Id != 0 find in database and show existing data
+        //if id != 0 find existing MountainPass
         if (officialPointID != 0) {
             officialPoint = mViewModel.getOfficialPoint(officialPointID)[0]
             val mountainRange = mViewModel.getMountainRange(officialPoint.FKpasmoGorskie)[0]
@@ -41,7 +41,7 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
         binding.longitude.setText(officialPoint.dlugoscGeo.toString())
         binding.latitude.setText((officialPoint.szerokoscGeo.toString()))
 
-        //if pointID != 0 edit update in database, else add new
+        //if id != 0 update MountainPass in database, else add new MountainPass
         binding.saveOfficialPoint.setOnClickListener {
             officialPoint.nazwa = binding.officialPointName.text.toString()
             officialPoint.dlugoscGeo = binding.longitude.text.toString().toDouble()
@@ -63,14 +63,12 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                 return@setOnClickListener
             }
 
-            //find MountainRange by name
             val mountainRangeList = mViewModel.getMountainRange(binding.mountainRange.text.toString())
             if (mountainRangeList.isNotEmpty()) {
                 val mountainRange = mountainRangeList[0]
                 officialPoint.FKpasmoGorskie = mountainRange.id
             } else {
-                //group and range have to exist
-
+                //MountainGroup and MountainRange have to exist in database
                 val alertDialog = requireActivity().let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {
@@ -86,8 +84,8 @@ class NewOfficialPointFragment(private val officialPointID: Int, private val cha
                 return@setOnClickListener
             }
 
-            //add or update
-            //each RouteSection has its own points - implementing handling Points UserCase not required
+            //update MountainPass in database or add new MountainPass
+            //each RouteSection has its own points - handling user points not implemented (different use case)
             if (officialPoint.id == 0)
                 officialPoint.id = mViewModel.addMountainPass(officialPoint).toInt()
             else

@@ -12,7 +12,6 @@ import com.example.poapp.R
 import com.example.poapp.model.entity.RouteSection
 import com.example.poapp.viewModel.ConfirmRouteViewModel
 
-
 class RouteSectionsListFragment : Fragment() {
 
     private val mViewModel: ConfirmRouteViewModel by activityViewModels()

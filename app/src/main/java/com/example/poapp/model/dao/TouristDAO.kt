@@ -3,7 +3,6 @@ package com.example.poapp.model.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.poapp.model.entity.Tourist
-import com.example.poapp.model.entity.User
 
 @Dao
 interface TouristDAO {

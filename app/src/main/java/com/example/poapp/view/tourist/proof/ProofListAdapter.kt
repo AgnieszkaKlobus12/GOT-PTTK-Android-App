@@ -16,8 +16,7 @@ class ProofListAdapter(
     private val context: Context,
     private val values: List<Proof>,
     private val mViewModel: RouteViewModel,
-    private val onProofSelectedListener: OnProofSelectedListener? = null,
-    private val isLeader: Boolean = false
+    private val onProofSelectedListener: OnProofSelectedListener? = null
 ) :
     RecyclerView.Adapter<ProofListAdapter.ProofItemHolder>() {
 
@@ -39,7 +38,7 @@ class ProofListAdapter(
             holder.leaderName.text = mViewModel.getLeaderName(item.FKprzodownik.toLong())
             holder.leaderId.text = mViewModel.getLeader(item.FKprzodownik.toLong())?.nrLegitymacji.toString()
         }
-        holder.recyclerView.adapter = ProofSectionsAdapter(mViewModel.getRouteSectionsForProof(item), mViewModel, isLeader)
+        holder.recyclerView.adapter = ProofSectionsAdapter(mViewModel.getRouteSectionsForProof(item), mViewModel)
 
         if (onProofSelectedListener != null) {
             holder.itemView.setOnClickListener {

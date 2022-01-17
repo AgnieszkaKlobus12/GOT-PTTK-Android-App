@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager
 import com.example.poapp.R
 import com.example.poapp.databinding.FragmentAddProofBinding
 
-
 class AddProofFragment(private val new: Boolean = false) : Fragment() {
 
     private var _binding: FragmentAddProofBinding? = null

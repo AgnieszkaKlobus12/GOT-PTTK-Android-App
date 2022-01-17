@@ -11,7 +11,6 @@ import com.example.poapp.model.entity.*
 import com.example.poapp.model.repository.*
 import java.io.ByteArrayOutputStream
 
-
 class RouteViewModel(application: Application) : AndroidViewModel(application) {
 
     private val routeRepository: RouteRepository
@@ -215,7 +214,7 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-    //0 if correct, -1 if route already has leader, -2 if leader doesn't exists
+    //0 if correct, -1 if route already has a leader assigned as proof, -2 if there is no such leader
     fun saveLeaderProof(leaderID: Long): Int {
         if (getLeader(leaderID) == null) {
             return -2

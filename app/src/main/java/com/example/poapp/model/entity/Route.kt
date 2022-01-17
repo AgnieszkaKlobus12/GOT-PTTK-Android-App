@@ -17,7 +17,7 @@ import androidx.room.PrimaryKey
 data class Route(
     @PrimaryKey(autoGenerate = true) var id: Int,
     val FKturysta: Int,
-    var dataPrzejscia: String, //YYYY-MM-DD
-    var status: String, //enum
+    var dataPrzejscia: String,
+    var status: String,
     var punkty: Int
 )

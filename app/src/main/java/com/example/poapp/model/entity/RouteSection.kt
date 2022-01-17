@@ -33,6 +33,3 @@ data class RouteSection(
     var FKodcinekOficjalny: Int?,
     var czasPrzejscia: Int
 )
-
-//    CHECK ((OdcinkiTras.FKodcinekWłasny IS NULL OR OdcinkiTras.FKodcinekOficjalny IS NULL) AND
-//    (OdcinkiTras.FKodcinekWłasny IS NOT NULL OR OdcinkiTras.FKodcinekOficjalny IS NOT NULL)));

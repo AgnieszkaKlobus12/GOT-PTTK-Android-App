@@ -4,6 +4,7 @@ import android.app.Application
 import android.graphics.Bitmap
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.example.poapp.Utils
 import com.example.poapp.model.AppDatabase
 import com.example.poapp.model.entity.OfficialPoint
 import com.example.poapp.model.entity.Proof
@@ -150,7 +151,7 @@ class ConfirmRouteViewModel(application: Application) : AndroidViewModel(applica
     }
 
     fun getImage(byteArray: ByteArray): Bitmap? {
-        return routeViewModel.getImage(byteArray)
+        return Utils.getImage(byteArray)
     }
 
     fun getMountainGroupName(routeId: Long = route.value!!.id.toLong()): String {

@@ -186,14 +186,9 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                 alertDialog.show()
                 return@setOnClickListener
             }
+
             val mountainRangeStart = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPoczatkowy)[0].FKpasmoGorskie
-            val mountainRangeEnd = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktKoncowy)[0].FKpasmoGorskie
-            var mountainRangeThrough = mountainRangeStart
-            if (mViewModel.mountainPassOfficial.value!!.FKpunktPosredni != null && mViewModel.mountainPassOfficial.value!!.FKpunktPosredni != 0)
-                mountainRangeThrough = mViewModel.getOfficialPoint(mViewModel.mountainPassOfficial.value!!.FKpunktPosredni!!)[0].FKpasmoGorskie
-            else
-                mViewModel.mountainPassOfficial.value!!.FKpunktPosredni = null
-            if (mountainRangeStart != mountainRangeEnd || mountainRangeStart != mountainRangeThrough || mountainRangeEnd != mountainRangeThrough) {
+            if (mViewModel.pointsNotInSameRange(mViewModel.mountainPassOfficial.value!!)) {
                 val alertDialog = requireActivity().let {
                     val builder = AlertDialog.Builder(it)
                     builder.apply {

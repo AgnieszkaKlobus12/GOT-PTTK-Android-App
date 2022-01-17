@@ -13,6 +13,9 @@ interface MountainGroupDAO {
     @Query("delete from GrupyGorskie")
     fun deleteAll()
 
+    @Query("delete from GrupyGorskie where id=:mountainGroupId")
+    fun delete(mountainGroupId: Int)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(mountainGroup: MountainGroup): Long
 

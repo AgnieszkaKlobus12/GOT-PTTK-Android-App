@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import com.example.poapp.R
+import com.example.poapp.Utils
 import com.example.poapp.viewModel.RouteViewModel
 import java.text.SimpleDateFormat
 import java.util.*
@@ -36,15 +37,7 @@ class SaveRouteFragment : Fragment() {
         var date = formatter.format(dateMillis)
 
         view.findViewById<CalendarView>(R.id.calendar).setOnDateChangeListener { _, year, month, dayOfMonth ->
-            var monthString = (month + 1).toString()
-            if (month + 1 < 10) {
-                monthString = "0${month + 1}"
-            }
-            var dayString = dayOfMonth.toString()
-            if (dayOfMonth < 10) {
-                dayString = "0$dayOfMonth"
-            }
-            date = "$year-$monthString-$dayString"
+            date = Utils.formatDate(year, month, dayOfMonth)
         }
         view.findViewById<TextView>(R.id.points_sum).text = points.toString()
 

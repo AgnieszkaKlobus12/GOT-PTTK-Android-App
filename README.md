@@ -1,6 +1,6 @@
 # Elektroniczka książeczka GOT PTTK
 Projekt aplikacji dla Polskiego Towarzystwa Turystyczno - Krajoznawczego wykonany w ramach przedmiotu Projektowanie oprogramowania
-
+-
 Autorzy projektu: A. Kłobus, A. Stecka
 -
 Górska Odznaka Turystyczna Polskiego Towarzystwa Turystyczno – Krajoznawczego jest odznaką ustanowioną w celu promowania turystyki górskiej. Zdobycie tej odznaki wiąże się więc z uprawianiem turystyki górskiej. 

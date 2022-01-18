@@ -25,20 +25,12 @@ class RouteSectionsListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         view.findViewById<Button>(R.id.close_route_sections).setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    ConfirmRouteFragment()
-                )
-                ?.addToBackStack(null)
-                ?.commit()
+            activity?.supportFragmentManager?.popBackStack()
         }
 
         view.findViewById<RecyclerView>(R.id.route_sections_small_list).adapter =
             RouteSectionSmallAdapter(mViewModel.getRouteSectionsForRoute(), mViewModel, object : OnSectionClickedListener {
                 override fun onClick(routeSection: RouteSection) {
-                    activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
                     activity?.supportFragmentManager?.beginTransaction()
                         ?.replace(
                             R.id.nav_host_fragment_activity_confirm,

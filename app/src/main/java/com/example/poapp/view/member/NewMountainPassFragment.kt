@@ -204,7 +204,11 @@ class NewMountainPassFragment(private val mountainPassId: Int) : Fragment() {
                 return@setOnClickListener
             }
             mViewModel.mountainPassOfficial.value!!.FKpasmoGorskie = mountainRangeStart
-            mViewModel.addMountainPass(mViewModel.mountainPassOfficial.value!!)
+            if (mViewModel.mountainPassOfficial.value!!.id != 0) {
+                mViewModel.updateMountainPass(mViewModel.mountainPassOfficial.value!!)
+            } else {
+                mViewModel.addMountainPass(mViewModel.mountainPassOfficial.value!!)
+            }
             mViewModel.resetMountainPass()
             activity?.supportFragmentManager?.popBackStack()
         }

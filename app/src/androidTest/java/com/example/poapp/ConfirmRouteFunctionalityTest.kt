@@ -1,12 +1,7 @@
 package com.example.poapp
 
-import android.view.View
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.UiController
-import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -17,7 +12,7 @@ import com.example.poapp.view.MainActivity
 import com.example.poapp.view.leader.RouteSectionSmallAdapter
 import com.example.poapp.view.leader.RoutesToConfirmAdapter
 import com.example.poapp.view.member.MountainPassAdapter
-import org.hamcrest.Matcher
+import com.example.poapp.view.tourist.route.RouteAdapter
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -107,16 +102,33 @@ class ConfirmRouteFunctionalityTest {
         onView(withText(alert)).check(matches(isDisplayed()))
         onView(withText(ok)).perform(click())
         onView(withText(routesToConfirm)).check(matches(isDisplayed()))
-//        Espresso.pressBack()
-//        onView(withId(R.id.saveRouteAddProof)).perform(click())
-//        onView(withId(R.id.mountain_passes_list_pick)).perform(RecyclerViewActions.actionOnItemAtPosition<MountainPassAdapter.MountainPassOfficialItemHolder>(0, click()))
-//        onView(withId(R.id.edit_proofs)).check(matches(isNotEnabled()))
-//        onView(withId(R.id.edit_route)).check(matches(isNotEnabled()))
-//        onView(withId(R.id.delete_route)).check(matches(isNotEnabled()))
-//        onView(withId(R.id.send_to_leader)).check(matches(isNotEnabled()))
+        Espresso.pressBack()
+        onView(withId(R.id.saveRouteAddProof)).perform(click())
+        onView(withId(R.id.last_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteAdapter.RouteItemHolder>(0, click()))
+        onView(withId(R.id.edit_proofs)).check(matches(isNotEnabled()))
+        onView(withId(R.id.edit_route)).check(matches(isNotEnabled()))
+        onView(withId(R.id.delete_route)).check(matches(isNotEnabled()))
+        onView(withId(R.id.send_to_leader)).check(matches(isNotEnabled()))
     }
 
-
-
+    @Test
+    fun testRejectRoute() {
+        val alert = "Uwaga"
+        val ok = "OK"
+        val routesToConfirm = "Trasy do potwierdzenia:"
+        onView(withId(R.id.confirmRoute)).perform(click())
+        onView(withId(R.id.confirm_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RoutesToConfirmAdapter.RouteItemHolder>(0, click()))
+        onView(withId(R.id.reject_route)).perform(click())
+        onView(withText(alert)).check(matches(isDisplayed()))
+        onView(withText(ok)).perform(click())
+        onView(withText(routesToConfirm)).check(matches(isDisplayed()))
+        Espresso.pressBack()
+        onView(withId(R.id.saveRouteAddProof)).perform(click())
+        onView(withId(R.id.last_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteAdapter.RouteItemHolder>(0, click()))
+        onView(withId(R.id.edit_proofs)).check(matches(isNotEnabled()))
+        onView(withId(R.id.edit_route)).check(matches(isNotEnabled()))
+        onView(withId(R.id.delete_route)).check(matches(isNotEnabled()))
+        onView(withId(R.id.send_to_leader)).check(matches(isNotEnabled()))
+    }
 
 }

@@ -18,7 +18,6 @@ import org.hamcrest.Matcher
 import org.junit.Rule
 import org.junit.Test
 
-
 class EditMountainPassFunctionalityTest {
 
     @Rule
@@ -86,17 +85,17 @@ class EditMountainPassFunctionalityTest {
     @Test
     fun testChangeStatus() {
         val alert = "Uwaga"
-        val activie = "aktywny"
+        val active = "aktywny"
         val inactive = "zlikwidowany"
         onView(withId(R.id.mountainPass)).check(matches(isDisplayed()))
         onView(withId(R.id.mountainPass)).perform(click())
         onView(withId(R.id.mountain_passes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<MountainPassAdapter.MountainPassOfficialItemHolder>(0, click()))
         onView(withId(R.id.edit_button)).perform(click())
         val status = getText(withId(R.id.new_status))
-        val result = if (status == activie) {
+        val result = if (status == active) {
             inactive
         } else {
-            activie
+            active
         }
         onView(withId(R.id.edit_status)).perform(click())
         onView(withText(alert)).check(matches(isDisplayed()))

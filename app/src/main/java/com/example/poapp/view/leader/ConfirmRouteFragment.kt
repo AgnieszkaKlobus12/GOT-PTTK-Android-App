@@ -34,14 +34,7 @@ class ConfirmRouteFragment : Fragment() {
         binding.confirmRouteMountainGroupValue.text = mViewModel.getMountainGroupName()
 
         binding.showOnMap.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    MapFragment()
-                )
-                ?.addToBackStack("ConfirmRoute")
-                ?.commit()
+            backPressed(MapFragment())
         }
         binding.confirmRoute.setOnClickListener {
             val alertDialog = requireActivity().let {
@@ -64,24 +57,10 @@ class ConfirmRouteFragment : Fragment() {
             return@setOnClickListener
         }
         binding.showRouteProofs.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("null", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    ListProofsFragment()
-                )
-                ?.addToBackStack("ConfirmRouteList")
-                ?.commit()
+            backPressed(ListProofsFragment())
         }
         binding.showRouteSections.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    RouteSectionsListFragment()
-                )
-                ?.addToBackStack("ConfirmRoute")
-                ?.commit()
+            backPressed(RouteSectionsListFragment())
         }
         binding.rejectRoute.setOnClickListener {
             val alertDialog = requireActivity().let {
@@ -103,5 +82,16 @@ class ConfirmRouteFragment : Fragment() {
             alertDialog.show()
             return@setOnClickListener
         }
+    }
+
+    private fun backPressed(fragment: Fragment){
+        activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(
+                R.id.nav_host_fragment_activity_confirm,
+                fragment
+            )
+            ?.addToBackStack("ConfirmRoute")
+            ?.commit()
     }
 }

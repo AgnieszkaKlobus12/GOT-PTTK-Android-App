@@ -326,9 +326,10 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
                     for (id in proofsISs) {
                         proofRepository.delete(id.toLong())
                     }
-                    routeSectionRepository.deleteAllFor(route.id.toLong())
-                    routeRepository.delete(route.id.toLong())
                 }
+                routeSectionRepository.deleteAllFor(route.id.toLong())
+                routeRepository.delete(route.id.toLong())
+
             }
         }
     }

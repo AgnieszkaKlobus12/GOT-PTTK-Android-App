@@ -21,10 +21,6 @@ class MountainPassProofRepository(private val mountainPassProofDAO: MountainPass
         mountainPassProofDAO.insert(mountainPassProof)
     }
 
-    fun delete(mountainPassProofID: Int) {
-        mountainPassProofDAO.delete(mountainPassProofID)
-    }
-
     fun routeSectionsIDsFor(proofId: Long): List<Int> {
         val mountainPassProofs = mountainPassProofDAO.sectionsFor(proofId.toInt())
         val sectionsIDs = mutableListOf<Int>()

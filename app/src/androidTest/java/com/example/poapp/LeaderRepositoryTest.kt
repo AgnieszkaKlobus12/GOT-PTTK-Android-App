@@ -19,7 +19,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
 
-
 @RunWith(AndroidJUnit4::class)
 class LeaderRepositoryTest {
     private lateinit var leaderDAO: LeaderDAO
@@ -76,6 +75,5 @@ class LeaderRepositoryTest {
         assertEquals(found?.nazwisko, "Kowalski")
         assertEquals(found?.rola, 1)
     }
-
 
 }

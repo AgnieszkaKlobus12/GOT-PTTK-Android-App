@@ -38,7 +38,7 @@ class ConfirmRouteListFragment : Fragment() {
                             R.id.nav_host_fragment_activity_confirm,
                             ConfirmRouteFragment()
                         )
-                        ?.addToBackStack(null)
+                        ?.addToBackStack("ConfirmRouteList")
                         ?.commit()
                 }
 

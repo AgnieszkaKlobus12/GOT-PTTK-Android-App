@@ -31,10 +31,11 @@ class RouteAdapter(
         holder.end.text = mViewModel.getEndNameForRoute(item.id)
         holder.status.text = item.status
 
-        if (holder.status.text == context.resources.getString(R.string.confirmed))
-            holder.status.setTextColor(context.getColor(R.color.green))
-        if (holder.status.text == context.resources.getString(R.string.rejected))
-            holder.status.setTextColor(context.getColor(R.color.red))
+        when (holder.status.text) {
+            context.resources.getString(R.string.confirmed) -> holder.status.setTextColor(context.getColor(R.color.green))
+            context.resources.getString(R.string.rejected) -> holder.status.setTextColor(context.getColor(R.color.red))
+            else -> holder.status.setTextColor(context.getColor(R.color.black))
+        }
 
         holder.itemView.setOnClickListener { onRouteClickedListener.onItemClick(item) }
     }

@@ -30,13 +30,6 @@ class ListProofsFragment : Fragment() {
 
         binding.close.setOnClickListener {
             activity?.supportFragmentManager?.popBackStack()
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(
-                    R.id.nav_host_fragment_activity_confirm,
-                    ConfirmRouteFragment()
-                )
-                ?.addToBackStack(null)
-                ?.commit()
         }
         binding.cancelSaveProofs.visibility = View.GONE
         binding.saveProofs.visibility = View.GONE

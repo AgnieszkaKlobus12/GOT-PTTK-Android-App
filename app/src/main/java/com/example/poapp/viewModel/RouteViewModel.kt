@@ -317,19 +317,10 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
         val routes = routeRepository.getAll()
         for (route in routes) {
             if (route.dataPrzejscia == "" || route.FKturysta == 0 || routeSectionRepository.getRouteSectionForRoute(route.id).isEmpty()) {
-                val proofsISs = mutableListOf<Int>()
-                for (section in getRouteSectionsForRoute(route.id.toLong())) {
-                    for (passProof in mountainPassProofRepository.proofsFor(section.id.toLong())) {
-                        proofsISs.add(passProof.id)
-                        mountainPassProofRepository.delete(passProof.id)
-                    }
-                    for (id in proofsISs) {
-                        proofRepository.delete(id.toLong())
-                    }
-                    routeSectionRepository.deleteAllFor(route.id.toLong())
-                    routeRepository.delete(route.id.toLong())
-                }
+                routeSectionRepository.deleteAllFor(route.id.toLong())
+                routeRepository.delete(route.id.toLong())
             }
         }
     }
+
 }

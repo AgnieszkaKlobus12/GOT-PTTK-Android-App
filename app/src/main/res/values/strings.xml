@@ -106,6 +106,7 @@
     <string name="include_image">Załącz obraz</string>
     <string name="choose_image">Wybierz obraz</string>
     <string name="mountain_passes">Odcinki</string>
+    <string name="mountain_passes_decorated">Odcinki:</string>
     <string name="close">Zamknij</string>
     <string name="leader_already_added_message">Dla tej trasy załączono już dane przodownika</string>
     <string name="leader_not_found_message">Nie znaleziono przodownika o takim numerze legitymacji</string>

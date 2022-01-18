@@ -8,7 +8,9 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
+import com.example.poapp.model.entity.MountainPassOfficial
 import com.example.poapp.view.MainActivity
+import com.example.poapp.view.tourist.route.MountainPassPickAdapter
 import com.example.poapp.view.tourist.route.RouteAdapter
 import org.hamcrest.Matchers
 import org.junit.Rule
@@ -60,7 +62,7 @@ class AddProofFunctionalityTest {
     }
 
     @Test
-    fun showLayoutEditRoute() {
+    fun testShowLayoutEditRoute() {
         onView(withId(R.id.saveRouteAddProof)).perform(click())
         addTestRouteShort()
         onView(withId(R.id.last_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteAdapter.RouteItemHolder>(0, click()))
@@ -72,6 +74,45 @@ class AddProofFunctionalityTest {
         Espresso.pressBack()
         Espresso.pressBack()
         onView(withId(R.id.see_proofs))
+        onView(withText(alert)).check(matches(isDisplayed()))
+        onView(withText("OK")).perform(click())
+        onView(withId(R.id.delete_proof)).perform(click())
+        onView(withText(alert)).check(matches(isDisplayed()))
+        onView(withText("OK")).perform(click())
+    }
+
+
+    private fun addTestRouteLong() {
+        val point2 = "Rusinowa Polana"
+        val point3 = "Wierch Poroniec"
+        val pass2points = "4"
+        val time2 = "30"
+        val point4 = "Łysa Polana"
+        val pass3points = "3"
+        val time3 = "20"
+        onView(withId(R.id.saveRouteAddProof)).perform(click())
+        onView(withId(R.id.add_route_button)).perform(click())
+        addTestRouteSection()
+        onView(withId(R.id.official_button)).perform(click())
+        onView(Matchers.allOf(withChild(withText(point3)), withChild(withText(point2)), withChild(withText(pass2points)))).perform(click())
+        onView(withId(R.id.time_value)).perform(replaceText(time2))
+        onView(withId(R.id.add_route_pass_button)).perform(click())
+        onView(withId(R.id.add_mountain_pass_button)).perform(click())
+        onView(withId(R.id.official_button)).perform(click())
+        onView(withId(R.id.mountain_passes_list_pick)).perform(RecyclerViewActions.scrollToPosition<MountainPassPickAdapter<MountainPassOfficial>.MountainPassItemHolder>(8))
+        onView(Matchers.allOf(withChild(withText(point3)), withChild(withText(point4)), withChild(withText(pass3points)))).perform(click())
+        onView(withId(R.id.time_value)).perform(replaceText(time3))
+        onView(withId(R.id.add_route_pass_button)).perform(click())
+        onView(withId(R.id.end_button)).perform(click())
+        onView(withId(R.id.save_route_btn)).perform(click())
+
+    }
+
+    @Test
+    fun testAddLeaderProof() {
+        addTestRouteLong()
+        onView(withId(R.id.add_proof_button)).perform(click())
+
     }
 
 

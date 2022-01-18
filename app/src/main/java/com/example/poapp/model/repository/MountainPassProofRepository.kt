@@ -33,4 +33,8 @@ class MountainPassProofRepository(private val mountainPassProofDAO: MountainPass
     fun deleteAllForProof(proofId: Int) {
         mountainPassProofDAO.deleteAllForProof(proofId)
     }
+
+    fun delete(mountainPassProofID: Int) {
+        mountainPassProofDAO.delete(mountainPassProofID)
+    }
 }

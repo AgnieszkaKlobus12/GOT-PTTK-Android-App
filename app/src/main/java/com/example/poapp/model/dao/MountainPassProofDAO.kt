@@ -27,4 +27,7 @@ interface MountainPassProofDAO {
     @Query("delete from DowodyOdcinkow where FKdowod = :proofId")
     fun deleteAllForProof(proofId: Int)
 
+    @Query("delete from DowodyOdcinkow where id=:id")
+    fun delete(id: Int)
+
 }

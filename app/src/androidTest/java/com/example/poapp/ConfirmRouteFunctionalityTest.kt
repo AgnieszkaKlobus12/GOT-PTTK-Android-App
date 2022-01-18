@@ -107,7 +107,6 @@ class ConfirmRouteFunctionalityTest {
         onView(withText(alert)).check(matches(isDisplayed()))
         onView(withText(ok)).perform(click())
         onView(withText(routesToConfirm)).check(matches(isDisplayed()))
-        // check if route is in recyclerview
 //        Espresso.pressBack()
 //        onView(withId(R.id.saveRouteAddProof)).perform(click())
 //        onView(withId(R.id.mountain_passes_list_pick)).perform(RecyclerViewActions.actionOnItemAtPosition<MountainPassAdapter.MountainPassOfficialItemHolder>(0, click()))

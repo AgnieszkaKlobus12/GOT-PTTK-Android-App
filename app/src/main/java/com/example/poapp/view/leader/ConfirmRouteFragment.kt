@@ -50,14 +50,7 @@ class ConfirmRouteFragment : Fragment() {
                     setPositiveButton(R.string.ok) { dialog, _ ->
                         dialog.dismiss()
                         mViewModel.confirmRoute()
-                        activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                        activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(
-                                R.id.nav_host_fragment_activity_confirm,
-                                ConfirmRouteListFragment()
-                            )
-                            ?.addToBackStack("ConfirmRoute")
-                            ?.commit()
+                        activity?.supportFragmentManager?.popBackStack()
                     }
                     setNegativeButton(R.string.back) { dialog, _ ->
                         dialog.dismiss()
@@ -71,13 +64,13 @@ class ConfirmRouteFragment : Fragment() {
             return@setOnClickListener
         }
         binding.showRouteProofs.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.popBackStack("null", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_confirm,
                     ListProofsFragment()
                 )
-                ?.addToBackStack("ConfirmRoute")
+                ?.addToBackStack("ConfirmRouteList")
                 ?.commit()
         }
         binding.showRouteSections.setOnClickListener {
@@ -97,14 +90,7 @@ class ConfirmRouteFragment : Fragment() {
                     setPositiveButton(R.string.ok) { dialog, _ ->
                         dialog.dismiss()
                         mViewModel.rejectRoute()
-                        activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
-                        activity?.supportFragmentManager?.beginTransaction()
-                            ?.replace(
-                                R.id.nav_host_fragment_activity_confirm,
-                                ConfirmRouteListFragment()
-                            )
-                            ?.addToBackStack("ConfirmRoute")
-                            ?.commit()
+                        activity?.supportFragmentManager?.popBackStack()
                     }
                     setNegativeButton(R.string.back) { dialog, _ ->
                         dialog.dismiss()

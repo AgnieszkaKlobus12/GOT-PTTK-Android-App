@@ -62,7 +62,7 @@
     <string name="active">aktywny</string>
     <string name="removed">zlikwidowany</string>
     <string name="confirmed">zatwierdzona</string>
-    <string name="not_confirmed">niezatwierdzona</string>
+    <string name="rejected">odrzucona</string>
     <string name="waiting_for_confirmation">oczekuje na potwierdzenie</string>
     <string name="waiting_to_be_sent">oczekuje na wysłanie</string>
 

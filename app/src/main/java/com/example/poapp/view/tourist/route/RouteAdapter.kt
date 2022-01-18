@@ -33,7 +33,7 @@ class RouteAdapter(
 
         if (holder.status.text == context.resources.getString(R.string.confirmed))
             holder.status.setTextColor(context.getColor(R.color.green))
-        if (holder.status.text == context.resources.getString(R.string.not_confirmed))
+        if (holder.status.text == context.resources.getString(R.string.rejected))
             holder.status.setTextColor(context.getColor(R.color.red))
 
         holder.itemView.setOnClickListener { onRouteClickedListener.onItemClick(item) }

@@ -34,13 +34,13 @@ class ConfirmRouteFragment : Fragment() {
         binding.confirmRouteMountainGroupValue.text = mViewModel.getMountainGroupName()
 
         binding.showOnMap.setOnClickListener {
-            activity?.supportFragmentManager?.popBackStack("ConfirmRoute", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            activity?.supportFragmentManager?.popBackStack("ConfirmRouteList", FragmentManager.POP_BACK_STACK_INCLUSIVE)
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(
                     R.id.nav_host_fragment_activity_confirm,
                     MapFragment()
                 )
-                ?.addToBackStack("ConfirmRoute")
+                ?.addToBackStack("ConfirmRouteList")
                 ?.commit()
         }
         binding.confirmRoute.setOnClickListener {

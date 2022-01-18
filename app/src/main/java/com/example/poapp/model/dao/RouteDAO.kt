@@ -10,7 +10,7 @@ interface RouteDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(route: Route): Long
 
-    @Query("select * from Trasy where FKturysta = :touristId")
+    @Query("select * from Trasy where FKturysta = :touristId order by id desc")
     fun getAll(touristId: Int): LiveData<List<Route>>
 
     @Query("select * from Trasy")

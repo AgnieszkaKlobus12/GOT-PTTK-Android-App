@@ -32,6 +32,7 @@ class AddProofFunctionalityTest {
         val time1 = "50"
         onView(withId(R.id.add_mountain_pass_button)).perform(click())
         onView(withId(R.id.own_button)).perform(click())
+        onView(withId(R.id.mountain_passes_list_pick)).perform(RecyclerViewActions.scrollToPosition<MountainPassPickAdapter<MountainPassOfficial>.MountainPassItemHolder>(5))
         onView(Matchers.allOf(withChild(withText(point1)), withChild(withText(point2)), withChild(withText(pass1points)))).perform(click())
         onView(withText(point1)).check(matches(isDisplayed()))
         onView(withId(R.id.time_value)).perform(replaceText(time1))

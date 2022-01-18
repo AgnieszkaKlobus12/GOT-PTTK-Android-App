@@ -14,6 +14,10 @@ class RouteRepository(private val routeDAO: RouteDAO) {
         return routeDAO.getAll(idUser)
     }
 
+    fun getAll(): List<Route> {
+        return routeDAO.getAll()
+    }
+
     fun getRoute(id: Int): List<Route> {
         return routeDAO.getRoute(id)
     }

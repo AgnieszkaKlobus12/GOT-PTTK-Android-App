@@ -13,6 +13,9 @@ interface RouteDAO {
     @Query("select * from Trasy where FKturysta = :touristId")
     fun getAll(touristId: Int): LiveData<List<Route>>
 
+    @Query("select * from Trasy")
+    fun getAll(): List<Route>
+
     @Query("delete from Trasy")
     fun deleteAll()
 

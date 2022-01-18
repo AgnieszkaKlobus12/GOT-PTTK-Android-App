@@ -312,4 +312,15 @@ class RouteViewModel(application: Application) : AndroidViewModel(application) {
             proofRepository.delete(proofId)
         }
     }
+
+    fun cleanInvalid() {
+        val routes = routeRepository.getAll()
+        for (route in routes) {
+            if (route.dataPrzejscia == "" || route.FKturysta == 0 || routeSectionRepository.getRouteSectionForRoute(route.id).isEmpty()) {
+                routeSectionRepository.deleteAllFor(route.id.toLong())
+                routeRepository.delete(route.id.toLong())
+            }
+        }
+    }
+
 }

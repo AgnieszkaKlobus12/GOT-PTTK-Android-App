@@ -10,6 +10,8 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.rule.ActivityTestRule
 import com.example.poapp.model.entity.MountainPassOfficial
 import com.example.poapp.view.MainActivity
+import com.example.poapp.view.tourist.proof.ProofListAdapter
+import com.example.poapp.view.tourist.proof.RouteSectionsPickAdapter
 import com.example.poapp.view.tourist.route.MountainPassPickAdapter
 import com.example.poapp.view.tourist.route.RouteAdapter
 import org.hamcrest.Matchers
@@ -29,7 +31,6 @@ class AddProofFunctionalityTest {
         val pass1points = "6"
         val time1 = "50"
         onView(withId(R.id.add_mountain_pass_button)).perform(click())
-        onView(withId(R.id.own_button)).check(matches(isDisplayed()))
         onView(withId(R.id.own_button)).perform(click())
         onView(Matchers.allOf(withChild(withText(point1)), withChild(withText(point2)), withChild(withText(pass1points)))).perform(click())
         onView(withText(point1)).check(matches(isDisplayed()))
@@ -40,6 +41,8 @@ class AddProofFunctionalityTest {
     private fun addTestRouteShort() {
         onView(withId(R.id.add_route_button)).perform(click())
         addTestRouteSection()
+        onView(withId(R.id.end_button)).perform(click())
+        onView(withId(R.id.choose_date_label)).check(matches(isDisplayed()))
         onView(withId(R.id.save_route_btn)).perform(click())
     }
 
@@ -68,12 +71,12 @@ class AddProofFunctionalityTest {
         onView(withId(R.id.last_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteAdapter.RouteItemHolder>(0, click()))
         onView(withId(R.id.edit_proofs)).perform(click())
         onView(withId(R.id.add_proof)).perform(click())
-        onView(withId(R.id.add_image))
+        onView(withId(R.id.add_image)).perform(click())
         Espresso.pressBack()
-        onView(withId(R.id.add_leader))
+        onView(withId(R.id.add_leader)).perform(click())
         Espresso.pressBack()
         Espresso.pressBack()
-        onView(withId(R.id.see_proofs))
+        onView(withId(R.id.see_proofs)).perform(click())
         onView(withText(alert)).check(matches(isDisplayed()))
         onView(withText("OK")).perform(click())
         onView(withId(R.id.delete_proof)).perform(click())
@@ -93,6 +96,7 @@ class AddProofFunctionalityTest {
         onView(withId(R.id.saveRouteAddProof)).perform(click())
         onView(withId(R.id.add_route_button)).perform(click())
         addTestRouteSection()
+        onView(withId(R.id.add_mountain_pass_button)).perform(click())
         onView(withId(R.id.official_button)).perform(click())
         onView(Matchers.allOf(withChild(withText(point3)), withChild(withText(point2)), withChild(withText(pass2points)))).perform(click())
         onView(withId(R.id.time_value)).perform(replaceText(time2))
@@ -104,15 +108,69 @@ class AddProofFunctionalityTest {
         onView(withId(R.id.time_value)).perform(replaceText(time3))
         onView(withId(R.id.add_route_pass_button)).perform(click())
         onView(withId(R.id.end_button)).perform(click())
+        onView(withId(R.id.choose_date_label)).check(matches(isDisplayed()))
         onView(withId(R.id.save_route_btn)).perform(click())
-
     }
 
     @Test
     fun testAddLeaderProof() {
+        val leaderId = "1"
         addTestRouteLong()
-        onView(withId(R.id.add_proof_button)).perform(click())
+        onView(withId(R.id.last_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteAdapter.RouteItemHolder>(0, click()))
+        onView(withId(R.id.edit_proofs)).perform(click())
+        onView(withId(R.id.add_proof)).perform(click())
+        onView(withId(R.id.add_leader)).perform(click())
+        onView(withId(R.id.leader_id)).perform(replaceText(leaderId))
+        onView(withId(R.id.leader_proof_save)).perform(click())
+        onView(withId(R.id.see_proofs)).perform(click())
+        onView(withText("Przodownik:")).check(matches(isDisplayed()))
+        onView(withId(R.id.close)).perform(click())
+        onView(withId(R.id.delete_proof)).perform(click())
+        onView(withId(R.id.proof_list)).perform(RecyclerViewActions.actionOnItemAtPosition<ProofListAdapter.ProofItemHolder>(0, click()))
+        onView(withId(R.id.close)).perform(click())
+        onView(withText(alert)).check(matches(isDisplayed()))
+        onView(withText("OK")).perform(click())
+        onView(withId(R.id.see_proofs)).perform(click())
+        onView(withText(alert)).check(matches(isDisplayed()))
+        onView(withText("OK")).perform(click())
+    }
 
+    @Test
+    fun testAddImageProof(){
+        addTestRouteLong()
+        onView(withId(R.id.last_routes_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteAdapter.RouteItemHolder>(0, click()))
+        onView(withId(R.id.edit_proofs)).perform(click())
+        onView(withId(R.id.add_proof)).perform(click())
+        onView(withId(R.id.add_image)).perform(click())
+        onView(withId(R.id.route_section_pick_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteSectionsPickAdapter.RouteSectionItemHolder>(0, click()))
+        onView(withId(R.id.route_section_pick_list)).perform(RecyclerViewActions.actionOnItemAtPosition<RouteSectionsPickAdapter.RouteSectionItemHolder>(1, click()))
+        onView(withId(R.id.pick_picture_button)).check(matches(isDisplayed()))
+    }
+
+    @Test
+    fun testHasProof(){
+        val point1 = "Parking TPN"
+        val point2 = "Rusinowa Polana"
+        val point3 = "Wierch Poroniec"
+        val pass2points = "4"
+        val time2 = "30"
+        val leaderId = "1"
+        onView(withId(R.id.saveRouteAddProof)).perform(click())
+        onView(withId(R.id.add_route_button)).perform(click())
+        addTestRouteSection()
+        onView(withId(R.id.add_mountain_pass_button)).perform(click())
+        onView(withId(R.id.official_button)).perform(click())
+        onView(Matchers.allOf(withChild(withText(point2)), withChild(withText(point3)), withChild(withText(pass2points)))).perform(click())
+        onView(withId(R.id.time_value)).perform(replaceText(time2))
+        onView(withId(R.id.add_route_pass_button)).perform(click())
+        onView(Matchers.allOf(withChild(withText(point2)), withChild(withText(point3)), withChild(withText("NIE")))).check(matches(isDisplayed()))
+        onView(Matchers.allOf(withChild(withText(point2)), withChild(withText(point1)), withChild(withText("NIE")))).check(matches(isDisplayed()))
+        onView(withId(R.id.add_proof_button)).perform(click())
+        onView(withId(R.id.add_leader)).perform(click())
+        onView(withId(R.id.leader_id)).perform(replaceText(leaderId))
+        onView(withId(R.id.leader_proof_save)).perform(click())
+        onView(Matchers.allOf(withChild(withText(point2)), withChild(withText(point3)), withChild(withText("TAK")))).check(matches(isDisplayed()))
+        onView(Matchers.allOf(withChild(withText(point2)), withChild(withText(point1)), withChild(withText("TAK")))).check(matches(isDisplayed()))
     }
 
 

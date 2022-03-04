@@ -1,23 +1,84 @@
-# Elektroniczka książeczka GOT PTTK
-Projekt aplikacji dla Polskiego Towarzystwa Turystyczno - Krajoznawczego wykonany w ramach przedmiotu Projektowanie oprogramowania
--
-Autorzy projektu: A. Kłobus, A. Stecka
--
-Górska Odznaka Turystyczna Polskiego Towarzystwa Turystyczno – Krajoznawczego jest odznaką ustanowioną w celu promowania turystyki górskiej. Zdobycie tej odznaki wiąże się więc z uprawianiem turystyki górskiej. 
 
-Najpopularniejsze rodzaje GOT PTTK to:
-- popularna – o jednym stopniu,
-- mała – o trzech stopniach, brązowym, srebrnym i złotym.
+# Electronic GOT PTTK Booklet
 
-Za wycieczki, na które wybierają się turyści otrzymują oni punkty, na podstawie których mogą ubiegać się o odznakę. Aby zdobyć odznakę popularną należy zdobyć 60 punktów. Na odznakę małą o stopniu brązowym należy zdobyć 120 punktów, o stopniu srebrnym 360 punktów, a o stopniu złotym 720 punktów. Jeżeli trasa wycieczki jest ujęta w spisie tras punktowanych do GOT PTTK należy stosować podaną w nim punktację. W przeciwnym wypadku przyznaje się jeden punkt za każdy przebyty kilometr oraz jeden punkt za każde pokonane 100 metrów różnicy poziomów przy podejściach. 
+Application project for Polish Tourist and Sightseeing Society made within Software Design Subject.
 
-Dokumentem uprawniającym do nabycia i noszenia odznak GOT PTTK jest książeczka GOT PTTK. Książeczkę należy wypełniać samodzielnie, a następnie poddać ją weryfikacji. Istotnym elementem książeczki jest załączenie dowodu przebycia wpisanej trasy - w postaci zdjęć pieczątek z nazwami miejscowości, schronisk PTTK czy charakterystycznych elementów krajobrazu. Dostępne jest także załączenie dowodu przebycia trasy w postaci zrzutu ekranu pochodzącego z dowolnej aplikacji śledzącej lokalizację użytkownika. Dowód przebycia trasy nie jest konieczny jeśli przodownik turystyki górskiej PTTK uczestniczył w danej wycieczce i potwierdzi ten fakt podpisem oraz numerem legitymacji przodownickiej oraz, jeśli to możliwe, imienną pieczątką.  
+### Authors
 
-Trasy wpisane do książeczki GOT PTTK muszą zostać potwierdzone przez przodownika turystyki górskiej PTTK. Przodownik ma uprawnienia w danej grupie górskiej i określa, czy turysta faktycznie przebył wpisaną trasę na podstawie załączonych dowodów czy daty wycieczki. Wszystkie trasy wpisane do książeczki GOT PTTK muszą być potwierdzone przez przodownika.
+- [A. Kłobus](https://github.com/AgnieszkaKlobus12)
+- [A. Stecka](https://github.com/A-Stecka)
 
-Książeczki osób ubiegających się o GOT PTTK popularną i małą weryfikują Terenowe Referaty Weryfikacyjne GOT PTTK lub Centralny Referat Weryfikacyjny GOT PTTK.
+## Table of content
 
-Celem projektu jest zaoferowanie alternatywy dla papierowej książeczki GOT PTTK w postaci systemu elektronicznego. System będzie zapewniał możliwość wprowadzania, modyfikacji oraz usuwania danych dotyczących odcinków tras punktowanych do GOT PTTK przez użytkowników do tego uprawnionych, a także wyszukiwania i prezentacji odcinków tras przez wszystkich użytkowników. Oprócz tego, system będzie umożliwiał dokumentowanie tras wycieczek odbytych w ramach zdobywania kolejnych rodzajów i stopni GOT PTTK. 
+1. Introduction
+2. Project
+3. Interfaces
+4. Installation
+5. Technologies
 
-W ramach projektu zaprojektowno aplikację korzystającą z bazy danych. Zaprojektowaną aplikację zaimplementowano jako natywną aplikację mobilną na system Android z lokalną bazą danych SQLite.
--
+## Introduction
+
+The Mountain Tourist Badge of the Polish Tourist and Sightseeing Society is a badge established to promote mountain tourism. Obtaining this badge is therefore associated with practicing mountain tourism.
+
+The most popular types of GOT PTTK are:
+popular – that has only one grade
+small – with three grades: bronze, silver and gold
+
+For trips on which tourists go, they receive points, on the basis of which they can apply for the badge. To get the Popular Badge you need to score 60 points. For a small badge with a bronze grade, you need to score 120 points, a badge with a silver rank of 360 points, and a gold badge of 720 points. If the route of the trip is included in the list of points scored for GOT PTTK, the scoring provided in it should be used. If not, one point is awarded for each kilometer traveled and one point for each 100 meters climbed elevation difference.
+
+The GOT PTTK booklet is the document that entitles you to purchase and wear GOT PTTK badges. The booklet should be filled in by yourself and then verified. An important element of the booklet is to attach a proof of completing the entered route - in the form of photos of stamps with the names of places, PTTK shelters or characteristic landscape elements. It is also available to attach the proof of the route in the form of a screenshot taken from any application that tracks the user's location. Proof of completing the route is not necessary if the mountain tourism leader of PTTK participated in a given trip and confirms this fact with a signature and the number of the leader ID card and, if possible, with a personal stamp.
+
+The routes entered in the GOT PTTK booklet must be confirmed by the PTTK mountain tourism leader. The leader is authorized in a given mountain group and determines whether the tourist actually traveled the entered route on the basis of the attached evidence or the date of the trip. All routes entered in the GOT PTTK booklet must be confirmed by a leader.
+
+Booklets of people applying for GOT PTTK popular and small, are verified by the GOT PTTK Field Verification Departments or the Central Verification Office of GOT PTTK.
+
+The aim of the project is to offer an alternative to the GOT PTTK paper booklet in the form of an electronic system. The system will provide the possibility of entering, modifying and deleting data on sections of dotted routes to GOT PTTK by authorized users, as well as searching and presenting route sections by all users. In addition, the system will enable documenting the routes of trips made as part of acquiring subsequent types and degrees of PTTK GOT.
+
+As part of the project, an application using a database was designed. The designed application was implemented as a native Android mobile application with a local SQLite database.
+
+## Project
+
+In the course of the semester we designed a project of application from scratch, starting with an introduction to a given topic, through writing out requirements and planning implementation part of work by creating diagrams and mock-ups. Code was created using design patterns such as MVVM, Builder, Observer, Repository.
+Full documentation of the design process is available in Polish [here](https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/Documentation.pdf). Paradigm file with all diagrams available [here](https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/Diagrams.vpp).
+
+Example diagrams created for projects:
+
+Domain Model
+<br><img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/Domain%20Model.png" alt="Domain Model" width="500"/>
+
+Use Case Diagram
+<br><img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/Use%20Case%20Diagram.png" alt="Use Case Diagram" width="500"/>
+
+Activity Diagram
+<br><img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/Activity%20Diagram.png" alt="Activity Diagram" width="500"/>
+
+For better quality open [Visual Paradigm file](https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/Diagrams.vpp)
+
+To complete the course only part of the final application was required. We implemented some of the functionalities available for three different types of users: PTTK employees, leaders and tourists. 
+In the future we want to change the final look of the application and make it fully functional on a smaller scale: as a trip-planning tool for tourists.
+
+## Interfaces
+
+#### PTTK Employee view
+
+<img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/employee1.jpg" alt="Employee1" width="200"/> <img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/employee2.jpg" alt="Employee2" width="200"/> <img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/employee3.jpg" alt="Employee3" width="200"/>
+
+#### Leader view
+
+<img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/leader1.jpg" alt="Leader1" width="200"/> <img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/leader2.jpg" alt="Leader2" width="200"/>
+
+#### Tourist view
+
+<img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/tourist1.jpg" alt="Tourist1" width="200"/> <img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/tourist2.jpg" alt="Tourist2" width="200"/> <img src="https://github.com/AgnieszkaKlobus12/POApp/blob/master/Documentation/ReadMe%20Photos/tourist3.jpg" alt="Tourist3" width="200"/>
+
+## Installation
+
+To install the app, import the project into Android Studio or any IDE of your choice, build Gradle project and install it on device or emulator.
+
+## Technologies
+
+- Kotlin
+- SQLite
+- Room Library
+- JUnit 4
+- Espresso
